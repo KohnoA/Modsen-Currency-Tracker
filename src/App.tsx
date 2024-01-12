@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router';
 import { Link } from 'react-router-dom';
 import Home from './pages/Home';
-import Timeline from './pages/Timeline';
+import Timeline from '@/pages/Timeline';
 
 export default function App() {
   return (
