@@ -1,0 +1,8 @@
+{
+  "name": "modsen-currency-tracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KohnoA/modsen-currency-tracker.git",
+  "author": "KohnoA <san.kohno@yandex.ru>",
+  "license": "MIT"
+}
