@@ -3,11 +3,13 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "airbnb-typescript"],
+  "extends": ["airbnb", "airbnb-typescript", "plugin:react/jsx-runtime"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
 }
