@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import webpack from 'webpack';
 import 'webpack-dev-server';
 
@@ -40,9 +40,6 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
     },
 
     optimization: {
-      splitChunks: {
-        chunks: 'all',
-      },
       minimize: true,
       minimizer: [new TerserPlugin()],
     },
@@ -72,6 +69,10 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
           test: /\.svg$/i,
           issuer: /\.[jt]sx?$/,
           use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
         },
         {
           test: /\.(ts|tsx)$/,
@@ -104,6 +105,14 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
           chunkFilename: 'css/[name].[contenthash:8].css',
         }),
       isDev && new ReactRefreshWebpackPlugin({ overlay: false }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, 'public', 'manifest.json'),
+            to: path.resolve(__dirname, 'dist'),
+          },
+        ],
+      }),
       new CleanWebpackPlugin(),
     ].filter(Boolean),
   };

@@ -1,0 +1,7 @@
+{
+  "manifest_version": 3,
+  "name": "Modsen Currency Tracker",
+  "version": "1.0",
+  "description": "Assistant application for interacting with different currencies",
+  "author": "KohnoA <san.kohno@yandex.ru>"
+}
