@@ -12,6 +12,7 @@
   "rules": {
     "no-restricted-exports": ["off", { "restrictedNamedExports": ["default"] }],
     "import/prefer-default-export": "off",
+    "react/require-default-props": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

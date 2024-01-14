@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Switch } from '@/components/UI';
 import Logo from '@/assets/icons/logo.svg';
 import { AppRoutes } from '@/router/routes';
 import styles from './Navigation.module.scss';
@@ -10,7 +12,13 @@ const pagesList = [
   { page: 'Contacts', path: AppRoutes.CONTACTS },
 ];
 
+const INITIAL_THEME_STATE = false;
+
 export default function Navigation() {
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(INITIAL_THEME_STATE);
+
+  const themeHandler = () => setIsDarkTheme((prev) => !prev);
+
   return (
     <nav className={`container ${styles.navigation}`}>
       <Link to="/" className={styles.logo}>
@@ -26,6 +34,8 @@ export default function Navigation() {
           </li>
         ))}
       </ul>
+
+      <Switch className={styles.toggler} isToggled={isDarkTheme} onChange={themeHandler} />
     </nav>
   );
 }

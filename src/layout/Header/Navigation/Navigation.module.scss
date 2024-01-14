@@ -45,5 +45,13 @@
     &:hover {
       opacity: $hoverOpacity;
     }
+
+    &:active {
+      opacity: $activeOpacity;
+    }
   }
+}
+
+.toggler{
+  place-self: center center;
 }
