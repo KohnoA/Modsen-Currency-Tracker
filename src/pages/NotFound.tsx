@@ -1,3 +1,3 @@
 export default function NotFound() {
-  return <main>NotFound</main>;
+  return <main className="container">NotFound</main>;
 }
