@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Switch } from '@/components/UI';
-import Logo from '@/assets/icons/logo.svg';
+import Logo from '@/assets/icons/logo-small.svg';
 import { AppRoutes } from '@/router/routes';
 import styles from './Navigation.module.scss';
 
