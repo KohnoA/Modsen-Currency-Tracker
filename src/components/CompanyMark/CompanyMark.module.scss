@@ -1,0 +1,19 @@
+@import '../../styles/vars';
+@import '../../styles/mixins';
+
+.companyMark {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  &__logo {
+    filter: drop-shadow($filterDropShadow);
+  }
+
+  &__name {
+    font-size: 26px;
+    font-weight: 600;
+
+    @include fontBrandStyle;
+  }
+}

@@ -1,0 +1,39 @@
+@import '../../styles/vars';
+
+.footer {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 100px;
+
+  margin-bottom: 60px;
+}
+
+.companyInfo {
+  width: 45%;
+
+  .mark {
+    margin-bottom: 30px;
+  }
+  
+  .desc {
+    font-weight: 300;
+  }
+}
+
+
+.linksGroups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  row-gap: 45px;
+
+  width: 55%;
+}
+
+.rights {
+  text-align: center;
+  color: $fontMutedDarkTheme;
+}

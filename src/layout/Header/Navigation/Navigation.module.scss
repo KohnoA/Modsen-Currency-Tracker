@@ -1,0 +1,57 @@
+@import '../../../styles/vars';
+
+.navigation {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.logo {
+  grid-column: 1 / 2;
+  place-self: center center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  transition: opacity $transitionDuration;
+
+  &:hover {
+    opacity: $hoverOpacity;
+  }
+}
+
+.pagesList {
+  grid-column: 2 / 3;
+  place-self: center center;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  
+  list-style: none;
+
+  &__link {
+    display: inline-block;
+    padding: 8px;
+
+    color: $fontDarkTheme;
+    text-decoration: none;
+    transition: opacity $transitionDuration;
+
+    &:hover {
+      opacity: $hoverOpacity;
+    }
+
+    &:active {
+      opacity: $activeOpacity;
+    }
+  }
+}
+
+.toggler{
+  place-self: center center;
+}
