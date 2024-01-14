@@ -1,0 +1,10 @@
+@import './vars'; 
+
+@mixin fontBrandStyle {
+  background-color: $fontDarkTheme;
+  background-image: $brandColor;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow($filterDropShadow);
+}
