@@ -1,3 +1,3 @@
 export default function Timeline() {
-  return <section>Timeline Page</section>;
+  return <main>Timeline Page</main>;
 }
