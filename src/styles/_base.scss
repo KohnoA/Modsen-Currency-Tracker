@@ -13,23 +13,9 @@ html {
 }
 
 body {
-  color: $fontDarkTheme;
   font-family: 'Poppins', 'Arial', sans-serif;
   font-size: 1rem;
   font-weight: 400;
-
-  background-color: $bodyDarkTheme;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-
-  min-height: 100vh;
-}
-
-#root > main {
-  flex-grow: 1;
 }
 
 .container {
