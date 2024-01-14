@@ -13,6 +13,13 @@
     "no-restricted-exports": ["off", { "restrictedNamedExports": ["default"] }],
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state"]
+      }
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
