@@ -1,0 +1,23 @@
+@import '../../styles/vars';
+
+.companyMark {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  &__logo {
+    filter: drop-shadow($filterDropShadow);
+  }
+
+  &__name {
+    font-size: 26px;
+    font-weight: 600;
+
+    background-color: $fontDarkTheme;
+    background-image: $brandColor;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow($filterDropShadow);
+  }
+}
