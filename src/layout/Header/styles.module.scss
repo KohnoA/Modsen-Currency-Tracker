@@ -1,0 +1,48 @@
+@import '../../styles/vars';
+
+.navigation {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.logo {
+  place-self: center center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8px;
+  transition: opacity 300ms;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.pagesList {
+  grid-column: 2 / 3;
+  place-self: center center;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  
+  list-style: none;
+
+  &__link {
+    display: inline-block;
+    padding: 8px;
+
+    color: $fontDarkTheme;
+    text-decoration: none;
+    transition: opacity 300ms;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

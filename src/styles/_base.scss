@@ -1,16 +1,17 @@
 @import './vars';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-size: $rootFontSize;
   scroll-behavior: smooth;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-
-  min-height: 100vh;
-
   color: $fontDarkTheme;
   font-family: 'Poppins', 'Arial', sans-serif;
   font-size: 1rem;
@@ -20,7 +21,14 @@ body {
   background-color: $bodyDarkTheme;
 }
 
-body > main {
+#root {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
+#root > main {
   flex-grow: 1;
 }
 
