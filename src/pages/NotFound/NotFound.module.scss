@@ -9,13 +9,11 @@
 }
 
 .title {
-  font-size: 90px;
   @include fontBrandStyle;
 }
 
 .desc {
   margin-bottom: 10px;
-  font-size: 50px;
 }
 
 .link {

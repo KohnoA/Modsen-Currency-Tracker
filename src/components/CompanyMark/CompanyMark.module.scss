@@ -11,9 +11,6 @@
   }
 
   &__name {
-    font-size: 26px;
-    font-weight: 600;
-
     @include fontBrandStyle;
   }
 }

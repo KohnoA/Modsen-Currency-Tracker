@@ -9,7 +9,7 @@ export default function CompanyMark({ className }: CompanyMarkProps) {
   return (
     <div className={`${styles.companyMark} ${className ?? ''}`}>
       <Logo className={styles.companyMark__logo} width={40} height={45} />
-      <p className={styles.companyMark__name}>Modsen Currency Tracker</p>
+      <p className={`text-semibold-s ${styles.companyMark__name}`}>Modsen Currency Tracker</p>
     </div>
   );
 }
