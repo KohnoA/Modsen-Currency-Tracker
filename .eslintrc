@@ -13,6 +13,7 @@
     "no-restricted-exports": ["off", { "restrictedNamedExports": ["default"] }],
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
+    "react/jsx-one-expression-per-line": "off",
     "no-param-reassign": [
       "error",
       {

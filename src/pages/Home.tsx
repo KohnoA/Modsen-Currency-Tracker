@@ -1,3 +1,9 @@
+import UpdateDate from '@/components/UpdateDate';
+
 export default function Home() {
-  return <main className="container">Home Page</main>;
+  return (
+    <main className="container">
+      <UpdateDate />
+    </main>
+  );
 }
