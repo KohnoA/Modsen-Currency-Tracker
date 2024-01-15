@@ -1,0 +1,64 @@
+@import '../../../styles/vars';
+
+.backdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 100vw;
+
+  padding: 40px;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.content {
+  position: relative;
+
+  margin: auto;
+  padding: 60px;
+
+  background-color: $bodySecondDarkTheme;
+  border: 2px solid $borderDarkTheme;
+  border-radius: $borderRadius;
+}
+
+.cross {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  background-color: transparent;
+  border: none;
+  transition: opacity $transitionDuration;
+  cursor: pointer;
+
+  &:hover {
+    opacity: $hoverOpacity;
+  }
+
+  &:active {
+    opacity: $activeOpacity;
+  }
+
+  &__icon {
+    & path {
+      fill: $fontDarkTheme;
+    }
+  }
+}
+
+.cross__label {
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}

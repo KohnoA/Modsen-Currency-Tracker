@@ -10,7 +10,7 @@
   padding: 32px 36.5px;
 
   background-color: $bodySecondDarkTheme;
-  border-radius: 8px;
+  border-radius: $borderRadius;
   border: 2px solid $borderDarkTheme;
   transition: all $transitionDuration;
   cursor: pointer;
