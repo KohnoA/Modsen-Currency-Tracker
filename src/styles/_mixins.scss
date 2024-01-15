@@ -8,3 +8,8 @@
 
   filter: drop-shadow($filterDropShadow);
 }
+
+@mixin gridAutoFit($minSize) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($minSize, 1fr));
+}

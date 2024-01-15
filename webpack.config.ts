@@ -3,10 +3,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import webpack from 'webpack';
 import 'webpack-dev-server';
+
+// import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 interface EnvVariables {
   mode?: 'production' | 'development';
@@ -114,7 +115,6 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
           },
         ],
       }),
-      new CleanWebpackPlugin(),
     ].filter(Boolean),
   };
 };

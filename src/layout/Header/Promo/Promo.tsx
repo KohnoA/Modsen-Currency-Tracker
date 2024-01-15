@@ -6,12 +6,14 @@ export default function Promo() {
     <section className={styles.promo}>
       <div className={`container ${styles.wrapper}`}>
         <div className={styles.info}>
-          <h1 className={styles.title}>
+          <h1 className={`text-semibold-m ${styles.title}`}>
             <span className="">Modsen Currency</span>
-            <span className={styles.title__emphasis}>Tracker</span>
+            <span className="text-semibold-l">Tracker</span>
           </h1>
 
-          <p className={styles.desc}>Quotes for the dollar and other international currencies.</p>
+          <p className={`text-light-m ${styles.desc}`}>
+            Quotes for the dollar and other international currencies.
+          </p>
         </div>
 
         <Logo className={styles.logo} width={300} height={312} />

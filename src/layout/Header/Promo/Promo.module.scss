@@ -28,14 +28,8 @@
   padding-right: 60px;
 
   text-align: right;
-  font-weight: 600;
-  font-size: 76px;
 
   @include fontBrandStyle;
-
-  &__emphasis {
-    font-size: 90px;
-  }
 }
 
 .desc {
@@ -43,9 +37,8 @@
   max-width: 400px;
 
   text-align: center;
-  font-weight: 300;
-  font-size: 25px;
   line-height: 50px;
+
   filter: drop-shadow($filterDropShadow);
 }
 

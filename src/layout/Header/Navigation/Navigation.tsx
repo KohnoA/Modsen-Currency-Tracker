@@ -29,7 +29,7 @@ export default function Navigation() {
       <ul className={styles.pagesList}>
         {pagesList.map(({ page, path }) => (
           <li key={path}>
-            <Link to={path} className={styles.pagesList__link}>
+            <Link to={path} className={`text-light-s ${styles.pagesList__link}`}>
               {page}
             </Link>
           </li>

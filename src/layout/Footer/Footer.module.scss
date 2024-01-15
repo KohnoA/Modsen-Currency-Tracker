@@ -1,4 +1,5 @@
 @import '../../styles/vars';
+@import '../../styles/mixins';
 
 .footer {
   padding-top: 35px;
@@ -18,16 +19,11 @@
   .mark {
     margin-bottom: 30px;
   }
-  
-  .desc {
-    font-weight: 300;
-  }
 }
 
 
 .linksGroups {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  @include gridAutoFit(180px);
   row-gap: 45px;
 
   width: 55%;
