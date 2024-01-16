@@ -33,7 +33,7 @@ export default function Modal({ isActive, children, onClose }: ModalProps) {
       tabIndex={0}
     >
       <div className={styles.content} onClick={contentClickHanlder}>
-        <button className={styles.cross} type="button">
+        <button onClick={onClose} className={styles.cross} type="button">
           <span className={styles.cross__label}>Close Modal</span>
           <CrossIcon className={styles.cross__icon} width={60} height={60} />
         </button>
