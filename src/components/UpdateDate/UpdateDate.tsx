@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './UpdateDate.module.scss';
 
 type UpdateDateProps = {
@@ -5,7 +6,7 @@ type UpdateDateProps = {
   timestamp?: number | string;
 };
 
-export default function UpdateDate({ className, timestamp = '00:00pm' }: UpdateDateProps) {
+function UpdateDate({ className, timestamp = '00:00pm' }: UpdateDateProps) {
   return (
     <p className={`text-light-xl ${styles.updateDate} ${className ?? ''}`}>
       <span className={styles.circle} />
@@ -13,3 +14,5 @@ export default function UpdateDate({ className, timestamp = '00:00pm' }: UpdateD
     </p>
   );
 }
+
+export default memo(UpdateDate);

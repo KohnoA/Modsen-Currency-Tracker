@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CurrenciesList from '@/components/CurrenciesList';
 import UpdateDate from '@/components/UpdateDate';
@@ -31,6 +32,8 @@ export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const showModal = !!searchParams.get(CURRENCY_MODAL_QUERY_KEY);
 
+  const quotes = useMemo(() => QUOTES_DATA, []);
+
   const closeModal = () => {
     searchParams.delete(CURRENCY_MODAL_QUERY_KEY);
     setSearchParams(searchParams);
@@ -39,7 +42,7 @@ export default function Home() {
   return (
     <main className="container">
       <UpdateDate className={styles.updateDate} />
-      <CurrenciesList title={QUOTES_DATA.title} data={QUOTES_DATA.data} />
+      <CurrenciesList title={quotes.title} data={quotes.data} />
 
       <Modal isActive={showModal} onClose={closeModal}>
         <p>{searchParams.get(CURRENCY_MODAL_QUERY_KEY)}</p>

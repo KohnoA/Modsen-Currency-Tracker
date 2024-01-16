@@ -1,12 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 
+import { memo } from 'react';
 import type { CurrenciesListType } from '@/types';
 import styles from './CurrenciesList.module.scss';
 import CurrencyCard from '../CurrencyCard';
 
 type CurrenciesListProps = CurrenciesListType;
 
-export default function CurrenciesList({ title, data }: CurrenciesListProps) {
+function CurrenciesList({ title, data }: CurrenciesListProps) {
   return (
     <section>
       <h4 className={`text-light-xl ${styles.title}`}>{title}</h4>
@@ -19,3 +20,5 @@ export default function CurrenciesList({ title, data }: CurrenciesListProps) {
     </section>
   );
 }
+
+export default memo(CurrenciesList);
