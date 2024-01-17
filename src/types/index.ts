@@ -3,13 +3,8 @@ import { FC, SVGProps } from 'react';
 export type CurrenciesItemType = {
   Icon: FC<SVGProps<SVGSVGElement>>;
   name: string;
-  rate: string | number;
+  rate: number;
   code: string;
-};
-
-export type CurrenciesListType = {
-  title: string;
-  data: CurrenciesItemType[];
 };
 
 export type CurrenciesResponseType = {

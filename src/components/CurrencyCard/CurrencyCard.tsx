@@ -6,7 +6,11 @@ import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 
 type CurrencyCardProps = CurrenciesItemType;
 
+const FIXED_RATE = 6;
+
 function CurrencyCard({ name, rate, code, Icon }: CurrencyCardProps) {
+  const convertedRate = Number.isInteger(rate) ? rate : rate.toFixed(FIXED_RATE);
+
   return (
     <li>
       <Link to={`/?${CURRENCY_MODAL_QUERY_KEY}=${code}`} className={styles.card}>
@@ -14,7 +18,9 @@ function CurrencyCard({ name, rate, code, Icon }: CurrencyCardProps) {
 
         <div className={styles.info}>
           <p className="text-regular-m">{name}</p>
-          <p className={styles.info__rate}>R$ {rate}</p>
+          <p className={styles.info__rate}>
+            {code} {convertedRate}
+          </p>
         </div>
       </Link>
     </li>

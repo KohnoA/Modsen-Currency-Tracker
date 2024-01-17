@@ -1,11 +1,12 @@
-/* eslint-disable react/no-array-index-key */
-
 import { memo } from 'react';
-import type { CurrenciesListType } from '@/types';
 import styles from './CurrenciesList.module.scss';
 import CurrencyCard from '../CurrencyCard';
+import { CurrenciesItemType } from '@/types';
 
-type CurrenciesListProps = CurrenciesListType;
+type CurrenciesListProps = {
+  title: string;
+  data: CurrenciesItemType[];
+};
 
 function CurrenciesList({ title, data }: CurrenciesListProps) {
   return (
@@ -13,8 +14,8 @@ function CurrenciesList({ title, data }: CurrenciesListProps) {
       <h4 className={`text-light-xl ${styles.title}`}>{title}</h4>
 
       <ul className={styles.list}>
-        {data.map((cardProps, index) => (
-          <CurrencyCard key={index} {...cardProps} />
+        {data.map((cardProps) => (
+          <CurrencyCard key={cardProps.code} {...cardProps} />
         ))}
       </ul>
     </section>
