@@ -4,16 +4,12 @@ export type CurrenciesItemType = {
   Icon: FC<SVGProps<SVGSVGElement>>;
   name: string;
   rate: string | number;
+  code: string;
 };
 
 export type CurrenciesListType = {
   title: string;
-  data: {
-    Icon: FC<SVGProps<SVGSVGElement>>;
-    name: string;
-    code: string;
-    rate: number;
-  }[];
+  data: CurrenciesItemType[];
 };
 
 export type CurrenciesResponseType = {

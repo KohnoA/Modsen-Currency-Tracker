@@ -6,10 +6,10 @@ import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 
 type CurrencyCardProps = CurrenciesItemType;
 
-function CurrencyCard({ name, rate, Icon }: CurrencyCardProps) {
+function CurrencyCard({ name, rate, code, Icon }: CurrencyCardProps) {
   return (
     <li>
-      <Link to={`/?${CURRENCY_MODAL_QUERY_KEY}=${name}`} className={styles.card}>
+      <Link to={`/?${CURRENCY_MODAL_QUERY_KEY}=${code}`} className={styles.card}>
         <Icon className={styles.card__icon} width={80} height={80} />
 
         <div className={styles.info}>
