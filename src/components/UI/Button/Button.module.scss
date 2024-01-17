@@ -1,0 +1,24 @@
+@import '../../../styles/vars';
+
+.button {
+  display: inline-block;
+
+  padding: 20px 25px;
+
+  background-color: $borderHoverDarkTheme;
+  border-radius: $borderRadius;
+  border: $borderDarkTheme;
+  transition: all $transitionDuration;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #4e4e4e;
+    color: $fontDarkTheme;
+  }
+
+  &:active {
+    background-color: $borderDarkTheme;
+    color: $fontMutedDarkTheme;
+  }
+}

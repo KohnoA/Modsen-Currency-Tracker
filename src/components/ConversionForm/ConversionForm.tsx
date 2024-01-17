@@ -1,16 +1,18 @@
+import { Button } from '../UI';
 import styles from './ConversionForm.module.scss';
 
 type ConversionFormProps = {
-  base?: string;
+  base?: string | null;
 };
 
 export default function ConversionForm({ base = 'USD' }: ConversionFormProps) {
   return (
     <section className={styles.test}>
-      <p>Base currency:</p>
+      <h2 className={styles.title}>Currency Converter</h2>
+      <p>Base currency: {base}</p>
       <p>Target currency: {base}</p>
 
-      <button type="button">Get Latest Rate</button>
+      <Button>Get Latest Rate</Button>
     </section>
   );
 }

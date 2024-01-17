@@ -10,6 +10,7 @@ import { useQuotes } from '@/hooks';
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const showModal = !!searchParams.get(CURRENCY_MODAL_QUERY_KEY);
+  const baseCurrencyInModal = searchParams.get(CURRENCY_MODAL_QUERY_KEY);
   const { time, quotes } = useQuotes();
 
   const closeModal = () => {
@@ -23,8 +24,7 @@ export default function Home() {
       <CurrenciesList title="Quotes" data={quotes} />
 
       <Modal isActive={showModal} onClose={closeModal}>
-        <ConversionForm />
-        <p>{searchParams.get(CURRENCY_MODAL_QUERY_KEY)}</p>
+        <ConversionForm base={baseCurrencyInModal} />
       </Modal>
     </main>
   );

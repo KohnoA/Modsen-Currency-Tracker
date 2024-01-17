@@ -27,10 +27,13 @@
 
   margin: auto;
   padding: 70px;
-
+  padding-right: 90px;
+  padding-left: 90px;
+  
   background-color: $bodySecondDarkTheme;
   border: 2px solid $borderDarkTheme;
   border-radius: $borderRadius;
+  box-shadow: 2px 2px 5px 0 rgba($color: #000000, $alpha: 0.2);
 }
 
 .cross {
