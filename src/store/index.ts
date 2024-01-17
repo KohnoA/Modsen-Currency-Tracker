@@ -14,7 +14,11 @@ export const store = configureStore({
   },
   reducer: rootReducer,
 
-  middleware: (getDefMiddleware) => getDefMiddleware().prepend(listenerMiddleware.middleware),
+  middleware: (getDefaultMiddleware) => {
+    const middleware = getDefaultMiddleware().prepend(listenerMiddleware.middleware);
+
+    return middleware;
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

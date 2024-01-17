@@ -41,8 +41,8 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
     },
 
     optimization: {
-      minimize: true,
-      minimizer: [new TerserPlugin()],
+      minimize: !isDev,
+      minimizer: [!isDev && new TerserPlugin()].filter(Boolean),
     },
 
     module: {

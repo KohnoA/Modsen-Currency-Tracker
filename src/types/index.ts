@@ -14,3 +14,15 @@ export type CurrenciesListType = {
     rate: string | number;
   }[];
 };
+
+export type CurrenciesResponseType = {
+  meta: {
+    last_updated_at: string;
+  };
+  data: {
+    [key: string]: {
+      code: string;
+      value: number;
+    };
+  };
+};
