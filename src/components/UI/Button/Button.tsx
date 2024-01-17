@@ -12,11 +12,7 @@ export default function Button({ className, children, href, onClick }: ButtonPro
   const Component = href ? 'a' : 'button';
 
   return (
-    <Component
-      className={`text-medium ${styles.button} ${className ?? ''}`}
-      type="button"
-      onClick={onClick}
-    >
+    <Component className={`text-medium ${styles.button} ${className ?? ''}`} onClick={onClick}>
       {children}
     </Component>
   );
