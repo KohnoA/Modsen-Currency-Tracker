@@ -1,6 +1,7 @@
 import { getCurrenciesRate } from '@/services';
 import { CurrenciesResponseType } from '@/types';
 import { getDiffHours } from './getDiffHours';
+import { areArraysEqual } from './areArraysEqual';
 
 const LOCAL_STORAGE_CURRENCIES_RATE_KEY = 'currencies-rate';
 const CACHE_TIME_IN_HOURS = 12;
@@ -23,7 +24,9 @@ export async function getCurrenciesRateCached(currencies: string[]) {
     const dateCache = new Date(cacheData.meta.last_updated_at);
     const isValidDate = getDiffHours(dateCache, dateNow) > CACHE_TIME_IN_HOURS;
 
-    return isValidDate ? cacheData : getAndSaveCurrenciesRate();
+    const isOldCurrencies = areArraysEqual(Object.keys(cacheData.data), currencies);
+
+    return isValidDate && isOldCurrencies ? cacheData : getAndSaveCurrenciesRate();
   }
 
   return getAndSaveCurrenciesRate();
