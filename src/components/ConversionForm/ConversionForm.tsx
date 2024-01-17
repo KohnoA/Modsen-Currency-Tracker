@@ -8,10 +8,12 @@ type ConversionFormProps = {
 };
 
 const DEFAULT_SELECT_OPTIONS = DEFAULT_QUOTES.map(({ code }) => ({ value: code, label: code }));
+const DEFAULT_TARGET = DEFAULT_SELECT_OPTIONS[0].value;
+const DEFAULT_COUNT = '1';
 
 function ConversionForm({ base = 'USD' }: ConversionFormProps) {
-  const [target, setTarget] = useState<string>();
-  const [count, setCount] = useState<string>();
+  const [target, setTarget] = useState<string>(DEFAULT_TARGET);
+  const [count, setCount] = useState<string>(DEFAULT_COUNT);
 
   const onSubmitHanlder = (event: FormEvent) => {
     event.preventDefault();
@@ -38,16 +40,21 @@ function ConversionForm({ base = 'USD' }: ConversionFormProps) {
         <Input
           onChange={changeCountHandler}
           className={styles.base__count}
+          defaultValue={DEFAULT_COUNT}
           labelName="Count:"
+          max="1000000"
           type="number"
           min="1"
-          max="1000000"
-          defaultValue={1}
         />
       </div>
 
-      <div className={`${styles.conversionForm__item} ${styles.target}`}>
-        Target currency: <Select onChange={changeTargetHanlder} options={DEFAULT_SELECT_OPTIONS} />
+      <div className={styles.target}>
+        Target currency:{' '}
+        <Select
+          onChange={changeTargetHanlder}
+          options={DEFAULT_SELECT_OPTIONS}
+          defaultValue={DEFAULT_TARGET}
+        />
       </div>
 
       <p className={styles.result}>
