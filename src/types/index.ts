@@ -11,7 +11,8 @@ export type CurrenciesListType = {
   data: {
     Icon: FC<SVGProps<SVGSVGElement>>;
     name: string;
-    rate: string | number;
+    code: string;
+    rate: number;
   }[];
 };
 
