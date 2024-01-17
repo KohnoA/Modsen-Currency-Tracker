@@ -8,7 +8,7 @@ const initialState: InitialStateType = {
   isLightTheme: false,
 };
 
-export const themeSlice = createSlice({
+const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {

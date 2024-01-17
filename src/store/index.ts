@@ -2,7 +2,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import themeReducer from './slices/themeSlice';
 import { listenerMiddleware } from './middleware';
 
-const themeState = JSON.parse(localStorage.getItem('theme') ?? 'false');
+const themeState = JSON.parse(localStorage.getItem('theme') ?? '{ "isLightTheme": false }');
 
 const rootReducer = combineReducers({
   theme: themeReducer,
