@@ -7,17 +7,25 @@ type ButtonProps = {
   isLoading?: boolean;
   children: ReactNode;
   href?: string;
+  disabled?: boolean;
   onClick?: () => void;
 };
 
-export default function Button({ className, children, isLoading, href, onClick }: ButtonProps) {
+export default function Button({
+  className,
+  children,
+  isLoading,
+  disabled,
+  href,
+  onClick,
+}: ButtonProps) {
   const Component = href ? 'a' : 'button';
 
   return (
     <Component
       className={`text-medium ${styles.button} ${isLoading ? styles.button_load : ''} ${
-        className ?? ''
-      }`}
+        disabled ? styles.button_disabled : ''
+      } ${className ?? ''}`}
       onClick={onClick}
     >
       <span className={styles.button__label}>{children}</span>

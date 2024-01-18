@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getCurrencyRateCached } from '@/utils/getCurrencyRateCached';
+import { getCurrencyRateCached, truncateNumber } from '@/utils';
 
 export function useConverter() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -11,7 +11,7 @@ export function useConverter() {
 
     try {
       const rate = await getCurrencyRateCached(target, base);
-      const output = Number((rate * count).toFixed(2));
+      const output = Number(truncateNumber(rate * count));
 
       setResult(output);
     } catch (err) {
