@@ -68,7 +68,9 @@ function ConversionForm({ base }: ConversionFormProps) {
         </p>
       )}
 
-      <Button isLoading={isLoading}>Get Latest Rate</Button>
+      <Button isLoading={isLoading} disabled={isLoading}>
+        Get Latest Rate
+      </Button>
     </form>
   );
 }

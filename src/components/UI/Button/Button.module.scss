@@ -50,4 +50,9 @@
       opacity: 1;
     }
   }
+
+  &_disabled {
+    pointer-events: none;
+    opacity: $hoverOpacity;
+  }
 }
