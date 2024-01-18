@@ -1,18 +1,10 @@
-import styles from './Contacts.module.scss';
+import SocialList from '@/components/SocialList';
 import { AUTHOR_GITHUB, MODSEN_LINK } from '@/constants';
+import styles from './Contacts.module.scss';
 
-import FacebookIcon from '@/assets/icons/facebook-icon.svg';
-import TwitterIcon from '@/assets/icons/twitter-icon.svg';
-import InstagramIcon from '@/assets/icons/instagram-icon.svg';
 import MarkerIcon from '@/assets/icons/marker-icon.svg';
 import PhoneIcon from '@/assets/icons/phone-icon.svg';
 import MailIcon from '@/assets/icons/mail-icon.svg';
-
-const SOCIAL_LIST = [
-  { Icon: FacebookIcon, label: 'Facebook', link: MODSEN_LINK },
-  { Icon: InstagramIcon, label: 'Instagram', link: MODSEN_LINK },
-  { Icon: TwitterIcon, label: 'Twitter', link: MODSEN_LINK },
-];
 
 export default function Contacts() {
   return (
@@ -45,19 +37,7 @@ export default function Contacts() {
           </p>
         </div>
 
-        <ul className={styles.socials}>
-          {SOCIAL_LIST.map(({ Icon, label, link }) => (
-            <li key={label} className={styles.socials__item}>
-              <a href={link} className={styles.socials__link}>
-                <span className={styles.socials__icon}>
-                  <Icon width={35} height={35} />
-                </span>
-
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <SocialList />
       </section>
 
       <div className={`text-medium ${styles.quote}`}>
