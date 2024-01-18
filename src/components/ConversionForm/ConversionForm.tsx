@@ -64,7 +64,7 @@ function ConversionForm({ base }: ConversionFormProps) {
 
       {result && (
         <p className={styles.result}>
-          <b>CAD:</b> {result}
+          <b>{target}:</b> {result}
         </p>
       )}
 
