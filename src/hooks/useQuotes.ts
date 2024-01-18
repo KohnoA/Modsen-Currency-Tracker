@@ -13,10 +13,10 @@ export function useQuotes() {
   useEffect(() => {
     const getQuotes = async () => {
       try {
-        getCurrenciesRateCached(DEFAULT_QUOTES_CODES).then((res) => {
-          setTime(getTimeFromDate(res.meta.last_updated_at));
-          setQuotes(mergeQuotes(DEFAULT_QUOTES, res));
-        });
+        const response = await getCurrenciesRateCached(DEFAULT_QUOTES_CODES);
+
+        setTime(getTimeFromDate(response.meta.last_updated_at));
+        setQuotes(mergeQuotes(DEFAULT_QUOTES, response));
       } catch (err) {
         if (err instanceof Error) {
           setError(err);

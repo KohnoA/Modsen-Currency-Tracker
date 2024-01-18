@@ -1,7 +1,8 @@
 import { ChangeEvent, FormEvent, memo, useState } from 'react';
-import { Button, Input, Select, Spinner } from '../UI';
+import { Button, Input, Select } from '../UI';
 import styles from './ConversionForm.module.scss';
 import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
+import { useConverter } from '@/hooks/useConverter';
 
 type ConversionFormProps = {
   base?: string | null;
@@ -9,15 +10,17 @@ type ConversionFormProps = {
 
 const DEFAULT_SELECT_OPTIONS = DEFAULT_QUOTES.map(({ code }) => ({ value: code, label: code }));
 const DEFAULT_TARGET = DEFAULT_SELECT_OPTIONS[0].value;
-const DEFAULT_COUNT = '1';
+const DEFAULT_COUNT = 1;
+const DEFAULT_BASE = 'USD';
 
-function ConversionForm({ base = 'USD' }: ConversionFormProps) {
+function ConversionForm({ base }: ConversionFormProps) {
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
-  const [count, setCount] = useState<string>(DEFAULT_COUNT);
+  const [count, setCount] = useState<number>(DEFAULT_COUNT);
+  const { result, isLoading, converter } = useConverter();
 
   const onSubmitHanlder = (event: FormEvent) => {
     event.preventDefault();
-    console.log(target, count);
+    converter(target, count, base ?? DEFAULT_BASE);
   };
 
   const changeTargetHanlder = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -25,7 +28,7 @@ function ConversionForm({ base = 'USD' }: ConversionFormProps) {
   };
 
   const changeCountHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setCount(event.target.value);
+    setCount(Number(event.target.value));
   };
 
   return (
@@ -38,6 +41,7 @@ function ConversionForm({ base = 'USD' }: ConversionFormProps) {
         </p>
 
         <Input
+          disabled={isLoading}
           onChange={changeCountHandler}
           className={styles.base__count}
           defaultValue={DEFAULT_COUNT}
@@ -51,19 +55,20 @@ function ConversionForm({ base = 'USD' }: ConversionFormProps) {
       <div className={styles.target}>
         Target currency:{' '}
         <Select
+          disabled={isLoading}
           onChange={changeTargetHanlder}
           options={DEFAULT_SELECT_OPTIONS}
           defaultValue={DEFAULT_TARGET}
         />
       </div>
 
-      <p className={styles.result}>
-        <b>CAD:</b> 1231321
-      </p>
+      {result && (
+        <p className={styles.result}>
+          <b>CAD:</b> {result}
+        </p>
+      )}
 
-      <Button className={styles.submit}>
-        Get Latest Rate <Spinner className={styles.submit__spinner} />
-      </Button>
+      <Button isLoading={isLoading}>Get Latest Rate</Button>
     </form>
   );
 }
