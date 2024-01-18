@@ -1,0 +1,10 @@
+@import '../../../styles/vars';
+
+.input {
+  padding: 7px;
+
+  color: $fontDarkTheme;
+
+  border-radius: $borderRadius;
+  border: 2px solid $borderDarkTheme;
+}

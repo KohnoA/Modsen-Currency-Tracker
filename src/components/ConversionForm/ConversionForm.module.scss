@@ -1,0 +1,45 @@
+@import '../../styles/vars';
+
+.conversionForm {
+  max-width: $tablet;
+
+  text-align: center;
+
+  &__title {
+    margin-bottom: 60px;
+  }
+}
+
+.base {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+
+  border-bottom: 2px solid $borderDarkTheme;
+
+  &__label {
+    margin-bottom: 20px;
+  }
+
+  &__label,
+  &__count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__count input[type='number'] {
+    max-width: 185px;
+  }
+}
+
+.target {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 60px;
+}
+
+.result {
+  margin-bottom: 50px;
+}
