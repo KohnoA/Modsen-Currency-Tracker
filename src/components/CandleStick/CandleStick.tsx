@@ -12,7 +12,7 @@ export default class CandleStick extends Component {
         options={options}
         series={DEFAULT_CHART_DATA}
         type="candlestick"
-        height={500}
+        height={600}
       />
     );
   }

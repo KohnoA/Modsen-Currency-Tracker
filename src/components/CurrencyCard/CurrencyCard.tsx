@@ -5,11 +5,13 @@ import styles from './CurrencyCard.module.scss';
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 import { truncateNumber } from '@/utils';
 
-type CurrencyCardProps = CurrenciesItemType;
+type CurrencyCardProps = CurrenciesItemType & {
+  className?: string;
+};
 
-function CurrencyCard({ name, rate, code, Icon }: CurrencyCardProps) {
+function CurrencyCard({ name, rate, code, Icon, className }: CurrencyCardProps) {
   return (
-    <li>
+    <li className={`${styles.item} ${className ?? ''}`}>
       <Link to={`/?${CURRENCY_MODAL_QUERY_KEY}=${code}`} className={styles.card}>
         <Icon className={styles.card__icon} width={80} height={80} />
 

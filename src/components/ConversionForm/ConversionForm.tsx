@@ -52,15 +52,14 @@ function ConversionForm({ base }: ConversionFormProps) {
         />
       </div>
 
-      <div className={styles.target}>
-        Target currency:{' '}
-        <Select
-          disabled={isLoading}
-          onChange={changeTargetHanlder}
-          options={DEFAULT_SELECT_OPTIONS}
-          defaultValue={DEFAULT_TARGET}
-        />
-      </div>
+      <Select
+        labelName="Target currency"
+        className={styles.target}
+        disabled={isLoading}
+        onChange={changeTargetHanlder}
+        options={DEFAULT_SELECT_OPTIONS}
+        defaultValue={DEFAULT_TARGET}
+      />
 
       {result && (
         <p className={styles.result}>
