@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import styles from './Promo.module.scss';
 import Logo from '@/assets/icons/logo.svg';
 
-export default function Promo() {
+function Promo() {
   return (
     <section className={styles.promo}>
       <div className={`container ${styles.wrapper}`}>
@@ -21,3 +22,5 @@ export default function Promo() {
     </section>
   );
 }
+
+export default memo(Promo);

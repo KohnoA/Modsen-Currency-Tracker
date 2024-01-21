@@ -1,9 +1,12 @@
+import { memo, useMemo } from 'react';
 import CompanyMark from '@/components/CompanyMark';
 import styles from './Footer.module.scss';
 import LinkGroup from './LinkGroup';
 import { FOOTER_LINKS_GROUPS } from './constants';
 
-export default function Footer() {
+function Footer() {
+  const linksGroups = useMemo(() => FOOTER_LINKS_GROUPS, []);
+
   return (
     <footer className={`container ${styles.footer}`}>
       <div className={styles.wrapper}>
@@ -17,7 +20,7 @@ export default function Footer() {
         </section>
 
         <section className={styles.linksGroups}>
-          {FOOTER_LINKS_GROUPS.map(({ title, links }) => (
+          {linksGroups.map(({ title, links }) => (
             <LinkGroup key={title} title={title} links={links} />
           ))}
         </section>
@@ -27,3 +30,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default memo(Footer);
