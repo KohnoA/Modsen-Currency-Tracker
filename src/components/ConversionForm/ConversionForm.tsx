@@ -16,7 +16,9 @@ const DEFAULT_BASE = 'USD';
 function ConversionForm({ base }: ConversionFormProps) {
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
   const [count, setCount] = useState<number>(DEFAULT_COUNT);
-  const { result, isLoading, converter } = useConverter();
+  const { result, isLoading, converter, reset } = useConverter();
+
+  const targetOptions = DEFAULT_SELECT_OPTIONS.filter(({ value }) => value !== base);
 
   const onSubmitHanlder = (event: FormEvent) => {
     event.preventDefault();
@@ -24,10 +26,12 @@ function ConversionForm({ base }: ConversionFormProps) {
   };
 
   const changeTargetHanlder = (event: ChangeEvent<HTMLSelectElement>) => {
+    reset();
     setTarget(event.target.value);
   };
 
   const changeCountHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    reset();
     setCount(Number(event.target.value));
   };
 
@@ -57,7 +61,7 @@ function ConversionForm({ base }: ConversionFormProps) {
         className={styles.target}
         disabled={isLoading}
         onChange={changeTargetHanlder}
-        options={DEFAULT_SELECT_OPTIONS}
+        options={targetOptions}
         defaultValue={DEFAULT_TARGET}
       />
 
