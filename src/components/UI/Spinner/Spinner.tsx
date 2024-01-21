@@ -3,12 +3,21 @@ import styles from './Spinner.module.scss';
 
 type SpinnerProps = {
   className?: string;
+  width?: number;
+  height?: number;
 };
 
-export default function Spinner({ className }: SpinnerProps) {
+const DEFAULT_WIDTH = 40;
+const DEFAULT_HEIGHT = 40;
+
+export default function Spinner({ className, width, height }: SpinnerProps) {
   return (
     <span className={className}>
-      <SpinnerIcon className={styles.spinner} width={40} height={40}>
+      <SpinnerIcon
+        className={styles.spinner}
+        width={width ?? DEFAULT_WIDTH}
+        height={height ?? DEFAULT_HEIGHT}
+      >
         Spinner
       </SpinnerIcon>
     </span>
