@@ -1,0 +1,21 @@
+.updateDate {
+  margin: 0 auto;
+  margin-bottom: 65px;
+}
+
+.elasticSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 80px;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+}
+
+.map {
+  margin-bottom: 90px;
+}
