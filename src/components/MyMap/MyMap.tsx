@@ -32,7 +32,7 @@ export default class MyMap extends PureComponent<MyMapProps> {
 
     return (
       <MapContainer
-        className={`${styles.map} ${className ?? ''}`}
+        className={`map ${styles.map} ${className ?? ''}`}
         center={center ?? DEFAULT_CENTER_COORD}
         zoom={zoom ?? DEFAULT_ZOOM}
         scrollWheelZoom={false}
