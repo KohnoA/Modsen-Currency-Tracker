@@ -5,3 +5,6 @@ export { areArraysEqual } from './areArraysEqual';
 export { mergeQuotes } from './mergeQuotes';
 export { getCurrencyRateCached } from './getCurrencyRateCached';
 export { truncateNumber } from './truncateNumber';
+export { getBanksCurrencies } from './getBanksCurrencies';
+export { filterOptions } from './filterOptions';
+export { filterBanksByCurrencies } from './filterBanksByCurrencies';

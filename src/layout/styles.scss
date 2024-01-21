@@ -16,4 +16,8 @@
 
 .layout.light {
   filter: invert(100%);
+
+  .map {
+    filter:invert(1)
+  }
 }

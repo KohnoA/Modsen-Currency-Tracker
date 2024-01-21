@@ -48,7 +48,7 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
     module: {
       rules: [
         {
-          test: /\.s[ac]ss$/i,
+          test: /\.(sa|sc|c)ss$/i,
           use: [
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
