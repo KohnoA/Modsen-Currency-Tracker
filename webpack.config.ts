@@ -24,6 +24,7 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
     output: {
       filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
+      assetModuleFilename: 'assets/[hash][ext][query]',
       clean: true,
     },
 
@@ -111,6 +112,10 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
         patterns: [
           {
             from: path.resolve(__dirname, 'public', 'manifest.json'),
+            to: path.resolve(__dirname, 'dist'),
+          },
+          {
+            from: path.resolve(__dirname, 'public', '_redirects'),
             to: path.resolve(__dirname, 'dist'),
           },
         ],

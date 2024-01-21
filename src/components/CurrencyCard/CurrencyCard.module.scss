@@ -1,6 +1,10 @@
 @import '../../styles/vars';
 @import '../../styles/mixins';
 
+.item {
+  list-style: none;
+}
+
 .card {
   display: flex;
   align-items: center;

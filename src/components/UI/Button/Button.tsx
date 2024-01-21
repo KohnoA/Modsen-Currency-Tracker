@@ -23,7 +23,7 @@ export default function Button({
 
   return (
     <Component
-      className={`text-medium ${styles.button} ${isLoading ? styles.button_load : ''} ${
+      className={`text-regular-s ${styles.button} ${isLoading ? styles.button_load : ''} ${
         disabled ? styles.button_disabled : ''
       } ${className ?? ''}`}
       onClick={onClick}
