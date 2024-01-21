@@ -1,10 +1,11 @@
 import { Suspense, lazy } from 'react';
+import PageLoader from '@/components/PageLoader';
 
 const NotFound = lazy(() => import('./NotFound'));
 
 export default function NotFoundLazy() {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<PageLoader />}>
       <NotFound />
     </Suspense>
   );
