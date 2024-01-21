@@ -1,17 +1,20 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import styles from './MyMap.module.scss';
 
 type MyMapProps = {
+  center?: [number, number];
   className?: string;
 };
 
-export default function MyMap({ className }: MyMapProps) {
+const DEFAULT_CENTER_COORD: [number, number] = [53.895384, 27.558456];
+
+export default function MyMap({ center, className }: MyMapProps) {
   return (
     <MapContainer
-      className={className}
-      style={{ height: '460px' }}
-      center={[51.505, -0.09]}
-      zoom={13}
+      className={`${styles.map} ${className ?? ''}`}
+      center={center ?? DEFAULT_CENTER_COORD}
+      zoom={11.5}
       scrollWheelZoom={false}
     >
       <TileLayer
