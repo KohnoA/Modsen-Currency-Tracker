@@ -4,8 +4,10 @@ import { getTimeFromDate } from '@/utils';
 import styles from './BankCard.module.scss';
 import ElasticSearch from '@/components/ElasticSearch';
 import MyMap from '@/components/MyMap';
+import { BANKS_DATA } from '@/db/banksData';
 
 const TIME_NOW = getTimeFromDate(Date.now());
+const BANKS_COORDS = BANKS_DATA.map(({ name, coord }) => ({ popupDesc: name, coord }));
 
 export default class BankCard extends Component {
   render() {
@@ -23,7 +25,7 @@ export default class BankCard extends Component {
           </div>
         </div>
 
-        <MyMap className={styles.map} />
+        <MyMap markers={BANKS_COORDS} className={styles.map} />
       </main>
     );
   }
