@@ -1,10 +1,10 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { options } from './CandleStick.options';
 import { DEFAULT_CHART_DATA } from '@/db/defaultChartData';
 import styles from './CandleStick.module.scss';
 
-export default class CandleStick extends Component {
+export default class CandleStick extends PureComponent {
   render() {
     return (
       <ReactApexChart
