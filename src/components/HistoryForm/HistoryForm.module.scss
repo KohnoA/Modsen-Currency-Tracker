@@ -7,7 +7,7 @@
   }
 
   &__desc {
-    max-width: 800px;
+    max-width: 700px;
     margin-bottom: 40px;
 
     text-indent: 30px;
@@ -32,4 +32,9 @@
     align-items: center;
     gap: 30px;
   }
+}
+
+.error {
+  margin-bottom: 50px;
+  color: red;
 }

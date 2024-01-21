@@ -5,8 +5,8 @@ import { OhlcvResponseType } from '@/types';
 const OHLCV_PERIOD = '1DAY';
 const DATA_LIMIT = '30';
 
-export async function getOhlcv(base: string, target: string, timeStart: string) {
-  const endpoint = `${COIN_API_BASE}/BITSTAMP_SPOT_${base}_${target}/history`;
+export async function getOhlcv(pair: string, timeStart: string) {
+  const endpoint = `${COIN_API_BASE}/BINANCE_SPOT_${pair.replace('/', '_')}/history`;
 
   const { data } = await axios.get<OhlcvResponseType[]>(endpoint, {
     headers: {
