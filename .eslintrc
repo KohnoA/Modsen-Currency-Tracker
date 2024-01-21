@@ -16,6 +16,7 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
     "object-curly-newline": "off",
+    "react/prefer-stateless-function": "off",
     "no-param-reassign": [
       "error",
       {
