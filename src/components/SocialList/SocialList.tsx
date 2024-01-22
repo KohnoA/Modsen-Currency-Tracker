@@ -10,9 +10,13 @@ const SOCIAL_LIST = [
   { Icon: TwitterIcon, label: 'Twitter', link: MODSEN_LINK },
 ];
 
-export default function SocialList() {
+type SocialListProps = {
+  className?: string;
+};
+
+export default function SocialList({ className }: SocialListProps) {
   return (
-    <ul className={styles.socials}>
+    <ul className={`${styles.socials} ${className ?? ''}`}>
       {SOCIAL_LIST.map(({ Icon, label, link }) => (
         <li key={label} className={styles.socials__item}>
           <a href={link} className={styles.socials__link}>
