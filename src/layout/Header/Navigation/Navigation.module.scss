@@ -31,7 +31,7 @@
   display: flex;
   justify-content: space-between;
   gap: 60px;
-  
+
   list-style: none;
 
   &__link {
@@ -50,8 +50,93 @@
       opacity: $activeOpacity;
     }
   }
+
+  &__close {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    transition: opacity $transitionDuration;
+
+    &:hover {
+      opacity: $hoverOpacity;
+    }
+
+    &:active {
+      opacity: $activeOpacity;
+    }
+
+    & button {
+      border: none;
+      background-color: transparent;
+    }
+
+    & button svg path {
+      fill: $fontDarkTheme;
+    }
+  }
 }
 
-.toggler{
+.toggler {
   place-self: center center;
+}
+
+.burger {
+  place-self: center center;
+  display: none;
+
+  width: 60px;
+  padding: 10px;
+
+  &__line {
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: $fontDarkTheme;
+  }
+}
+
+@media (max-width: $desktopS) {
+  .pagesList {
+    position: fixed;
+    z-index: 1002;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    transform: translateX(100%);
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+    padding: 60px;
+    padding-top: 90px;
+
+    background-color: $bodyDarkTheme;
+    transition: transform $transitionDuration;
+
+    &_active {
+      transform: translateX(0);
+    }
+
+    &__close {
+      display: block;
+    }
+  }
+
+  .toggler {
+    place-self: center end;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 }

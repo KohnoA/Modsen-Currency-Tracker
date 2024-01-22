@@ -97,7 +97,7 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
     },
 
     plugins: [
-      isDev && new Dotenv(),
+      new Dotenv(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public', 'index.html'),
         favicon: path.resolve(__dirname, 'public', 'favicon.ico'),

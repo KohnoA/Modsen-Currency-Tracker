@@ -9,7 +9,7 @@ type SwitchProps = {
 export default function Switch({ className, isToggled, onChange }: SwitchProps) {
   return (
     <label htmlFor="switch-id" className={`${styles.switch} ${className ?? ''}`}>
-      <span className={styles.label}>Switch Button</span>
+      <span className="hidden">Switch Button</span>
 
       <input id="switch-id" type="checkbox" checked={isToggled} onChange={onChange} />
 

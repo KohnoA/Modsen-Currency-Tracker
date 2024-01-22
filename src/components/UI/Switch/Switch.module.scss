@@ -27,13 +27,6 @@
   input:checked + .slider > .slider__lever {
     transform: translateX(25px);
   }
-
-  .label {
-    position: absolute;
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
 }
 
 .slider {

@@ -41,7 +41,7 @@ export default function Modal({ isActive, children, onClose }: ModalProps) {
         onClick={contentClickHanlder}
       >
         <button onClick={onClose} className={styles.cross} type="button">
-          <span className={styles.cross__label}>Close Modal</span>
+          <span className="hidden">Close Modal</span>
           <CrossIcon className={styles.cross__icon} width={60} height={60} />
         </button>
 
