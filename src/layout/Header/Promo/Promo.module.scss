@@ -51,6 +51,10 @@
     gap: 20px;
   }
 
+  .info {
+    max-width: 60%;
+  }
+
   .title {
     text-align: center;
     padding-right: 0;
@@ -58,5 +62,25 @@
 
   .desc {
     align-self: center;
+  }
+}
+
+@media (max-width: $tablet) {
+  .promo {
+    padding-bottom: 45px;
+  }
+
+  .desc {
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    justify-content: center;
+  }
+
+  .logo {
+    display: none;
   }
 }

@@ -20,3 +20,17 @@
 
   list-style: none;
 }
+
+@media (max-width: $desktopL) {
+  .list {
+    row-gap: 50px;
+    column-gap: 80px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .list {
+    @include gridAutoFit(400px);
+    row-gap: 30px;
+  }
+}

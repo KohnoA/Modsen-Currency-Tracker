@@ -9,6 +9,8 @@ $borderRadius: 8px;
 $containerMaxWidth: 1305px;
 $containerPaddingLeft: 40px;
 $containerPaddingRight: 40px;
+$containerMobilePaddingLeft: 15px;
+$containerMobilePaddingRight: 15px;
 
 $brandColor: linear-gradient(90.18deg, #00CE2C 0.18%, #AEDF23 49.3%, #A3DC00 99.88%);
 $promoGradient: linear-gradient(252.93deg, #121212 11.77%, rgba(36, 121, 64, 0) 91.12%);
@@ -34,6 +36,4 @@ $desktopL: 1400px;
 $desktopM: 1200px;
 $desktopS: 1024px;
 $tablet: 768px;
-$mobileL: 425px;
-$mobileM: 375px;
-$mobileS: 320px;
+$mobile: 425px;

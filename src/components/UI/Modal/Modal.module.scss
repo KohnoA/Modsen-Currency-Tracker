@@ -14,6 +14,7 @@
   align-items: center;
 
   max-width: 100vw;
+  min-width: $mobile;
 
   padding: 40px;
 
@@ -30,7 +31,7 @@
   padding-right: 90px;
   padding-left: 90px;
   padding-bottom: 40px;
-  
+
   background-color: $bodySecondDarkTheme;
   border: 2px solid $borderDarkTheme;
   border-radius: $borderRadius;
@@ -63,5 +64,32 @@
     & path {
       fill: $fontDarkTheme;
     }
+  }
+}
+
+@media (max-width: $desktopS) {
+  .content {
+    padding-top: 50px;
+    padding-right: 70px;
+    padding-left: 70px;
+    padding-bottom: 30px;
+  }
+
+  .cross__icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .backdrop {
+    padding: 10px;
+  }
+
+  .content {
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 25px;
   }
 }
