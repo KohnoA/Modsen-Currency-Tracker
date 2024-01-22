@@ -4,24 +4,38 @@ import styles from './Timeline.module.scss';
 import HistoryForm from '@/components/HistoryForm';
 import CandleStick from '@/components/CandleStick';
 import { Button, Modal } from '@/components/UI';
-import { DEFAULT_CHART_DATA } from '@/db/defaultChartData';
 import { DEFAULT_OHLC_PAIRS } from '@/db/defaultOhlcPairs';
 import { getTimeFromDate } from '@/utils';
+import { Observer } from './utils/observer';
+import CandleStickSubscriber from './utils/CandleStickSubscriber';
+import { CandleStickData, OhlcvResponseType } from '@/types';
+import { ohlcvResponseToChartData } from '@/utils/ohlcvResponseToChartData';
 
 const TIME_NOW = getTimeFromDate(Date.now());
 const DEFAULT_PAIR = DEFAULT_OHLC_PAIRS[0];
 
 type TimelineStateType = {
   showModal: boolean;
+  pair: string;
 };
 
 export default class Timeline extends Component<{}, TimelineStateType> {
+  observer: Observer<CandleStickData>;
+
+  candleStickData: CandleStickSubscriber;
+
   constructor(props: {}) {
     super(props);
 
     this.state = {
       showModal: false,
+      pair: DEFAULT_PAIR,
     };
+
+    this.observer = new Observer();
+    this.candleStickData = new CandleStickSubscriber();
+
+    this.observer.subscribe(this.candleStickData);
   }
 
   openModalHanlder = () => {
@@ -32,24 +46,31 @@ export default class Timeline extends Component<{}, TimelineStateType> {
     this.setState({ showModal: false });
   };
 
+  buildChartHandler = (pair: string, data: OhlcvResponseType[]) => {
+    this.observer.notify([{ data: ohlcvResponseToChartData(data) }]);
+
+    this.closeModalHandler();
+    this.setState({ pair });
+  };
+
   render() {
-    const { showModal } = this.state;
+    const { showModal, pair } = this.state;
 
     return (
       <main className="container">
         <UpdateDate className={styles.updateDate} time={TIME_NOW} />
 
         <section className={styles.info}>
-          <p className="text-medium">{DEFAULT_PAIR}</p>
+          <p className="text-medium">{pair}</p>
           <Button onClick={this.openModalHanlder} className={styles.buildButton}>
             Build Chart
           </Button>
         </section>
 
-        <CandleStick coords={DEFAULT_CHART_DATA} />
+        <CandleStick data={this.candleStickData.current} />
 
         <Modal isActive={showModal} onClose={this.closeModalHandler}>
-          <HistoryForm />
+          <HistoryForm onSubmit={this.buildChartHandler} />
         </Modal>
       </main>
     );

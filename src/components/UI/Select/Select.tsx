@@ -1,4 +1,4 @@
-import { SelectHTMLAttributes, useId } from 'react';
+import { SelectHTMLAttributes, memo, useId } from 'react';
 import styles from './Select.module.scss';
 
 type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
@@ -8,13 +8,7 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   className?: string;
 };
 
-export default function Select({
-  options,
-  defaultOption,
-  labelName,
-  className,
-  ...otherProps
-}: SelectProps) {
+function Select({ options, defaultOption, labelName, className, ...otherProps }: SelectProps) {
   const id = useId();
 
   return (
@@ -30,3 +24,5 @@ export default function Select({
     </label>
   );
 }
+
+export default memo(Select);

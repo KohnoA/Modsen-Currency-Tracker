@@ -1,17 +1,20 @@
 import { ChangeEvent, Component, FormEvent } from 'react';
 import { Button, Input, Select } from '../UI';
-// import { getOhlcv } from '@/services';
-import styles from './HistoryForm.module.scss';
-import { getDateMonthAgo } from '@/utils';
+import { getOhlcv } from '@/services';
+import { getDateTwoMonthsAgo } from '@/utils';
 import { DEFAULT_OHLC_PAIRS } from '@/db/defaultOhlcPairs';
+import { OhlcvResponseType } from '@/types';
+import styles from './HistoryForm.module.scss';
 
 const PAIR_OPTIONS = DEFAULT_OHLC_PAIRS.map((pair) => ({ value: pair, label: pair }));
 const DEFAULT_PAIR = DEFAULT_OHLC_PAIRS[0];
 const DEFAULT_DATE = '';
 const MIN_DATE = '2018-01-01';
-const MAX_DATE = getDateMonthAgo();
+const MAX_DATE = getDateTwoMonthsAgo();
 
-type HistoryFormProps = {};
+type HistoryFormProps = {
+  onSubmit: (pair: string, data: OhlcvResponseType[]) => void;
+};
 
 type HistoryFormState = {
   pair: string;
@@ -35,10 +38,27 @@ export default class HistoryForm extends Component<HistoryFormProps, HistoryForm
   }
 
   onSubmitHanlder = (event: FormEvent) => {
-    event.preventDefault();
-    // const { pair, date } = this.state;
+    const { pair, date } = this.state;
+    const { onSubmit } = this.props;
 
-    // getOhlcv(pair, date).then((res) => console.log(res));
+    event.preventDefault();
+    this.setState({ isLoading: true });
+
+    const getData = async () => {
+      try {
+        const response = await getOhlcv(pair, date);
+
+        onSubmit(pair, response);
+      } catch (error) {
+        if (error instanceof Error) {
+          this.setState({ error });
+        }
+      } finally {
+        this.setState({ isLoading: false });
+      }
+    };
+
+    getData();
   };
 
   onChangeDate = (event: ChangeEvent<HTMLInputElement>) => {
@@ -57,8 +77,8 @@ export default class HistoryForm extends Component<HistoryFormProps, HistoryForm
         <h2 className={styles.historyForm__title}>Create Your Chart</h2>
 
         <p className={`text-light-s ${styles.historyForm__desc}`}>
-          Select a currency pair and the date from which changes will be shown during the month (30
-          days)
+          Select a currency pair and the date from which changes will be displayed for two months
+          (60 days)
         </p>
 
         <section className={styles.formFields}>

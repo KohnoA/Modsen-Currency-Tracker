@@ -3,7 +3,7 @@ import { COIN_API_BASE, COIN_API_KEY } from '@/constants';
 import { OhlcvResponseType } from '@/types';
 
 const OHLCV_PERIOD = '1DAY';
-const DATA_LIMIT = '30';
+const DATA_LIMIT = '60';
 
 export async function getOhlcv(pair: string, timeStart: string) {
   const endpoint = `${COIN_API_BASE}/BINANCE_SPOT_${pair.replace('/', '_')}/history`;

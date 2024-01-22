@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, memo } from 'react';
 import styles from './Button.module.scss';
 import Spinner from '../Spinner/Spinner';
 
@@ -11,14 +11,7 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-export default function Button({
-  className,
-  children,
-  isLoading,
-  disabled,
-  href,
-  onClick,
-}: ButtonProps) {
+function Button({ className, children, isLoading, disabled, href, onClick }: ButtonProps) {
   const Component = href ? 'a' : 'button';
 
   return (
@@ -33,3 +26,5 @@ export default function Button({
     </Component>
   );
 }
+
+export default memo(Button);

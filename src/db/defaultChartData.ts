@@ -1,4 +1,6 @@
-export const DEFAULT_CHART_DATA = [
+import { CandleStickData } from '@/types';
+
+export const DEFAULT_CHART_DATA: CandleStickData = [
   {
     data: [
       {

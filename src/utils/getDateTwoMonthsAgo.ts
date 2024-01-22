@@ -1,7 +1,7 @@
-export function getDateMonthAgo() {
+export function getDateTwoMonthsAgo() {
   const date = new Date();
 
-  date.setMonth(date.getMonth() - 1);
+  date.setMonth(date.getMonth() - 2);
 
   const year = date.getFullYear();
   const month = date.getMonth() + 1;

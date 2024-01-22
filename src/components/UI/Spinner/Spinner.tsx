@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import SpinnerIcon from '@/assets/icons/spinner-icon.svg';
 import styles from './Spinner.module.scss';
 
@@ -10,7 +11,7 @@ type SpinnerProps = {
 const DEFAULT_WIDTH = 40;
 const DEFAULT_HEIGHT = 40;
 
-export default function Spinner({ className, width, height }: SpinnerProps) {
+function Spinner({ className, width, height }: SpinnerProps) {
   return (
     <span className={className}>
       <SpinnerIcon
@@ -23,3 +24,5 @@ export default function Spinner({ className, width, height }: SpinnerProps) {
     </span>
   );
 }
+
+export default memo(Spinner);

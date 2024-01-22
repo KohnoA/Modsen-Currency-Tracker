@@ -26,3 +26,10 @@ export type OhlcvResponseType = {
   price_low: number;
   price_close: number;
 };
+
+export type CandleStickData = {
+  data: {
+    x: Date;
+    y: number[];
+  }[];
+}[];

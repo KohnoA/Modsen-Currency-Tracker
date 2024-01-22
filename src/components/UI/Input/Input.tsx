@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useId } from 'react';
+import { InputHTMLAttributes, memo, useId } from 'react';
 import styles from './Input.module.scss';
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
@@ -6,7 +6,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
 };
 
-export default function Input({ labelName, className, ...inputProps }: InputProps) {
+function Input({ labelName, className, ...inputProps }: InputProps) {
   const id = useId();
 
   return (
@@ -16,3 +16,5 @@ export default function Input({ labelName, className, ...inputProps }: InputProp
     </label>
   );
 }
+
+export default memo(Input);
