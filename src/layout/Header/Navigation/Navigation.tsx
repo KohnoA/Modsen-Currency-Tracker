@@ -40,7 +40,11 @@ export default function Navigation() {
       <ul className={`${styles.pagesList} ${showBurder ? styles.pagesList_active : ''}`}>
         {pagesList.map(({ page, path }) => (
           <li key={path}>
-            <Link to={path} className={`text-light-s ${styles.pagesList__link}`}>
+            <Link
+              to={path}
+              className={`text-light-s ${styles.pagesList__link}`}
+              {...(showBurder ? { onClick: burgerCloseHandler } : {})}
+            >
               {page}
             </Link>
           </li>
