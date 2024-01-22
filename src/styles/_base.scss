@@ -13,6 +13,7 @@ html {
 }
 
 body {
+  min-width: $mobile;
   font-family: 'Poppins', 'Arial', sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -36,7 +37,15 @@ img {
   padding-right: $containerPaddingRight;
 }
 
-// Typography 
+.hidden {
+  position: absolute;
+  top: -999px;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+// Typography
 
 .text-semibold-l {
   font-size: 90px;
@@ -88,4 +97,88 @@ img {
 .text-light-s {
   font-size: 20px;
   font-weight: 300;
+}
+
+@media (max-width: $desktopS) {
+  body {
+    font-size: 0.8rem;
+  }
+
+  .text-semibold-l {
+    font-size: 80px;
+    font-weight: 600;
+  }
+
+  .text-semibold-m {
+    font-size: 70px;
+    font-weight: 600;
+  }
+
+  .text-semibold-s {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .text-medium {
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  .text-regular-l {
+    font-size: 33px;
+  }
+
+  .text-regular-m {
+    font-size: 30px;
+  }
+
+  .text-regular-s {
+    font-size: 22px;
+  }
+
+  .text-light-xl {
+    font-size: 27px;
+    font-weight: 300;
+  }
+
+  .text-light-l {
+    font-size: 25px;
+    font-weight: 300;
+  }
+
+  .text-light-m {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  .text-light-s {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
+
+@media (max-width: $tablet) {
+  .container {
+    padding-left: $containerMobilePaddingLeft;
+    padding-right: $containerMobilePaddingRight;
+  }
+
+  .text-semibold-l {
+    font-size: 60px;
+    font-weight: 600;
+  }
+
+  .text-semibold-m {
+    font-size: 50px;
+    font-weight: 600;
+  }
+
+  .text-regular-m {
+    font-size: 24px;
+  }
+
+  .text-light-s {
+    font-size: 16px;
+    font-weight: 300;
+  }
 }

@@ -18,7 +18,6 @@ export default class CandleStick extends PureComponent<CandleStickProps> {
         options={options}
         series={coords}
         type="candlestick"
-        height={600}
       />
     );
   }

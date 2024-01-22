@@ -37,7 +37,7 @@ export default function Contacts() {
           </p>
         </div>
 
-        <SocialList />
+        <SocialList className={styles.socials} />
       </section>
 
       <div className={`text-medium ${styles.quote}`}>

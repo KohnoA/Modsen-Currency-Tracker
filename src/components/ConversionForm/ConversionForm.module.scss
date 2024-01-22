@@ -25,6 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   &__count input[type='number'] {
@@ -42,4 +43,15 @@
 
 .result {
   margin-bottom: 50px;
+}
+
+@media (max-width: $tablet) {
+  .conversionForm__title {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  .target {
+    gap: 15px;
+  }
 }

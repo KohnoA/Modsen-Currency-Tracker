@@ -33,3 +33,20 @@
   text-align: center;
   color: $fontMutedDarkTheme;
 }
+
+@media (max-width: $desktopS) {
+  .wrapper {
+    gap: 60px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .companyInfo, .linksGroups {
+    width: 100%;
+  }
+}
