@@ -31,6 +31,7 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
       hot: true,
       open: true,
       historyApiFallback: true,
+      compress: true,
       client: {
         overlay: {
           errors: true,

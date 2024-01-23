@@ -3,3 +3,4 @@ node_modules/
 public/
 build/
 webpack.config.ts
+jest.config.ts
