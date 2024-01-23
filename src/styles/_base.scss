@@ -45,6 +45,18 @@ img {
   visibility: hidden;
 }
 
+.lightTheme {
+  filter: invert(100%);
+
+  .map {
+    filter: invert(1);
+  }
+
+  .chart {
+    filter: invert(1);
+  }
+}
+
 // Typography
 
 .text-semibold-l {

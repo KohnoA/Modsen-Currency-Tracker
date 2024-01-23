@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './NotFound.module.scss';
 import { AppRoutes } from '@/router/routes';
 
-export default function NotFound() {
+function NotFound() {
   return (
     <main className={`container ${styles.page}`}>
       <h2 className={`text-semibold-l ${styles.title}`}>404</h2>
@@ -15,3 +16,5 @@ export default function NotFound() {
     </main>
   );
 }
+
+export default memo(NotFound);

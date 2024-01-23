@@ -14,11 +14,3 @@
 .layout > main {
   flex-grow: 1;
 }
-
-.layout.light {
-  filter: invert(100%);
-
-  .map {
-    filter:invert(1)
-  }
-}

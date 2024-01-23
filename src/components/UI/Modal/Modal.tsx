@@ -37,7 +37,8 @@ export default function Modal({ isActive, children, onClose }: ModalProps) {
       tabIndex={0}
     >
       <div
-        className={`${styles.content} ${isLightTheme ? styles.content_light : ''}`}
+        data-testid="modal"
+        className={`${styles.content} ${isLightTheme ? 'lightTheme' : ''}`}
         onClick={contentClickHanlder}
       >
         <button onClick={onClose} className={styles.cross} type="button">

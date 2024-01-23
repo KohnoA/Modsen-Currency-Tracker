@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import UpdateDate from '@/components/UpdateDate';
 import { getTimeFromDate, getBanksCurrencies, filterBanksByCurrencies } from '@/utils';
 import ElasticSearch from '@/components/ElasticSearch';
@@ -13,7 +13,7 @@ type BankCardState = {
   banks: typeof BANKS_DATA;
 };
 
-export default class BankCard extends Component<{}, BankCardState> {
+export default class BankCard extends PureComponent<{}, BankCardState> {
   constructor(props: {}) {
     super(props);
 

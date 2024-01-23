@@ -58,7 +58,12 @@ export default function Navigation() {
         </li>
       </ul>
 
-      <Switch className={styles.toggler} isToggled={isLightTheme} onChange={themeHandler} />
+      <Switch
+        data-testid="switch-theme"
+        className={styles.toggler}
+        isToggled={isLightTheme}
+        onChange={themeHandler}
+      />
 
       <div
         data-testid="burger-menu"

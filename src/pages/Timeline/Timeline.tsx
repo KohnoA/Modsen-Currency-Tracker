@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import UpdateDate from '@/components/UpdateDate';
 import HistoryForm from '@/components/HistoryForm';
 import CandleStick from '@/components/CandleStick';
@@ -18,7 +18,7 @@ type TimelineStateType = {
   pair: string;
 };
 
-export default class Timeline extends Component<{}, TimelineStateType> {
+export default class Timeline extends PureComponent<{}, TimelineStateType> {
   observer: Observer<CandleStickData>;
 
   candleStickData: CandleStickSubscriber;
