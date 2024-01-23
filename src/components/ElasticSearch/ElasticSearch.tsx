@@ -1,7 +1,7 @@
-import { ChangeEvent, PureComponent, KeyboardEvent } from 'react';
+import { ChangeEvent, PureComponent, KeyboardEvent, FormEvent } from 'react';
 import SearchIcon from '@/assets/icons/search-icon.svg';
-import styles from './ElasticSearch.module.scss';
 import { filterOptions } from '@/utils';
+import styles from './ElasticSearch.module.scss';
 
 type ElasticSearchProps = {
   className?: string;
@@ -15,41 +15,43 @@ type ElasticSearchState = {
 };
 
 export default class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSearchState> {
-  timer: number | null;
-
   constructor(props: ElasticSearchProps) {
     super(props);
 
-    this.timer = null;
     this.state = {
       value: '',
     };
   }
 
-  componentDidUpdate(): void {
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
+  handlerCurrentValue = () => {
+    const { onChange } = this.props;
+    const { value } = this.state;
 
-    this.timer = window.setTimeout(() => {
-      const { onChange } = this.props;
-      const { value } = this.state;
+    onChange(value);
+  };
 
-      onChange(value);
-    }, 500);
-  }
-
-  hanldeCurrentValue = (current: string) => {
-    this.setState({ value: current });
+  onSubmitHandler = (event: FormEvent) => {
+    event.preventDefault();
+    this.handlerCurrentValue();
   };
 
   onChangeHanlder = (event: ChangeEvent<HTMLInputElement>) => {
-    this.hanldeCurrentValue(event.target.value);
+    const { value } = event.target;
+
+    if (!value.length) {
+      this.setState({ value }, this.handlerCurrentValue);
+    } else {
+      this.setState({ value });
+    }
+  };
+
+  setCurrentOption = (option: string) => {
+    this.setState({ value: option }, this.handlerCurrentValue);
   };
 
   onKeyDownHanlder = (event: KeyboardEvent<HTMLLIElement>, option: string) => {
     if (event.code === 'Enter') {
-      this.hanldeCurrentValue(option);
+      this.setState({ value: option }, this.handlerCurrentValue);
     }
   };
 
@@ -61,23 +63,27 @@ export default class ElasticSearch extends PureComponent<ElasticSearchProps, Ela
 
     return (
       <div className={`${styles.wrapper} ${className ?? ''}`}>
-        <div className={styles.elasticSearch}>
+        <form onSubmit={this.onSubmitHandler} className={styles.elasticSearch}>
           <input
             value={value}
             onChange={this.onChangeHanlder}
             className={styles.elasticSearch__input}
-            type="text"
+            type="search"
             placeholder={placeholder}
           />
-          <SearchIcon className={styles.elasticSearch__icon} width={24} height={24} />
-        </div>
+
+          <button type="submit" className={styles.elasticSearch__submit}>
+            <span className="hidden">Search</span>
+            <SearchIcon width={24} height={24} />
+          </button>
+        </form>
 
         {showOptions && (
           <ul className={styles.results}>
             {filteredOptions.map((option) => (
               <li
                 key={option}
-                onClick={() => this.hanldeCurrentValue(option)}
+                onClick={() => this.setCurrentOption(option)}
                 onKeyDown={(event) => this.onKeyDownHanlder(event, option)}
                 className={styles.results__item}
                 role="tab"

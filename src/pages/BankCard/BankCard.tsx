@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import UpdateDate from '@/components/UpdateDate';
 import { getTimeFromDate, getBanksCurrencies, filterBanksByCurrencies } from '@/utils';
-import styles from './BankCard.module.scss';
 import ElasticSearch from '@/components/ElasticSearch';
 import MyMap from '@/components/MyMap';
 import { BANKS_DATA } from '@/db/banksData';
+import styles from './BankCard.module.scss';
 
 const TIME_NOW = getTimeFromDate(Date.now());
 const ELASTIC_SEARCH_OPTIONS = getBanksCurrencies(BANKS_DATA);
@@ -22,7 +22,7 @@ export default class BankCard extends Component<{}, BankCardState> {
     };
   }
 
-  elasticSearchHadler = (current: string) => {
+  elasticSearchHandler = (current: string) => {
     const banks = filterBanksByCurrencies(current);
 
     this.setState({ banks });
@@ -46,7 +46,7 @@ export default class BankCard extends Component<{}, BankCardState> {
             </p>
 
             <ElasticSearch
-              onChange={this.elasticSearchHadler}
+              onChange={this.elasticSearchHandler}
               placeholder="Currency search..."
               options={ELASTIC_SEARCH_OPTIONS}
             />
