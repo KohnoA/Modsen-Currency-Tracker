@@ -16,7 +16,7 @@ const DEFAULT_BASE = 'USD';
 function ConversionForm({ base }: ConversionFormProps) {
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
   const [count, setCount] = useState<number>(DEFAULT_COUNT);
-  const { result, isLoading, converter, reset } = useConverter();
+  const { result, isLoading, error, converter, reset } = useConverter();
 
   const targetOptions = DEFAULT_SELECT_OPTIONS.filter(({ value }) => value !== base);
 
@@ -64,6 +64,10 @@ function ConversionForm({ base }: ConversionFormProps) {
         options={targetOptions}
         defaultValue={DEFAULT_TARGET}
       />
+
+      {error && (
+        <p className={`text-light-m ${styles.error}`}>Something went wrong, try again later</p>
+      )}
 
       {result && (
         <p className={styles.result}>

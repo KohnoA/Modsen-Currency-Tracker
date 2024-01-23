@@ -3,7 +3,7 @@ import { getCurrencyRateCached, truncateNumber } from '@/utils';
 
 export function useConverter() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error>();
+  const [error, setError] = useState<Error | null>(null);
   const [result, setResult] = useState<number | null>();
 
   const converter = async (target: string, count: number, base: string) => {
@@ -25,6 +25,7 @@ export function useConverter() {
 
   const reset = () => {
     if (result) setResult(null);
+    if (error) setError(null);
   };
 
   return { result, isLoading, error, converter, reset };
