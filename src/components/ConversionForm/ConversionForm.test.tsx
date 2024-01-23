@@ -1,7 +1,10 @@
-const sum = (a: number, b: number) => {
-  return a + b;
-};
+import { render, screen } from '@testing-library/react';
+import ConversionForm from './ConversionForm';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+describe('Tetsing ConversionForm component', () => {
+  it('should be displayed', () => {
+    render(<ConversionForm />);
+
+    expect(screen.getByTestId('conversion-form')).toBeInTheDocument();
+  });
 });

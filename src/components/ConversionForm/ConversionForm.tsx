@@ -9,9 +9,9 @@ type ConversionFormProps = {
 };
 
 const DEFAULT_SELECT_OPTIONS = DEFAULT_QUOTES.map(({ code }) => ({ value: code, label: code }));
-const DEFAULT_TARGET = DEFAULT_SELECT_OPTIONS[0].value;
-const DEFAULT_COUNT = 1;
 const DEFAULT_BASE = 'USD';
+const DEFAULT_TARGET = DEFAULT_SELECT_OPTIONS[1].value;
+const DEFAULT_COUNT = 1;
 
 function ConversionForm({ base }: ConversionFormProps) {
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
@@ -36,7 +36,11 @@ function ConversionForm({ base }: ConversionFormProps) {
   };
 
   return (
-    <form onSubmit={onSubmitHanlder} className={styles.conversionForm}>
+    <form
+      onSubmit={onSubmitHanlder}
+      className={styles.conversionForm}
+      data-testid="conversion-form"
+    >
       <h2 className={styles.conversionForm__title}>Currency Converter</h2>
 
       <div className={styles.base}>

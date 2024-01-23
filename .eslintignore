@@ -4,3 +4,11 @@ public/
 build/
 webpack.config.ts
 jest.config.ts
+cypress/*
+cypress.config.ts
+
+**/test/*.ts
+**/test/*.tsx
+
+*.test.ts
+*.test.tsx

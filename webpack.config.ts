@@ -31,7 +31,6 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
       hot: true,
       open: true,
       historyApiFallback: true,
-      compress: true,
       client: {
         overlay: {
           errors: true,
@@ -48,6 +47,16 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
 
     module: {
       rules: [
+        {
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
+            },
+          },
+        },
         {
           test: /\.(sa|sc|c)ss$/i,
           use: [
@@ -76,16 +85,6 @@ export default ({ mode }: EnvVariables): webpack.Configuration => {
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: 'asset/resource',
-        },
-        {
-          test: /\.(ts|tsx)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
-            },
-          },
         },
       ],
     },
