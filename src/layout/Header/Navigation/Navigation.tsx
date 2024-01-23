@@ -61,6 +61,7 @@ export default function Navigation() {
       <Switch className={styles.toggler} isToggled={isLightTheme} onChange={themeHandler} />
 
       <div
+        data-testid="burger-menu"
         onClick={burgerOpenHandler}
         onKeyDown={hanldeKeyDownBurger}
         className={styles.burger}
