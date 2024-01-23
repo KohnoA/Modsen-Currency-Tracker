@@ -1,8 +1,8 @@
-import { Subscriber } from './observer';
+import { Subscriber } from './Observer';
 import { DEFAULT_CHART_DATA } from '@/db/defaultChartData';
 import { type CandleStickData } from '@/types';
 
-export default class CandleStickSubscriber implements Subscriber<CandleStickData> {
+export class CandleStickSubscriber implements Subscriber<CandleStickData> {
   current: CandleStickData;
 
   constructor() {
