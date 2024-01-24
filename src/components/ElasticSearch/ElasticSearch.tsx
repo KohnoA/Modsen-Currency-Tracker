@@ -62,9 +62,10 @@ export default class ElasticSearch extends PureComponent<ElasticSearchProps, Ela
     const showOptions = !!filteredOptions.length;
 
     return (
-      <div className={`${styles.wrapper} ${className ?? ''}`}>
+      <div data-testid="elastic-search" className={`${styles.wrapper} ${className ?? ''}`}>
         <form onSubmit={this.onSubmitHandler} className={styles.elasticSearch}>
           <input
+            data-testid="elastic-search-input"
             value={value}
             onChange={this.onChangeHanlder}
             className={styles.elasticSearch__input}
@@ -72,16 +73,21 @@ export default class ElasticSearch extends PureComponent<ElasticSearchProps, Ela
             placeholder={placeholder}
           />
 
-          <button type="submit" className={styles.elasticSearch__submit}>
+          <button
+            data-testid="elastic-search-submit"
+            type="submit"
+            className={styles.elasticSearch__submit}
+          >
             <span className="hidden">Search</span>
             <SearchIcon width={24} height={24} />
           </button>
         </form>
 
         {showOptions && (
-          <ul className={styles.results}>
+          <ul data-testid="elastic-search-options" className={styles.results}>
             {filteredOptions.map((option) => (
               <li
+                data-testid="elastic-search-option"
                 key={option}
                 onClick={() => this.setCurrentOption(option)}
                 onKeyDown={(event) => this.onKeyDownHanlder(event, option)}

@@ -11,7 +11,9 @@ type CurrenciesListProps = {
 function CurrenciesList({ title, data }: CurrenciesListProps) {
   return (
     <section data-testid="currencies-list">
-      <h4 className={`text-light-xl ${styles.title}`}>{title}</h4>
+      <h4 data-testid="currencies-list-title" className={`text-light-xl ${styles.title}`}>
+        {title}
+      </h4>
 
       <ul className={styles.list}>
         {data.map((cardProps) => (
