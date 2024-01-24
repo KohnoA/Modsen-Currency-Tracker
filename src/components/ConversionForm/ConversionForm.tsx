@@ -45,7 +45,7 @@ function ConversionForm({ base }: ConversionFormProps) {
 
       <div className={styles.base}>
         <p className={styles.base__label}>
-          Base currency: <span>{base}</span>
+          Base currency: <span data-testid="base-currency">{base}</span>
         </p>
 
         <Input
@@ -62,6 +62,7 @@ function ConversionForm({ base }: ConversionFormProps) {
       </div>
 
       <Select
+        data-testid="target-currency"
         labelName="Target currency"
         className={styles.target}
         disabled={isLoading}
@@ -71,7 +72,9 @@ function ConversionForm({ base }: ConversionFormProps) {
       />
 
       {error && (
-        <p className={`text-light-m ${styles.error}`}>Something went wrong, try again later</p>
+        <p data-testid="conversion-error" className={`text-light-m ${styles.error}`}>
+          Something went wrong, try again later
+        </p>
       )}
 
       {result && (
