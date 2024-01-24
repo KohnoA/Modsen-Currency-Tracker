@@ -1,5 +1,5 @@
 import { ChangeEvent, Component, FormEvent } from 'react';
-import { Button, Input, Select } from '../UI';
+import { Button, ErrorMessage, Input, Select } from '../UI';
 import { getOhlcv } from '@/services';
 import { HistoryFormProps, HistoryFormState } from './HistoryForm.types';
 import styles from './HistoryForm.module.scss';
@@ -96,9 +96,7 @@ export default class HistoryForm extends Component<HistoryFormProps, HistoryForm
           />
         </section>
 
-        {error && (
-          <p className={`text-light-m ${styles.error}`}>Something went wrong, try again later</p>
-        )}
+        {error && <ErrorMessage />}
 
         <Button data-testid="submit-chart" disabled={isLoading} isLoading={isLoading}>
           Build Chart

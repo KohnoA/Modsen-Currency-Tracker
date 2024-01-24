@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, memo, useState } from 'react';
-import { Button, Input, Select } from '../UI';
+import { Button, ErrorMessage, Input, Select } from '../UI';
 import styles from './ConversionForm.module.scss';
 import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
 import { useConverter } from '@/hooks/useConverter';
@@ -71,11 +71,7 @@ function ConversionForm({ base }: ConversionFormProps) {
         defaultValue={DEFAULT_TARGET}
       />
 
-      {error && (
-        <p data-testid="conversion-error" className={`text-light-m ${styles.error}`}>
-          Something went wrong, try again later
-        </p>
-      )}
+      {error && <ErrorMessage />}
 
       {result && (
         <p data-testid="result-conversion" className={styles.result}>
