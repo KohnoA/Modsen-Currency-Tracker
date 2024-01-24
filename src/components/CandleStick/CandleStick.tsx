@@ -14,6 +14,7 @@ export default class CandleStick extends PureComponent<CandleStickProps> {
 
     return (
       <ReactApexChart
+        data-testid="candle-stick"
         className={`chart ${styles.chart}`}
         options={options}
         series={data}

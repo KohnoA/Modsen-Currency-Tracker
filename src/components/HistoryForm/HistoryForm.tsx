@@ -107,7 +107,9 @@ export default class HistoryForm extends Component<HistoryFormProps, HistoryForm
           <p className={`text-light-m ${styles.error}`}>Something went wrong, try again later</p>
         )}
 
-        <Button isLoading={isLoading}>Build Chart</Button>
+        <Button data-testid="submit-chart" disabled={isLoading} isLoading={isLoading}>
+          Build Chart
+        </Button>
       </form>
     );
   }

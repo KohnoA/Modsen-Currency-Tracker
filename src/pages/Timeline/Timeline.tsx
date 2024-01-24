@@ -60,7 +60,9 @@ export default class Timeline extends PureComponent<{}, TimelineStateType> {
         <UpdateDate className={styles.updateDate} time={TIME_NOW} />
 
         <section className={styles.info}>
-          <p className="text-medium">{pair}</p>
+          <p data-testid="trading-pair" className="text-medium">
+            {pair}
+          </p>
           <Button onClick={this.openModalHanlder} className={styles.buildButton}>
             Build Chart
           </Button>
