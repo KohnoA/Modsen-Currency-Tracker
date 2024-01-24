@@ -2,17 +2,7 @@ import { ChangeEvent, PureComponent, KeyboardEvent, FormEvent } from 'react';
 import SearchIcon from '@/assets/icons/search-icon.svg';
 import { filterOptions } from '@/utils';
 import styles from './ElasticSearch.module.scss';
-
-type ElasticSearchProps = {
-  className?: string;
-  placeholder?: string;
-  options: string[];
-  onChange: (current: string) => void;
-};
-
-type ElasticSearchState = {
-  value: string;
-};
+import { ElasticSearchProps, ElasticSearchState } from './ElasticSearch.types';
 
 export default class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSearchState> {
   constructor(props: ElasticSearchProps) {
