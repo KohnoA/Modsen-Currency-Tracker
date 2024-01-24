@@ -9,9 +9,7 @@ export async function getCurrenciesRate(currencies: string | string[], base?: st
     params: {
       base_currency: base ?? DEFAULT_BASE,
       currencies: currencies.toString(),
-    },
-    headers: {
-      apiKey: CURRENCY_API_KEY,
+      apikey: CURRENCY_API_KEY,
     },
   });
 

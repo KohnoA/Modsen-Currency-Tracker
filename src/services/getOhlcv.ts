@@ -9,14 +9,11 @@ export async function getOhlcv(pair: string, timeStart: string) {
   const endpoint = `${COIN_API_BASE}/BINANCE_SPOT_${pair.replace('/', '_')}/history`;
 
   const { data } = await axios.get<OhlcvResponseType[]>(endpoint, {
-    headers: {
-      'X-CoinAPI-Key': COIN_API_KEY,
-      Accept: 'application/json',
-    },
     params: {
       period_id: OHLCV_PERIOD,
       time_start: new Date(timeStart).toISOString(),
       limit: DATA_LIMIT,
+      apiKey: COIN_API_KEY,
     },
   });
 
