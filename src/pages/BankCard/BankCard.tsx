@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import UpdateDate from '@/components/UpdateDate';
 import { getTimeFromDate, getBanksCurrencies, filterBanksByCurrencies } from '@/utils';
 import ElasticSearch from '@/components/ElasticSearch';
@@ -13,7 +13,7 @@ type BankCardState = {
   banks: typeof BANKS_DATA;
 };
 
-export default class BankCard extends Component<{}, BankCardState> {
+export default class BankCard extends PureComponent<{}, BankCardState> {
   constructor(props: {}) {
     super(props);
 
@@ -34,10 +34,11 @@ export default class BankCard extends Component<{}, BankCardState> {
       popupDesc: `${name} ${currencies}`,
       coord,
     }));
+    const hasBanks = !!banksCoords.length;
 
     return (
       <main>
-        <div className="container">
+        <div className={`container ${styles.wrapper}`}>
           <UpdateDate className={styles.updateDate} time={TIME_NOW} />
 
           <div className={styles.elasticSearch}>
@@ -50,6 +51,12 @@ export default class BankCard extends Component<{}, BankCardState> {
               placeholder="Currency search..."
               options={ELASTIC_SEARCH_OPTIONS}
             />
+
+            {!hasBanks && (
+              <p className={`text-light-s ${styles.emptyMsg}`}>
+                Sorry there are no banks with this currency
+              </p>
+            )}
           </div>
         </div>
 

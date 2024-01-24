@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import SocialList from '@/components/SocialList';
 import { AUTHOR_GITHUB, MODSEN_LINK } from '@/constants';
 import styles from './Contacts.module.scss';
@@ -6,7 +7,7 @@ import MarkerIcon from '@/assets/icons/marker-icon.svg';
 import PhoneIcon from '@/assets/icons/phone-icon.svg';
 import MailIcon from '@/assets/icons/mail-icon.svg';
 
-export default function Contacts() {
+function Contacts() {
   return (
     <main className="container">
       <h2 className={styles.title}>Contact Us</h2>
@@ -50,3 +51,5 @@ export default function Contacts() {
     </main>
   );
 }
+
+export default memo(Contacts);

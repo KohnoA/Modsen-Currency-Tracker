@@ -1,2 +1,2 @@
-export { Observer, type Subscriber } from './Observer';
 export { CandleStickSubscriber } from './CandleStickSubscriber';
+export { Observer, type Subscriber } from './observer';

@@ -23,8 +23,11 @@ export async function getCurrenciesRateCached(currencies: string[]) {
     const dateNow = new Date(Date.now());
     const dateCache = new Date(cacheData.meta.last_updated_at);
     const isValidDate = getDiffHours(dateCache, dateNow) > CACHE_TIME_IN_HOURS;
-
     const isOldCurrencies = areArraysEqual(Object.keys(cacheData.data), currencies);
+
+    if (!isValidDate) {
+      localStorage.removeItem(LOCAL_STORAGE_CURRENCIES_RATE_KEY);
+    }
 
     return isValidDate && isOldCurrencies ? cacheData : getAndSaveCurrenciesRate();
   }

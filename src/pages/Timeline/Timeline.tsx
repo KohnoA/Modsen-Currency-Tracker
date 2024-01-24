@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import UpdateDate from '@/components/UpdateDate';
 import HistoryForm from '@/components/HistoryForm';
 import CandleStick from '@/components/CandleStick';
@@ -13,12 +13,12 @@ import styles from './Timeline.module.scss';
 const TIME_NOW = getTimeFromDate(Date.now());
 const DEFAULT_PAIR = DEFAULT_OHLC_PAIRS[0];
 
-type TimelineStateType = {
+type TimelineState = {
   showModal: boolean;
   pair: string;
 };
 
-export default class Timeline extends Component<{}, TimelineStateType> {
+export default class Timeline extends PureComponent<{}, TimelineState> {
   observer: Observer<CandleStickData>;
 
   candleStickData: CandleStickSubscriber;
@@ -33,8 +33,14 @@ export default class Timeline extends Component<{}, TimelineStateType> {
 
     this.observer = new Observer();
     this.candleStickData = new CandleStickSubscriber();
+  }
 
+  componentDidMount(): void {
     this.observer.subscribe(this.candleStickData);
+  }
+
+  componentWillUnmount(): void {
+    this.observer.unsubscribe(this.candleStickData);
   }
 
   openModalHanlder = () => {
@@ -60,7 +66,9 @@ export default class Timeline extends Component<{}, TimelineStateType> {
         <UpdateDate className={styles.updateDate} time={TIME_NOW} />
 
         <section className={styles.info}>
-          <p className="text-medium">{pair}</p>
+          <p data-testid="trading-pair" className="text-medium">
+            {pair}
+          </p>
           <Button onClick={this.openModalHanlder} className={styles.buildButton}>
             Build Chart
           </Button>

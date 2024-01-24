@@ -1,6 +1,6 @@
 import { Component, ReactNode, ErrorInfo } from 'react';
 import styles from './ErrorBoundary.module.scss';
-import { Modal } from '../UI';
+import { ErrorMessage, Modal } from '../UI';
 
 type ErrorBoundaryProps = {
   children: ReactNode;
@@ -32,7 +32,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
     if (hasError) {
       return (
         <Modal isActive={hasError} onClose={() => {}}>
-          <p className={styles.reserveComponent}>Something went wrong, please try again later.</p>
+          <ErrorMessage className={styles.reserveComponent} />
         </Modal>
       );
     }

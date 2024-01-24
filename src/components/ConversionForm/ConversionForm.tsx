@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, memo, useState } from 'react';
-import { Button, Input, Select } from '../UI';
+import { Button, ErrorMessage, Input, Select } from '../UI';
 import styles from './ConversionForm.module.scss';
 import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
 import { useConverter } from '@/hooks/useConverter';
@@ -9,9 +9,9 @@ type ConversionFormProps = {
 };
 
 const DEFAULT_SELECT_OPTIONS = DEFAULT_QUOTES.map(({ code }) => ({ value: code, label: code }));
-const DEFAULT_TARGET = DEFAULT_SELECT_OPTIONS[0].value;
-const DEFAULT_COUNT = 1;
 const DEFAULT_BASE = 'USD';
+const DEFAULT_TARGET = DEFAULT_SELECT_OPTIONS[1].value;
+const DEFAULT_COUNT = 1;
 
 function ConversionForm({ base }: ConversionFormProps) {
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
@@ -36,15 +36,20 @@ function ConversionForm({ base }: ConversionFormProps) {
   };
 
   return (
-    <form onSubmit={onSubmitHanlder} className={styles.conversionForm}>
+    <form
+      onSubmit={onSubmitHanlder}
+      className={styles.conversionForm}
+      data-testid="conversion-form"
+    >
       <h2 className={styles.conversionForm__title}>Currency Converter</h2>
 
       <div className={styles.base}>
         <p className={styles.base__label}>
-          Base currency: <span>{base}</span>
+          Base currency: <span data-testid="base-currency">{base}</span>
         </p>
 
         <Input
+          data-testid="currency-count"
           disabled={isLoading}
           onChange={changeCountHandler}
           className={styles.base__count}
@@ -57,6 +62,7 @@ function ConversionForm({ base }: ConversionFormProps) {
       </div>
 
       <Select
+        data-testid="target-currency"
         labelName="Target currency"
         className={styles.target}
         disabled={isLoading}
@@ -65,17 +71,15 @@ function ConversionForm({ base }: ConversionFormProps) {
         defaultValue={DEFAULT_TARGET}
       />
 
-      {error && (
-        <p className={`text-light-m ${styles.error}`}>Something went wrong, try again later</p>
-      )}
+      {error && <ErrorMessage />}
 
       {result && (
-        <p className={styles.result}>
+        <p data-testid="result-conversion" className={styles.result}>
           <b>{target}:</b> {result}
         </p>
       )}
 
-      <Button isLoading={isLoading} disabled={isLoading}>
+      <Button data-testid="get-rate" isLoading={isLoading} disabled={isLoading}>
         Get Latest Rate
       </Button>
     </form>

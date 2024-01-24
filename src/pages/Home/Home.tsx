@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CurrenciesList from '@/components/CurrenciesList';
 import UpdateDate from '@/components/UpdateDate';
@@ -7,7 +8,7 @@ import ConversionForm from '@/components/ConversionForm';
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 import { useQuotes } from '@/hooks';
 
-export default function Home() {
+function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const showModal = !!searchParams.get(CURRENCY_MODAL_QUERY_KEY);
   const baseCurrencyInModal = searchParams.get(CURRENCY_MODAL_QUERY_KEY);
@@ -29,3 +30,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default memo(Home);

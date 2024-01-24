@@ -4,11 +4,16 @@ type SwitchProps = {
   className?: string;
   isToggled: boolean;
   onChange: () => void;
+  'data-testid'?: string;
 };
 
-export default function Switch({ className, isToggled, onChange }: SwitchProps) {
+export default function Switch({ className, isToggled, onChange, ...otherProps }: SwitchProps) {
   return (
-    <label htmlFor="switch-id" className={`${styles.switch} ${className ?? ''}`}>
+    <label
+      data-testid={otherProps['data-testid']}
+      htmlFor="switch-id"
+      className={`${styles.switch} ${className ?? ''}`}
+    >
       <span className="hidden">Switch Button</span>
 
       <input id="switch-id" type="checkbox" checked={isToggled} onChange={onChange} />

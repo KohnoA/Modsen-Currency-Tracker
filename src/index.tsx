@@ -8,12 +8,12 @@ import ErrorBoundary from './components/ErrorBoundary';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <ErrorBoundary>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <BrowserRouter>
           <App />
-        </ErrorBoundary>
-      </BrowserRouter>
-    </Provider>
+        </BrowserRouter>
+      </Provider>
+    </ErrorBoundary>
   </StrictMode>,
 );

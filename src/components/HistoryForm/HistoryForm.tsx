@@ -1,28 +1,15 @@
 import { ChangeEvent, Component, FormEvent } from 'react';
-import { Button, Input, Select } from '../UI';
+import { Button, ErrorMessage, Input, Select } from '../UI';
 import { getOhlcv } from '@/services';
-import { getDateTwoMonthsAgo } from '@/utils';
-import { DEFAULT_OHLC_PAIRS } from '@/db/defaultOhlcPairs';
-import { OhlcvResponseType } from '@/types';
+import { HistoryFormProps, HistoryFormState } from './HistoryForm.types';
 import styles from './HistoryForm.module.scss';
-
-const PAIR_OPTIONS = DEFAULT_OHLC_PAIRS.map((pair) => ({ value: pair, label: pair }));
-const DEFAULT_PAIR = DEFAULT_OHLC_PAIRS[0];
-const DEFAULT_DATE = '';
-const MIN_DATE = '2018-01-01';
-const MAX_DATE = getDateTwoMonthsAgo();
-
-type HistoryFormProps = {
-  onSubmit: (pair: string, data: OhlcvResponseType[]) => void;
-};
-
-type HistoryFormState = {
-  pair: string;
-  pairOptions: typeof PAIR_OPTIONS;
-  date: string;
-  isLoading: boolean;
-  error: Error | null;
-};
+import {
+  DEFAULT_DATE,
+  DEFAULT_PAIR,
+  MAX_DATE,
+  MIN_DATE,
+  PAIR_OPTIONS,
+} from './HistoryForm.constants';
 
 export default class HistoryForm extends Component<HistoryFormProps, HistoryFormState> {
   constructor(props: HistoryFormProps) {
@@ -73,7 +60,11 @@ export default class HistoryForm extends Component<HistoryFormProps, HistoryForm
     const { pair, pairOptions, date, isLoading, error } = this.state;
 
     return (
-      <form onSubmit={this.onSubmitHanlder} className={styles.historyForm}>
+      <form
+        data-testid="history-form"
+        onSubmit={this.onSubmitHanlder}
+        className={styles.historyForm}
+      >
         <h2 className={styles.historyForm__title}>Create Your Chart</h2>
 
         <p className={`text-light-s ${styles.historyForm__desc}`}>
@@ -83,6 +74,7 @@ export default class HistoryForm extends Component<HistoryFormProps, HistoryForm
 
         <section className={styles.formFields}>
           <Select
+            data-testid="currency-pair"
             disabled={isLoading}
             value={pair}
             onChange={this.onChangePair}
@@ -91,6 +83,7 @@ export default class HistoryForm extends Component<HistoryFormProps, HistoryForm
             options={pairOptions}
           />
           <Input
+            data-testid="trades-date"
             disabled={isLoading}
             value={date}
             onChange={this.onChangeDate}
@@ -103,11 +96,11 @@ export default class HistoryForm extends Component<HistoryFormProps, HistoryForm
           />
         </section>
 
-        {error && (
-          <p className={`text-light-m ${styles.error}`}>Something went wrong, try again later</p>
-        )}
+        {error && <ErrorMessage />}
 
-        <Button isLoading={isLoading}>Build Chart</Button>
+        <Button data-testid="submit-chart" disabled={isLoading} isLoading={isLoading}>
+          Build Chart
+        </Button>
       </form>
     );
   }

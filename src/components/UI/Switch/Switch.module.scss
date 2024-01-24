@@ -38,11 +38,9 @@
 
   border: 2px solid $fontDarkTheme;
   border-radius: 25px;
-  overflow: hidden;
 
   &__lever {
     position: absolute;
-    top: -2px;
     bottom: -2px;
     left: -2px;
 
@@ -52,5 +50,6 @@
     border-radius: 50%;
     border: 2px solid $fontDarkTheme;
     transition: transform $transitionDuration;
+    background-color: $bodyDarkTheme;
   }
 }

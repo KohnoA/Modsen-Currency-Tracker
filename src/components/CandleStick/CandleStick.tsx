@@ -13,7 +13,13 @@ export default class CandleStick extends PureComponent<CandleStickProps> {
     const { data } = this.props;
 
     return (
-      <ReactApexChart className={styles.chart} options={options} series={data} type="candlestick" />
+      <ReactApexChart
+        data-testid="candle-stick"
+        className={`chart ${styles.chart}`}
+        options={options}
+        series={data}
+        type="candlestick"
+      />
     );
   }
 }

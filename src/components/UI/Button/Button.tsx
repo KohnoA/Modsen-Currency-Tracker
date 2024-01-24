@@ -9,13 +9,23 @@ type ButtonProps = {
   href?: string;
   disabled?: boolean;
   onClick?: () => void;
+  'data-testid'?: string;
 };
 
-function Button({ className, children, isLoading, disabled, href, onClick }: ButtonProps) {
+function Button({
+  className,
+  children,
+  isLoading,
+  disabled,
+  href,
+  onClick,
+  ...other
+}: ButtonProps) {
   const Component = href ? 'a' : 'button';
 
   return (
     <Component
+      data-testid={other['data-testid']}
       className={`text-regular-s ${styles.button} ${isLoading ? styles.button_load : ''} ${
         disabled ? styles.button_disabled : ''
       } ${className ?? ''}`}
