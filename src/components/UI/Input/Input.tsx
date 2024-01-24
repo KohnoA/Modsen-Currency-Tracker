@@ -4,6 +4,7 @@ import styles from './Input.module.scss';
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   labelName?: string;
   className?: string;
+  'data-testid'?: string;
 };
 
 function Input({ labelName, className, ...inputProps }: InputProps) {

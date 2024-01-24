@@ -11,7 +11,7 @@ type CurrencyCardProps = CurrenciesItemType & {
 
 function CurrencyCard({ name, rate, code, Icon, className }: CurrencyCardProps) {
   return (
-    <li className={`${styles.item} ${className ?? ''}`}>
+    <li data-testid="currency-card" className={`${styles.item} ${className ?? ''}`}>
       <Link to={`/?${CURRENCY_MODAL_QUERY_KEY}=${code}`} className={styles.card}>
         <Icon className={styles.card__icon} width={80} height={80} />
 

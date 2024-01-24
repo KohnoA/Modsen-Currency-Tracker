@@ -49,6 +49,7 @@ function ConversionForm({ base }: ConversionFormProps) {
         </p>
 
         <Input
+          data-testid="currency-count"
           disabled={isLoading}
           onChange={changeCountHandler}
           className={styles.base__count}
@@ -74,12 +75,12 @@ function ConversionForm({ base }: ConversionFormProps) {
       )}
 
       {result && (
-        <p className={styles.result}>
+        <p data-testid="result-conversion" className={styles.result}>
           <b>{target}:</b> {result}
         </p>
       )}
 
-      <Button isLoading={isLoading} disabled={isLoading}>
+      <Button data-testid="get-rate" isLoading={isLoading} disabled={isLoading}>
         Get Latest Rate
       </Button>
     </form>

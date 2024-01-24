@@ -1,6 +1,10 @@
 /// <reference types="cypress" />
 
 describe('Testing the chart module', () => {
+  beforeEach('Mock Server', () => {
+    cy.intercept('https://rest.coinapi.io/v1/ohlcv/**', { fixture: 'ohlc.json' }).as('coinApi');
+  });
+
   it('The graph should be displayed', () => {
     cy.visit('/timeline');
 
@@ -15,6 +19,16 @@ describe('Testing the chart module', () => {
     cy.contains('Build Chart').click();
     cy.get('[data-testid=modal]');
     cy.contains('Create Your Chart').should('exist');
+  });
+
+  it('The modal window with the form should close', () => {
+    cy.visit('/timeline');
+
+    cy.contains('Build Chart').click();
+    cy.get('[data-testid=modal]');
+    cy.contains('Create Your Chart').should('exist');
+    cy.contains('Close Modal').click();
+    cy.get('[data-testid=modal]').should('not.exist');
   });
 
   it('The date must be no more than two months from the current one', () => {
@@ -41,7 +55,6 @@ describe('Testing the chart module', () => {
     cy.get('select').select('LTC/BTC').should('have.value', 'LTC/BTC');
     cy.get('input[type=date]').type('2022-01-23').should('have.value', '2022-01-23');
 
-    cy.intercept('https://rest.coinapi.io/v1/ohlcv/**').as('coinApi');
     cy.get('[data-testid=submit-chart]').click();
     cy.wait('@coinApi');
 
