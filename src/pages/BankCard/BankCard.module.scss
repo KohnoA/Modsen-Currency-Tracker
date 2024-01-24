@@ -1,5 +1,9 @@
 @import '../../styles/vars';
 
+.wrapper {
+  position: relative;
+}
+
 .updateDate {
   margin: 0 auto;
   margin-bottom: 65px;
@@ -21,6 +25,15 @@
 
 .map {
   margin-bottom: 90px;
+}
+
+.emptyMsg {
+  position: absolute;
+  z-index: 1003;
+  left: 50%;
+  bottom: -40px;
+
+  transform: translateX(-50%);
 }
 
 @media (max-width: $tablet) {

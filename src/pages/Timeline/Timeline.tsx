@@ -13,12 +13,12 @@ import styles from './Timeline.module.scss';
 const TIME_NOW = getTimeFromDate(Date.now());
 const DEFAULT_PAIR = DEFAULT_OHLC_PAIRS[0];
 
-type TimelineStateType = {
+type TimelineState = {
   showModal: boolean;
   pair: string;
 };
 
-export default class Timeline extends PureComponent<{}, TimelineStateType> {
+export default class Timeline extends PureComponent<{}, TimelineState> {
   observer: Observer<CandleStickData>;
 
   candleStickData: CandleStickSubscriber;
@@ -33,8 +33,14 @@ export default class Timeline extends PureComponent<{}, TimelineStateType> {
 
     this.observer = new Observer();
     this.candleStickData = new CandleStickSubscriber();
+  }
 
+  componentDidMount(): void {
     this.observer.subscribe(this.candleStickData);
+  }
+
+  componentWillUnmount(): void {
+    this.observer.unsubscribe(this.candleStickData);
   }
 
   openModalHanlder = () => {

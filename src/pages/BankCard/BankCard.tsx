@@ -34,10 +34,11 @@ export default class BankCard extends PureComponent<{}, BankCardState> {
       popupDesc: `${name} ${currencies}`,
       coord,
     }));
+    const hasBanks = !!banksCoords.length;
 
     return (
       <main>
-        <div className="container">
+        <div className={`container ${styles.wrapper}`}>
           <UpdateDate className={styles.updateDate} time={TIME_NOW} />
 
           <div className={styles.elasticSearch}>
@@ -50,6 +51,12 @@ export default class BankCard extends PureComponent<{}, BankCardState> {
               placeholder="Currency search..."
               options={ELASTIC_SEARCH_OPTIONS}
             />
+
+            {!hasBanks && (
+              <p className={`text-light-s ${styles.emptyMsg}`}>
+                Sorry there are no banks with this currency
+              </p>
+            )}
           </div>
         </div>
 
