@@ -1,8 +1,9 @@
 import FacebookIcon from '@/assets/icons/facebook-icon.svg';
-import TwitterIcon from '@/assets/icons/twitter-icon.svg';
 import InstagramIcon from '@/assets/icons/instagram-icon.svg';
-import styles from './SocialList.module.scss';
+import TwitterIcon from '@/assets/icons/twitter-icon.svg';
 import { MODSEN_LINK } from '@/constants';
+
+import styles from './SocialList.module.scss';
 
 const SOCIAL_LIST = [
   { Icon: FacebookIcon, label: 'Facebook', link: MODSEN_LINK },

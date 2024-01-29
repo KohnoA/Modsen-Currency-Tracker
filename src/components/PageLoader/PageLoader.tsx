@@ -1,4 +1,5 @@
 import { Spinner } from '../UI';
+
 import styles from './PageLoader.module.scss';
 
 export default function PageLoader() {

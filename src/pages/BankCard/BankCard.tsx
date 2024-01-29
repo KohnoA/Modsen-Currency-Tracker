@@ -1,9 +1,11 @@
 import { PureComponent } from 'react';
-import UpdateDate from '@/components/UpdateDate';
-import { getTimeFromDate, getBanksCurrencies, filterBanksByCurrencies } from '@/utils';
+
 import ElasticSearch from '@/components/ElasticSearch';
 import MyMap from '@/components/MyMap';
+import UpdateDate from '@/components/UpdateDate';
 import { BANKS_DATA } from '@/db/banksData';
+import { filterBanksByCurrencies, getBanksCurrencies, getTimeFromDate } from '@/utils';
+
 import styles from './BankCard.module.scss';
 
 const TIME_NOW = getTimeFromDate(Date.now());

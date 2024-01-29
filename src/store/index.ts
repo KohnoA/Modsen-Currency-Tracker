@@ -1,4 +1,5 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+
 import themeReducer from './slices/themeSlice';
 import { listenerMiddleware } from './middleware';
 

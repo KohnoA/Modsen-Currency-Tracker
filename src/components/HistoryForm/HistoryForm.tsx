@@ -1,8 +1,9 @@
 import { ChangeEvent, Component, FormEvent } from 'react';
-import { Button, ErrorMessage, Input, Select } from '../UI';
+
 import { getOhlcv } from '@/services';
-import { HistoryFormProps, HistoryFormState } from './HistoryForm.types';
-import styles from './HistoryForm.module.scss';
+
+import { Button, ErrorMessage, Input, Select } from '../UI';
+
 import {
   DEFAULT_DATE,
   DEFAULT_PAIR,
@@ -10,6 +11,9 @@ import {
   MIN_DATE,
   PAIR_OPTIONS,
 } from './HistoryForm.constants';
+import { HistoryFormProps, HistoryFormState } from './HistoryForm.types';
+
+import styles from './HistoryForm.module.scss';
 
 export default class HistoryForm extends Component<HistoryFormProps, HistoryFormState> {
   constructor(props: HistoryFormProps) {

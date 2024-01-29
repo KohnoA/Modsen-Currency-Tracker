@@ -1,4 +1,5 @@
 import { OhlcvResponseType } from '@/types';
+
 import { PAIR_OPTIONS } from './HistoryForm.constants';
 
 export type HistoryFormProps = {

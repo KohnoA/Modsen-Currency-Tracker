@@ -1,6 +1,8 @@
 import { memo } from 'react';
-import styles from './Promo.module.scss';
+
 import Logo from '@/assets/icons/logo.svg';
+
+import styles from './Promo.module.scss';
 
 function Promo() {
   return (

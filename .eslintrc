@@ -3,18 +3,28 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:react/jsx-runtime",
-    "prettier"
-  ],
+  "extends": ["airbnb", "airbnb-typescript", "plugin:react/jsx-runtime", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort", "import"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^@?\\w"],
+          ["^(@|components)(/.*|$)"],
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.?(css)$"]
+        ]
+      }
+    ],
     "no-restricted-exports": ["off", { "restrictedNamedExports": ["default"] }],
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",

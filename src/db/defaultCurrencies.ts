@@ -1,11 +1,11 @@
-import DollarIcon from '@/assets/icons/dollar-icon.svg';
-import PesoIcon from '@/assets/icons/peso-argentino-icon.svg';
+import AustrallianDollarIcon from '@/assets/icons/australian-dollar-icon.svg';
+import BitcoinIcon from '@/assets/icons/bitcoin-icon.svg';
 import CanadianDollarIcon from '@/assets/icons/canadian-dollar-icon.svg';
+import DollarIcon from '@/assets/icons/dollar-icon.svg';
+import EuroIcon from '@/assets/icons/euro-icon.svg';
+import PesoIcon from '@/assets/icons/peso-argentino-icon.svg';
 import YenIcon from '@/assets/icons/yen-Icon.svg';
 import YuanIcon from '@/assets/icons/yuan-Icon.svg';
-import AustrallianDollarIcon from '@/assets/icons/australian-dollar-icon.svg';
-import EuroIcon from '@/assets/icons/euro-icon.svg';
-import BitcoinIcon from '@/assets/icons/bitcoin-icon.svg';
 
 export const DEFAULT_QUOTES = [
   {

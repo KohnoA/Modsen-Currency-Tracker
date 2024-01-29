@@ -1,6 +1,7 @@
 import Layout from './layout';
-import './styles/index.scss';
 import Router from './router';
+
+import './styles/index.scss';
 
 export default function App() {
   return (

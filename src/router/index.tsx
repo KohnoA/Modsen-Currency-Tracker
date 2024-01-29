@@ -1,11 +1,12 @@
-import { Routes, Route } from 'react-router-dom';
-import { AppRoutes } from './routes';
+import { Route, Routes } from 'react-router-dom';
 
-import { TimelineLazy } from '@/pages/Timeline';
-import { HomeLazy } from '@/pages/Home';
-import { ContactsLazy } from '@/pages/Contacts';
 import { BankCardLazy } from '@/pages/BankCard';
+import { ContactsLazy } from '@/pages/Contacts';
+import { HomeLazy } from '@/pages/Home';
 import { NotFoundLazy } from '@/pages/NotFound';
+import { TimelineLazy } from '@/pages/Timeline';
+
+import { AppRoutes } from './routes';
 
 const router = [
   { path: AppRoutes.HOME, element: <HomeLazy /> },

@@ -1,13 +1,16 @@
 import { PureComponent } from 'react';
-import UpdateDate from '@/components/UpdateDate';
-import HistoryForm from '@/components/HistoryForm';
+
 import CandleStick from '@/components/CandleStick';
+import HistoryForm from '@/components/HistoryForm';
 import { Button, Modal } from '@/components/UI';
+import UpdateDate from '@/components/UpdateDate';
 import { DEFAULT_OHLC_PAIRS } from '@/db/defaultOhlcPairs';
-import { getTimeFromDate } from '@/utils';
-import { Observer, CandleStickSubscriber } from './utils';
 import { CandleStickData, OhlcvResponseType } from '@/types';
+import { getTimeFromDate } from '@/utils';
 import { ohlcvResponseToChartData } from '@/utils/ohlcvResponseToChartData';
+
+import { CandleStickSubscriber, Observer } from './utils';
+
 import styles from './Timeline.module.scss';
 
 const TIME_NOW = getTimeFromDate(Date.now());

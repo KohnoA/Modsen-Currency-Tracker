@@ -1,6 +1,8 @@
-import { Component, ReactNode, ErrorInfo } from 'react';
-import styles from './ErrorBoundary.module.scss';
+import { Component, ErrorInfo, ReactNode } from 'react';
+
 import { ErrorMessage, Modal } from '../UI';
+
+import styles from './ErrorBoundary.module.scss';
 
 type ErrorBoundaryProps = {
   children: ReactNode;

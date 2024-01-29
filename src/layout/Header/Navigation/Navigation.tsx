@@ -1,13 +1,15 @@
 import { KeyboardEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Switch } from '@/components/UI';
+
+import CrossIcon from '@/assets/icons/cross-icon.svg';
 import Logo from '@/assets/icons/logo-small.svg';
+import { Switch } from '@/components/UI';
 import { AppRoutes } from '@/router/routes';
-import styles from './Navigation.module.scss';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { selectTheme } from '@/store/selectors';
 import { changeTheme } from '@/store/slices/themeSlice';
-import CrossIcon from '@/assets/icons/cross-icon.svg';
+
+import styles from './Navigation.module.scss';
 
 const pagesList = [
   { page: 'Home', path: AppRoutes.HOME },

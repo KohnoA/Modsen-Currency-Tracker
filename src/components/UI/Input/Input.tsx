@@ -1,4 +1,5 @@
 import { InputHTMLAttributes, memo, useId } from 'react';
+
 import styles from './Input.module.scss';
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {

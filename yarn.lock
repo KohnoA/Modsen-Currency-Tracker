@@ -4061,11 +4061,6 @@ eslint-module-utils@^2.8.0:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-import-sort@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import-sort/-/eslint-plugin-import-sort-0.0.0.tgz#31e6bc79f916196c0eba5618740e939af7bb704f"
-  integrity sha512-+b1QIojA4mn31xQuI+oOx+n7+VqTPsMMWcasFJqpHwIfgFkXGADVvuiLAOYIIydaYwdiiwFk43ha5sKmOZBbRQ==
-
 eslint-plugin-import@^2.25.3:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.29.1.tgz#d45b37b5ef5901d639c15270d74d46d161150643"
@@ -4137,6 +4132,11 @@ eslint-plugin-react@^7.28.0:
     resolve "^2.0.0-next.4"
     semver "^6.3.1"
     string.prototype.matchall "^4.0.8"
+
+eslint-plugin-simple-import-sort@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-simple-import-sort/-/eslint-plugin-simple-import-sort-10.0.0.tgz#cc4ceaa81ba73252427062705b64321946f61351"
+  integrity sha512-AeTvO9UCMSNzIHRkg8S6c3RPy5YEwKWSQPx3DYghLedo2ZQxowPFLGDN1AZ2evfg6r6mjBSZSLxLFsWSu3acsw==
 
 eslint-scope@5.1.1:
   version "5.1.1"

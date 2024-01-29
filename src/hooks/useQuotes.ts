@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
 import { CurrenciesItemType } from '@/types';
 import { getCurrenciesRateCached, getTimeFromDate, mergeQuotes } from '@/utils';

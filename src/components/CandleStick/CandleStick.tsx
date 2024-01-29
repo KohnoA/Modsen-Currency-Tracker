@@ -1,8 +1,11 @@
 import { PureComponent } from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { options } from './CandleStick.options';
-import styles from './CandleStick.module.scss';
+
 import { CandleStickData } from '@/types';
+
+import { options } from './CandleStick.options';
+
+import styles from './CandleStick.module.scss';
 
 type CandleStickProps = {
   data: CandleStickData;

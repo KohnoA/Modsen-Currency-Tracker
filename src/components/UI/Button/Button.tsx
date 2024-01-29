@@ -1,6 +1,8 @@
-import { ReactNode, memo } from 'react';
-import styles from './Button.module.scss';
+import { memo, ReactNode } from 'react';
+
 import Spinner from '../Spinner/Spinner';
+
+import styles from './Button.module.scss';
 
 type ButtonProps = {
   className?: string;

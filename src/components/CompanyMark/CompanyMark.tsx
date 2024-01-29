@@ -1,5 +1,7 @@
 import { memo } from 'react';
+
 import Logo from '@/assets/icons/logo-small.svg';
+
 import styles from './CompanyMark.module.scss';
 
 type CompanyMarkProps = {

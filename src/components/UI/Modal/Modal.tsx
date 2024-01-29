@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 
+import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { ReactNode, KeyboardEvent, MouseEvent } from 'react';
+
 import CrossIcon from '@/assets/icons/cross-icon.svg';
-import styles from './Modal.module.scss';
-import { selectTheme } from '@/store/selectors';
 import { useAppSelector } from '@/store/hooks';
+import { selectTheme } from '@/store/selectors';
+
+import styles from './Modal.module.scss';
 
 type ModalProps = {
   isActive: boolean;

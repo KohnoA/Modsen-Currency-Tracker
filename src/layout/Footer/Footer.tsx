@@ -1,8 +1,11 @@
 import { memo, useMemo } from 'react';
+
 import CompanyMark from '@/components/CompanyMark';
-import styles from './Footer.module.scss';
-import LinkGroup from './LinkGroup';
+
 import { FOOTER_LINKS_GROUPS } from './constants';
+import LinkGroup from './LinkGroup';
+
+import styles from './Footer.module.scss';
 
 function Footer() {
   const linksGroups = useMemo(() => FOOTER_LINKS_GROUPS, []);

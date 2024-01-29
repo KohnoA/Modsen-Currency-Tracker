@@ -1,8 +1,11 @@
 import { ChangeEvent, FormEvent, memo, useState } from 'react';
-import { Button, ErrorMessage, Input, Select } from '../UI';
-import styles from './ConversionForm.module.scss';
+
 import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
 import { useConverter } from '@/hooks/useConverter';
+
+import { Button, ErrorMessage, Input, Select } from '../UI';
+
+import styles from './ConversionForm.module.scss';
 
 type ConversionFormProps = {
   base?: string | null;

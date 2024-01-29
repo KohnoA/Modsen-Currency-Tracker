@@ -1,5 +1,7 @@
 import { memo } from 'react';
+
 import SpinnerIcon from '@/assets/icons/spinner-icon.svg';
+
 import styles from './Spinner.module.scss';
 
 type SpinnerProps = {

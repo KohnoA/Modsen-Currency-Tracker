@@ -1,4 +1,5 @@
-import { SelectHTMLAttributes, memo, useId } from 'react';
+import { memo, SelectHTMLAttributes, useId } from 'react';
+
 import styles from './Select.module.scss';
 
 type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {

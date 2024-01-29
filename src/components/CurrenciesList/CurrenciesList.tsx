@@ -1,7 +1,10 @@
 import { memo } from 'react';
-import styles from './CurrenciesList.module.scss';
-import CurrencyCard from '../CurrencyCard';
+
 import { CurrenciesItemType } from '@/types';
+
+import CurrencyCard from '../CurrencyCard';
+
+import styles from './CurrenciesList.module.scss';
 
 type CurrenciesListProps = {
   title: string;
