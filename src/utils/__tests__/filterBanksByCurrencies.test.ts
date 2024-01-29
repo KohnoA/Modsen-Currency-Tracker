@@ -1,5 +1,6 @@
-import { filterBanksByCurrencies } from '../filterBanksByCurrencies';
 import { BANKS_DATA } from '@/db/banksData';
+
+import { filterBanksByCurrencies } from '../filterBanksByCurrencies';
 
 describe('Testing filterBanksByCurrencies function', () => {
   it('Should return relevant banks', () => {

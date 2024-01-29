@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import CurrenciesList from './CurrenciesList';
-import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
-import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+
+import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
+
+import '@testing-library/jest-dom';
+
+import CurrenciesList from './CurrenciesList';
 
 describe('Testing CurrenciesList conponent', () => {
   beforeEach(() =>

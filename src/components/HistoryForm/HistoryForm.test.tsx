@@ -1,9 +1,12 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import HistoryForm from './HistoryForm';
 import axios from 'axios';
-import { MAX_DATE, MIN_DATE } from './HistoryForm.constants';
+
 import { DEFAULT_OHLC_PAIRS } from '@/db/defaultOhlcPairs';
+
 import '@testing-library/jest-dom';
+
+import HistoryForm from './HistoryForm';
+import { MAX_DATE, MIN_DATE } from './HistoryForm.constants';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

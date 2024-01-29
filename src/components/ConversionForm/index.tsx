@@ -5,7 +5,7 @@ import { useConverter } from '@/hooks/useConverter';
 
 import { Button, ErrorMessage, Input, Select } from '../UI';
 
-import styles from './ConversionForm.module.scss';
+import styles from './styles.module.scss';
 
 type ConversionFormProps = {
   base?: string | null;
@@ -16,7 +16,7 @@ const DEFAULT_BASE = 'USD';
 const DEFAULT_TARGET = DEFAULT_SELECT_OPTIONS[1].value;
 const DEFAULT_COUNT = 1;
 
-function ConversionForm({ base }: ConversionFormProps) {
+export const ConversionForm = memo(({ base }: ConversionFormProps) => {
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
   const [count, setCount] = useState<number>(DEFAULT_COUNT);
   const { result, isLoading, error, converter, reset } = useConverter();
@@ -87,6 +87,4 @@ function ConversionForm({ base }: ConversionFormProps) {
       </Button>
     </form>
   );
-}
-
-export default memo(ConversionForm);
+});

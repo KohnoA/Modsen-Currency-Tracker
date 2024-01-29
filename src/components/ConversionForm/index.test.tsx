@@ -1,9 +1,12 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import ConversionForm from './ConversionForm';
 import axios from 'axios';
+
 import { currenciesResponseMock } from '@/__mocks__/currenciesResponseMock';
 import { truncateNumber } from '@/utils';
+
 import '@testing-library/jest-dom';
+
+import { ConversionForm } from '.';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

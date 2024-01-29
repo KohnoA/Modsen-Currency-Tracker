@@ -1,6 +1,8 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import ElasticSearch from './ElasticSearch';
+
 import '@testing-library/jest-dom';
+
+import ElasticSearch from './ElasticSearch';
 
 describe('Testing CanldeStick component', () => {
   beforeEach(() => render(<ElasticSearch options={['Euro', 'Yuan']} onChange={jest.fn} />));

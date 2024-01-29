@@ -1,10 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import CurrencyCard from './CurrencyCard';
-import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
-import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { truncateNumber } from '@/utils';
+import { render, screen } from '@testing-library/react';
+
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
+import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
+import { truncateNumber } from '@/utils';
+
+import '@testing-library/jest-dom';
+
+import CurrencyCard from './CurrencyCard';
 
 describe('Testing CurrenciesList conponent', () => {
   beforeEach(() => render(<CurrencyCard {...DEFAULT_QUOTES[0]} />, { wrapper: BrowserRouter }));
