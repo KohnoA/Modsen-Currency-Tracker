@@ -5,7 +5,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 import 'leaflet/dist/leaflet.css';
-import styles from './MyMap.module.scss';
+import styles from './styles.module.scss';
 
 const DefaultIcon = L.icon({
   iconUrl: icon,
@@ -27,7 +27,7 @@ type MyMapProps = {
 const DEFAULT_CENTER_COORD: [number, number] = [53.895384, 27.558456];
 const DEFAULT_ZOOM = 11.5;
 
-export default class MyMap extends PureComponent<MyMapProps> {
+export class MyMap extends PureComponent<MyMapProps> {
   render() {
     const { className, center, markers, zoom } = this.props;
 
