@@ -17,7 +17,7 @@ export default {
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.jsx', '.tsx', '.js', '.ts', 'css', 'scss'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
