@@ -1,6 +1,6 @@
 import { OhlcvResponseType } from '@/types';
 
-import { PAIR_OPTIONS } from './HistoryForm.constants';
+import { PAIR_OPTIONS } from './constants';
 
 export type HistoryFormProps = {
   onSubmit: (pair: string, data: OhlcvResponseType[]) => void;

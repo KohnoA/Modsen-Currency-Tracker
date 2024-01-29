@@ -4,18 +4,12 @@ import { getOhlcv } from '@/services';
 
 import { Button, ErrorMessage, Input, Select } from '../UI';
 
-import {
-  DEFAULT_DATE,
-  DEFAULT_PAIR,
-  MAX_DATE,
-  MIN_DATE,
-  PAIR_OPTIONS,
-} from './HistoryForm.constants';
-import { HistoryFormProps, HistoryFormState } from './HistoryForm.types';
+import { DEFAULT_DATE, DEFAULT_PAIR, MAX_DATE, MIN_DATE, PAIR_OPTIONS } from './constants';
+import { HistoryFormProps, HistoryFormState } from './types';
 
-import styles from './HistoryForm.module.scss';
+import styles from './styles.module.scss';
 
-export default class HistoryForm extends Component<HistoryFormProps, HistoryFormState> {
+export class HistoryForm extends Component<HistoryFormProps, HistoryFormState> {
   constructor(props: HistoryFormProps) {
     super(props);
 

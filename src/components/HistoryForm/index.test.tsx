@@ -1,12 +1,12 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import axios from 'axios';
 
-import { DEFAULT_OHLC_PAIRS } from '@/db/defaultOhlcPairs';
+import { DEFAULT_OHLC_PAIRS } from '@/constants';
 
 import '@testing-library/jest-dom';
 
-import HistoryForm from './HistoryForm';
-import { MAX_DATE, MIN_DATE } from './HistoryForm.constants';
+import { MAX_DATE, MIN_DATE } from './constants';
+import { HistoryForm } from '.';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -45,7 +45,7 @@ describe('Testing HistoryForm component', () => {
     expect(inputDate).toBeInvalid();
   });
 
-  it('', async () => {
+  it('Should process the request correctly', async () => {
     const inputDate = screen.getByTestId('trades-date');
     const tradesPair = screen.getByTestId('currency-pair');
     mockedAxios.get.mockImplementation(() => Promise.resolve({ data: ohlcvReponseMock }));

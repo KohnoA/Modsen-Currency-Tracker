@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 
 import { CandleStick } from '@/components/CandleStick';
-import HistoryForm from '@/components/HistoryForm';
+import { HistoryForm } from '@/components/HistoryForm';
 import { Button, Modal } from '@/components/UI';
 import UpdateDate from '@/components/UpdateDate';
 import { DEFAULT_OHLC_PAIRS } from '@/constants';
