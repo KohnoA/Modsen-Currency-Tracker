@@ -2,18 +2,18 @@ import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
-import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
+import { DEFAULT_CURRENCIES } from '@/constants/defaultCurrencies';
 import { truncateNumber } from '@/utils';
 
 import '@testing-library/jest-dom';
 
-import CurrencyCard from './CurrencyCard';
+import { CurrencyCard } from '.';
 
 describe('Testing CurrenciesList conponent', () => {
-  beforeEach(() => render(<CurrencyCard {...DEFAULT_QUOTES[0]} />, { wrapper: BrowserRouter }));
+  beforeEach(() => render(<CurrencyCard {...DEFAULT_CURRENCIES[0]} />, { wrapper: BrowserRouter }));
 
   it('Should be displayed', async () => {
-    const { name, rate, code } = DEFAULT_QUOTES[0];
+    const { name, rate, code } = DEFAULT_CURRENCIES[0];
 
     expect(screen.getByTestId('currency-card')).toBeInTheDocument();
 
