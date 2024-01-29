@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import ConversionForm from '@/components/ConversionForm';
-import CurrenciesList from '@/components/CurrenciesList';
+import { ConversionForm } from '@/components/ConversionForm';
+import { CurrenciesList } from '@/components/CurrenciesList';
 import { Modal } from '@/components/UI';
 import UpdateDate from '@/components/UpdateDate';
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';

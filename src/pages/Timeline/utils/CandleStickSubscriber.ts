@@ -1,4 +1,4 @@
-import { DEFAULT_CHART_DATA } from '@/db/defaultChartData';
+import { DEFAULT_CHART_DATA } from '@/constants';
 import { type CandleStickData } from '@/types';
 
 import { Subscriber } from './observer';

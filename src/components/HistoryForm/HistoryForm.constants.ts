@@ -1,4 +1,4 @@
-import { DEFAULT_OHLC_PAIRS } from '@/db/defaultOhlcPairs';
+import { DEFAULT_OHLC_PAIRS } from '@/constants';
 import { getDateTwoMonthsAgo } from '@/utils';
 
 export const PAIR_OPTIONS = DEFAULT_OHLC_PAIRS.map((pair) => ({ value: pair, label: pair }));

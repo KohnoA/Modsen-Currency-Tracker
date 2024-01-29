@@ -5,7 +5,7 @@ import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 import type { CurrenciesItemType } from '@/types';
 import { truncateNumber } from '@/utils';
 
-import styles from './CurrencyCard.module.scss';
+import styles from './styles.module.scss';
 
 type CurrencyCardProps = CurrenciesItemType & {
   className?: string;

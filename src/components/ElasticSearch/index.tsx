@@ -3,11 +3,11 @@ import { ChangeEvent, FormEvent, KeyboardEvent, PureComponent } from 'react';
 import SearchIcon from '@/assets/icons/search-icon.svg';
 import { filterOptions } from '@/utils';
 
-import { ElasticSearchProps, ElasticSearchState } from './ElasticSearch.types';
+import { ElasticSearchProps, ElasticSearchState } from './types';
 
-import styles from './ElasticSearch.module.scss';
+import styles from './styles.module.scss';
 
-export default class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSearchState> {
+export class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSearchState> {
   constructor(props: ElasticSearchProps) {
     super(props);
 

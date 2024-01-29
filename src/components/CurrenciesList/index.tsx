@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import { CurrenciesItemType } from '@/types';
 
-import CurrencyCard from '../CurrencyCard';
+import { CurrencyCard } from '../CurrencyCard';
 
 import styles from './styles.module.scss';
 
