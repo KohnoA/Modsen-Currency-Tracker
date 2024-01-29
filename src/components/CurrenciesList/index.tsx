@@ -4,14 +4,14 @@ import { CurrenciesItemType } from '@/types';
 
 import CurrencyCard from '../CurrencyCard';
 
-import styles from './CurrenciesList.module.scss';
+import styles from './styles.module.scss';
 
 type CurrenciesListProps = {
   title: string;
   data: CurrenciesItemType[];
 };
 
-function CurrenciesList({ title, data }: CurrenciesListProps) {
+export const CurrenciesList = memo(({ title, data }: CurrenciesListProps) => {
   return (
     <section data-testid="currencies-list">
       <h4 data-testid="currencies-list-title" className={`text-light-xl ${styles.title}`}>
@@ -25,6 +25,4 @@ function CurrenciesList({ title, data }: CurrenciesListProps) {
       </ul>
     </section>
   );
-}
-
-export default memo(CurrenciesList);
+});
