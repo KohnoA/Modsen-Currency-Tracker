@@ -7,7 +7,7 @@ import 'webpack-dev-server';
 export default merge<Configuration>(common, {
   mode: 'development',
 
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
 
   devServer: {
     hot: true,

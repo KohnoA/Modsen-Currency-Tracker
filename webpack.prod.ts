@@ -7,9 +7,11 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 export default merge<Configuration>(common, {
   mode: 'production',
 
+  devtool: 'eval',
+
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
+    minimizer: [new TerserPlugin({ parallel: true })],
   },
 
   module: {

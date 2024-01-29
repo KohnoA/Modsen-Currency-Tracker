@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 dotenv.config();
 
 export default {
-  entry: './src/index.tsx',
+  entry: path.resolve(__dirname, 'src/index.tsx'),
 
   output: {
     filename: '[name].[contenthash].js',
