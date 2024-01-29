@@ -13,7 +13,7 @@ const router = [
   { path: AppRoutes.TIMELINE, element: <TimelineLazy /> },
   { path: AppRoutes.BANK_CARD, element: <BankCardLazy /> },
   { path: AppRoutes.CONTACTS, element: <ContactsLazy /> },
-  { path: '*', element: <NotFoundLazy /> },
+  { path: AppRoutes.NOT_FOUND, element: <NotFoundLazy /> },
 ];
 
 export default function Router() {
