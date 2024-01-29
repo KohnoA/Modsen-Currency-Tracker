@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 
-import CompanyMark from '@/components/CompanyMark';
+import { CompanyMark } from '@/components/CompanyMark';
 
 import { FOOTER_LINKS_GROUPS } from './constants';
 import LinkGroup from './LinkGroup';
