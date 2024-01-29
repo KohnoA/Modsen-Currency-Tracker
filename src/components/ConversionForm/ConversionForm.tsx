@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, memo, useState } from 'react';
 
-import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
+import { DEFAULT_CURRENCIES } from '@/constants';
 import { useConverter } from '@/hooks/useConverter';
 
 import { Button, ErrorMessage, Input, Select } from '../UI';
@@ -11,7 +11,7 @@ type ConversionFormProps = {
   base?: string | null;
 };
 
-const DEFAULT_SELECT_OPTIONS = DEFAULT_QUOTES.map(({ code }) => ({ value: code, label: code }));
+const DEFAULT_SELECT_OPTIONS = DEFAULT_CURRENCIES.map(({ code }) => ({ value: code, label: code }));
 const DEFAULT_BASE = 'USD';
 const DEFAULT_TARGET = DEFAULT_SELECT_OPTIONS[1].value;
 const DEFAULT_COUNT = 1;

@@ -7,7 +7,7 @@ import PesoIcon from '@/assets/icons/peso-argentino-icon.svg';
 import YenIcon from '@/assets/icons/yen-Icon.svg';
 import YuanIcon from '@/assets/icons/yuan-Icon.svg';
 
-export const DEFAULT_QUOTES = [
+export const DEFAULT_CURRENCIES = [
   {
     Icon: DollarIcon,
     name: 'Commercial Dollar',

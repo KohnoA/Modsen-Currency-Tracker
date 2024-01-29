@@ -1,8 +1,4 @@
-type BankDataType = {
-  name: string;
-  coord: [number, number];
-  currencies: string[];
-};
+import { BankDataType } from '@/types';
 
 export const BANKS_DATA: BankDataType[] = [
   { name: 'AlfaBank', coord: [53.90129, 27.46167], currencies: ['USD', 'ARS'] },

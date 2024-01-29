@@ -3,7 +3,7 @@ import { PureComponent } from 'react';
 import ElasticSearch from '@/components/ElasticSearch';
 import MyMap from '@/components/MyMap';
 import UpdateDate from '@/components/UpdateDate';
-import { BANKS_DATA } from '@/db/banksData';
+import { BANKS_DATA } from '@/constants';
 import { filterBanksByCurrencies, getBanksCurrencies, getTimeFromDate } from '@/utils';
 
 import styles from './BankCard.module.scss';
