@@ -3,15 +3,15 @@ import ReactApexChart from 'react-apexcharts';
 
 import { CandleStickData } from '@/types';
 
-import { options } from './CandleStick.options';
+import { options } from './options';
 
-import styles from './CandleStick.module.scss';
+import styles from './styles.module.scss';
 
 type CandleStickProps = {
   data: CandleStickData;
 };
 
-export default class CandleStick extends PureComponent<CandleStickProps> {
+export class CandleStick extends PureComponent<CandleStickProps> {
   render() {
     const { data } = this.props;
 

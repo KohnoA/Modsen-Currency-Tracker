@@ -1,6 +1,6 @@
 import { PureComponent } from 'react';
 
-import CandleStick from '@/components/CandleStick';
+import { CandleStick } from '@/components/CandleStick';
 import HistoryForm from '@/components/HistoryForm';
 import { Button, Modal } from '@/components/UI';
 import UpdateDate from '@/components/UpdateDate';
