@@ -11,6 +11,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-console": ["error", { "allow": ["error"] }],
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": [
       "error",
