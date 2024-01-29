@@ -1,7 +1,7 @@
 import { Spinner } from '../UI';
 
-import styles from './PageLoader.module.scss';
+import styles from './styles.module.scss';
 
-export default function PageLoader() {
+export function PageLoader() {
   return <Spinner className={`container ${styles.spinner}`} width={80} height={80} />;
 }

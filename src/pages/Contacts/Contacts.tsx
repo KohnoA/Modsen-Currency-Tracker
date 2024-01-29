@@ -3,7 +3,7 @@ import { memo } from 'react';
 import MailIcon from '@/assets/icons/mail-icon.svg';
 import MarkerIcon from '@/assets/icons/marker-icon.svg';
 import PhoneIcon from '@/assets/icons/phone-icon.svg';
-import SocialList from '@/components/SocialList';
+import { SocialList } from '@/components/SocialList';
 import { AUTHOR_GITHUB, MODSEN_LINK } from '@/constants';
 
 import styles from './Contacts.module.scss';

@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 
-import PageLoader from '@/components/PageLoader';
+import { PageLoader } from '@/components/PageLoader';
 
 const Contacts = lazy(() => import('./Contacts'));
 
