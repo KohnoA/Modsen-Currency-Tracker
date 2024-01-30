@@ -14,36 +14,37 @@ Test task for Modsen
 - [Jest](https://jestjs.io/ru/)
 - [Cypress](https://www.cypress.io/)
 
-### Clone the repository
-```sh
+## Clone the repository
+To clone a repository run the following commands:
+```bash
 $ git clone https://github.com/KohnoA/modsen-currency-tracker.git
 $ cd modsen-currency-tracker
 ```
 
-### Installing dependencies
+## Installing dependencies
 To install dependencies, run the command:
-```sh
+```bash
 $ yarn install
 ```
 
-### Development
+## Development
 To start the development server, run the command:
-```sh
+```bash
 $ yarn start
 ```
 
-### Production
+## Production
 To run a production build, run the command:
-```sh
+```bash
 $ yarn build
 ```
 
-### Testing
+## Testing
 Run unit-tests:
-```sh
+```bash
 $ yarn test
 ```
 Run e2e-tests:
-```sh
+```bash
 $ yarn test:e2e
 ```
