@@ -14,7 +14,7 @@ export const Contacts = memo(() => {
         <div>
           <ul className={styles.info}>
             {CONTACTS_INFO.map(({ Icon, desc }) => (
-              <li className={styles.info__item}>
+              <li key={desc} className={styles.info__item}>
                 <Icon width={30} height={30} /> {desc}
               </li>
             ))}
