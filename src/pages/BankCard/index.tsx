@@ -6,7 +6,7 @@ import { UpdateTime } from '@/components/UpdateTime';
 import { BANKS_DATA } from '@/constants';
 import { filterBanksByCurrencies, getBanksCurrencies, getTimeFromDate } from '@/utils';
 
-import styles from './BankCard.module.scss';
+import styles from './styles.module.scss';
 
 const TIME_NOW = getTimeFromDate(Date.now());
 const ELASTIC_SEARCH_OPTIONS = getBanksCurrencies(BANKS_DATA);
@@ -15,7 +15,7 @@ type BankCardState = {
   banks: typeof BANKS_DATA;
 };
 
-export default class BankCard extends PureComponent<{}, BankCardState> {
+export class BankCard extends PureComponent<{}, BankCardState> {
   constructor(props: {}) {
     super(props);
 

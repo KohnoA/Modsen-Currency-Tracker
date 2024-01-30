@@ -1,14 +1,11 @@
 import { memo } from 'react';
 
-import MailIcon from '@/assets/icons/mail-icon.svg';
-import MarkerIcon from '@/assets/icons/marker-icon.svg';
-import PhoneIcon from '@/assets/icons/phone-icon.svg';
 import { SocialList } from '@/components/SocialList';
-import { AUTHOR_GITHUB, MODSEN_LINK } from '@/constants';
+import { AUTHOR_GITHUB, CONTACTS_INFO, MODSEN_LINK } from '@/constants';
 
-import styles from './Contacts.module.scss';
+import styles from './styles.module.scss';
 
-function Contacts() {
+export const Contacts = memo(() => {
   return (
     <main className="container">
       <h2 className={styles.title}>Contact Us</h2>
@@ -16,15 +13,11 @@ function Contacts() {
       <section className={styles.contacts}>
         <div>
           <ul className={styles.info}>
-            <li className={styles.info__item}>
-              <MarkerIcon width={30} height={30} /> 8558 Green Rd., LA
-            </li>
-            <li className={styles.info__item}>
-              <PhoneIcon width={30} height={30} /> +1 (603) 555-0123
-            </li>
-            <li className={styles.info__item}>
-              <MailIcon width={30} height={30} /> example@gmail.com
-            </li>
+            {CONTACTS_INFO.map(({ Icon, desc }) => (
+              <li className={styles.info__item}>
+                <Icon width={30} height={30} /> {desc}
+              </li>
+            ))}
           </ul>
 
           <p className={`text-light-m ${styles.copyright}`}>
@@ -51,6 +44,4 @@ function Contacts() {
       </div>
     </main>
   );
-}
-
-export default memo(Contacts);
+});

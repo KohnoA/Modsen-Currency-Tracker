@@ -1,4 +1,5 @@
 export { BANKS_DATA } from './banksData';
+export { CONTACTS_INFO } from './contactsInfo';
 export { DEFAULT_CHART_DATA } from './defaultChartData';
 export { DEFAULT_CURRENCIES } from './defaultCurrencies';
 export { DEFAULT_OHLC_PAIRS } from './defaultOhlcPairs';

@@ -8,7 +8,7 @@ import { UpdateTime } from '@/components/UpdateTime';
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 import { useQuotes } from '@/hooks';
 
-import styles from './Home.module.scss';
+import styles from './styles.module.scss';
 
 export const Home = memo(() => {
   const [searchParams, setSearchParams] = useSearchParams();
