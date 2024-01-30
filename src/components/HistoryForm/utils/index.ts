@@ -1,0 +1,1 @@
+export { getDateTwoMonthsAgo } from './getDateTwoMonthsAgo';

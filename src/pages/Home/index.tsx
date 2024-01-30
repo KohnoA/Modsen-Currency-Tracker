@@ -6,7 +6,7 @@ import { CurrenciesList } from '@/components/CurrenciesList';
 import { Modal } from '@/components/UI';
 import { UpdateTime } from '@/components/UpdateTime';
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
-import { useQuotes } from '@/hooks';
+import { useCurrencies } from '@/hooks';
 
 import styles from './styles.module.scss';
 
@@ -14,7 +14,7 @@ export const Home = memo(() => {
   const [searchParams, setSearchParams] = useSearchParams();
   const showModal = !!searchParams.get(CURRENCY_MODAL_QUERY_KEY);
   const baseCurrencyInModal = searchParams.get(CURRENCY_MODAL_QUERY_KEY);
-  const { time, quotes } = useQuotes();
+  const { time, quotes } = useCurrencies();
 
   const closeModal = () => {
     searchParams.delete(CURRENCY_MODAL_QUERY_KEY);

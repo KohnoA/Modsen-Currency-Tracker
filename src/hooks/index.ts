@@ -1,1 +1,1 @@
-export { useQuotes } from './useQuotes';
+export { useCurrencies } from './useCurrencies';
