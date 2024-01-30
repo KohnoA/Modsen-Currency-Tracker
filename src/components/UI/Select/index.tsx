@@ -1,6 +1,6 @@
 import { memo, SelectHTMLAttributes, useId } from 'react';
 
-import styles from './Select.module.scss';
+import styles from './styles.module.scss';
 
 type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   options: { value: string | number; label: string | number }[];
@@ -9,7 +9,8 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   className?: string;
 };
 
-function Select({ options, defaultOption, labelName, className, ...otherProps }: SelectProps) {
+export const Select = memo((props: SelectProps) => {
+  const { options, defaultOption, labelName, className, ...otherProps } = props;
   const id = useId();
 
   return (
@@ -24,6 +25,4 @@ function Select({ options, defaultOption, labelName, className, ...otherProps }:
       </select>
     </label>
   );
-}
-
-export default memo(Select);
+});

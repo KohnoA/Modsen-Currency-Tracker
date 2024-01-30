@@ -4,48 +4,40 @@ import { Link } from 'react-router-dom';
 import CrossIcon from '@/assets/icons/cross-icon.svg';
 import Logo from '@/assets/icons/logo-small.svg';
 import { Switch } from '@/components/UI';
+import { PAGE_LIST } from '@/constants';
 import { AppRoutes } from '@/router/routes';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { selectTheme } from '@/store/selectors';
 import { changeTheme } from '@/store/slices/themeSlice';
 
-import styles from './Navigation.module.scss';
+import styles from './styles.module.scss';
 
-const pagesList = [
-  { page: 'Home', path: AppRoutes.HOME },
-  { page: 'Timeline', path: AppRoutes.TIMELINE },
-  { page: 'Bank Card', path: AppRoutes.BANK_CARD },
-  { page: 'Contacts', path: AppRoutes.CONTACTS },
-];
-
-export default function Navigation() {
+export const Navigation = () => {
+  const [showBurder, setShowBurger] = useState<boolean>(false);
   const isLightTheme = useAppSelector(selectTheme);
   const dispatch = useAppDispatch();
-  const [showBurder, setShowBurger] = useState<boolean>(false);
 
   const themeHandler = () => dispatch(changeTheme());
 
-  const burgerOpenHandler = () => setShowBurger(true);
-
-  const burgerCloseHandler = () => setShowBurger(false);
+  const toggleBurger = () => setShowBurger((prev) => !prev);
 
   const hanldeKeyDownBurger = (event: KeyboardEvent) => {
-    if (event.code === 'Enter') setShowBurger(true);
+    if (event.code === 'Enter') toggleBurger();
   };
 
   return (
     <nav className={`container ${styles.navigation}`}>
-      <Link to="/" className={styles.logo}>
+      <Link to={AppRoutes.HOME} className={styles.logo}>
         <Logo width={40} height={40} />
       </Link>
 
       <ul className={`${styles.pagesList} ${showBurder ? styles.pagesList_active : ''}`}>
-        {pagesList.map(({ page, path }) => (
+        {PAGE_LIST.map(({ page, path }) => (
           <li key={path}>
             <Link
               to={path}
               className={`text-light-s ${styles.pagesList__link}`}
-              {...(showBurder ? { onClick: burgerCloseHandler } : {})}
+              {...(showBurder ? { onClick: toggleBurger } : {})}
             >
               {page}
             </Link>
@@ -53,7 +45,7 @@ export default function Navigation() {
         ))}
 
         <li className={styles.pagesList__close}>
-          <button onClick={burgerCloseHandler} type="button">
+          <button onClick={toggleBurger} type="button">
             <span className="hidden">Close Navigation</span>
             <CrossIcon width={50} height={50} />
           </button>
@@ -69,7 +61,7 @@ export default function Navigation() {
 
       <div
         data-testid="burger-menu"
-        onClick={burgerOpenHandler}
+        onClick={toggleBurger}
         onKeyDown={hanldeKeyDownBurger}
         className={styles.burger}
         role="button"
@@ -82,4 +74,4 @@ export default function Navigation() {
       </div>
     </nav>
   );
-}
+};

@@ -11,7 +11,9 @@ type CurrencyCardProps = CurrenciesItemType & {
   className?: string;
 };
 
-export const CurrencyCard = memo(({ name, rate, code, Icon, className }: CurrencyCardProps) => {
+export const CurrencyCard = memo((props: CurrencyCardProps) => {
+  const { name, rate, code, Icon, className } = props;
+
   return (
     <li data-testid="currency-card" className={`${styles.item} ${className ?? ''}`}>
       <Link

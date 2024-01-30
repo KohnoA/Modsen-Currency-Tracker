@@ -26,6 +26,9 @@ type MyMapProps = {
 
 const DEFAULT_CENTER_COORD: [number, number] = [53.895384, 27.558456];
 const DEFAULT_ZOOM = 11.5;
+const MAP_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+const MAP_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
 export class MyMap extends PureComponent<MyMapProps> {
   render() {
@@ -38,10 +41,7 @@ export class MyMap extends PureComponent<MyMapProps> {
         zoom={zoom ?? DEFAULT_ZOOM}
         scrollWheelZoom={false}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        <TileLayer attribution={MAP_ATTRIBUTION} url={MAP_URL} />
         {markers?.map(({ popupDesc, coord }) => (
           <Marker key={coord.toString()} position={coord}>
             <Popup>{popupDesc}</Popup>

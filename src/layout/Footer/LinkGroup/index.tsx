@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import styles from './LinkGroup.module.scss';
+import styles from './styles.module.scss';
 
 type LinkGroupProps = {
   title: string;
@@ -10,7 +10,7 @@ type LinkGroupProps = {
   }[];
 };
 
-export default function LinkGroup({ title, links }: LinkGroupProps) {
+export const LinkGroup = ({ title, links }: LinkGroupProps) => {
   return (
     <div className={styles.group}>
       <p className={styles.title}>{title}</p>
@@ -26,4 +26,4 @@ export default function LinkGroup({ title, links }: LinkGroupProps) {
       </ul>
     </div>
   );
-}
+};

@@ -1,8 +1,8 @@
 import { memo, ReactNode } from 'react';
 
-import Spinner from '../Spinner/Spinner';
+import { Spinner } from '../Spinner';
 
-import styles from './Button.module.scss';
+import styles from './styles.module.scss';
 
 type ButtonProps = {
   className?: string;
@@ -14,15 +14,8 @@ type ButtonProps = {
   'data-testid'?: string;
 };
 
-function Button({
-  className,
-  children,
-  isLoading,
-  disabled,
-  href,
-  onClick,
-  ...other
-}: ButtonProps) {
+export const Button = memo((props: ButtonProps) => {
+  const { className, children, isLoading, disabled, href, onClick, ...other } = props;
   const Component = href ? 'a' : 'button';
 
   return (
@@ -37,6 +30,4 @@ function Button({
       <Spinner className={styles.button__spinner} />
     </Component>
   );
-}
-
-export default memo(Button);
+});

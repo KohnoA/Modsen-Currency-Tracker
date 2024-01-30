@@ -3,8 +3,8 @@ import { ReactNode } from 'react';
 import { useAppSelector } from '@/store/hooks';
 import { selectTheme } from '@/store/selectors';
 
-import Footer from './Footer';
-import Header from './Header';
+import { Footer } from './Footer';
+import { Header } from './Header';
 
 import styles from './styles.module.scss';
 
@@ -12,7 +12,7 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-export default function Layout({ children }: LayoutProps) {
+export const Layout = ({ children }: LayoutProps) => {
   const isLightTheme = useAppSelector(selectTheme);
 
   return (
@@ -22,4 +22,4 @@ export default function Layout({ children }: LayoutProps) {
       <Footer />
     </div>
   );
-}
+};

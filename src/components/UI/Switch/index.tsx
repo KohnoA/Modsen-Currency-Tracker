@@ -1,4 +1,6 @@
-import styles from './Switch.module.scss';
+import { memo } from 'react';
+
+import styles from './styles.module.scss';
 
 type SwitchProps = {
   className?: string;
@@ -7,7 +9,9 @@ type SwitchProps = {
   'data-testid'?: string;
 };
 
-export default function Switch({ className, isToggled, onChange, ...otherProps }: SwitchProps) {
+export const Switch = memo((props: SwitchProps) => {
+  const { className, isToggled, onChange, ...otherProps } = props;
+
   return (
     <label
       data-testid={otherProps['data-testid']}
@@ -23,4 +27,4 @@ export default function Switch({ className, isToggled, onChange, ...otherProps }
       </span>
     </label>
   );
-}
+});

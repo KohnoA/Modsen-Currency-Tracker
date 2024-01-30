@@ -2,7 +2,7 @@ import { PureComponent } from 'react';
 
 import { ElasticSearch } from '@/components/ElasticSearch';
 import { MyMap } from '@/components/MyMap';
-import { UpdateDate } from '@/components/UpdateDate';
+import { UpdateTime } from '@/components/UpdateTime';
 import { BANKS_DATA } from '@/constants';
 import { filterBanksByCurrencies, getBanksCurrencies, getTimeFromDate } from '@/utils';
 
@@ -41,7 +41,7 @@ export default class BankCard extends PureComponent<{}, BankCardState> {
     return (
       <main>
         <div className={`container ${styles.wrapper}`}>
-          <UpdateDate className={styles.updateDate} time={TIME_NOW} />
+          <UpdateTime className={styles.updateDate} time={TIME_NOW} />
 
           <div className={styles.elasticSearch}>
             <p className={`text-regular-l ${styles.elasticSearch__title}`}>

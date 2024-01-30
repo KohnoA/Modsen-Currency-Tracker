@@ -2,9 +2,9 @@ import { memo } from 'react';
 
 import Logo from '@/assets/icons/logo.svg';
 
-import styles from './Promo.module.scss';
+import styles from './styles.module.scss';
 
-function Promo() {
+export const Promo = memo(() => {
   return (
     <section className={styles.promo}>
       <div className={`container ${styles.wrapper}`}>
@@ -23,6 +23,4 @@ function Promo() {
       </div>
     </section>
   );
-}
-
-export default memo(Promo);
+});

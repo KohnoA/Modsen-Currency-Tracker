@@ -1,11 +1,22 @@
-import { ChangeEvent, FormEvent, KeyboardEvent, PureComponent } from 'react';
+import { ChangeEvent, FormEvent, PureComponent } from 'react';
 
 import SearchIcon from '@/assets/icons/search-icon.svg';
 import { filterOptions } from '@/utils';
 
-import { ElasticSearchProps, ElasticSearchState } from './types';
+import { SearchOptions } from './SearchOptions';
 
 import styles from './styles.module.scss';
+
+export type ElasticSearchProps = {
+  className?: string;
+  placeholder?: string;
+  options: string[];
+  onChange: (current: string) => void;
+};
+
+export type ElasticSearchState = {
+  value: string;
+};
 
 export class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSearchState> {
   constructor(props: ElasticSearchProps) {
@@ -16,7 +27,7 @@ export class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSear
     };
   }
 
-  handlerCurrentValue = () => {
+  handleCurrentValue = () => {
     const { onChange } = this.props;
     const { value } = this.state;
 
@@ -25,34 +36,27 @@ export class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSear
 
   onSubmitHandler = (event: FormEvent) => {
     event.preventDefault();
-    this.handlerCurrentValue();
+    this.handleCurrentValue();
   };
 
   onChangeHanlder = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
     if (!value.length) {
-      this.setState({ value }, this.handlerCurrentValue);
+      this.setState({ value }, this.handleCurrentValue);
     } else {
       this.setState({ value });
     }
   };
 
-  setCurrentOption = (option: string) => {
-    this.setState({ value: option }, this.handlerCurrentValue);
-  };
-
-  onKeyDownHanlder = (event: KeyboardEvent<HTMLLIElement>, option: string) => {
-    if (event.code === 'Enter') {
-      this.setState({ value: option }, this.handlerCurrentValue);
-    }
+  setCurrentHandler = (option: string) => {
+    this.setState({ value: option }, this.handleCurrentValue);
   };
 
   render() {
     const { className, placeholder, options } = this.props;
     const { value } = this.state;
     const filteredOptions = filterOptions(options, value);
-    const showOptions = !!filteredOptions.length;
 
     return (
       <div data-testid="elastic-search" className={`${styles.wrapper} ${className ?? ''}`}>
@@ -76,23 +80,7 @@ export class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSear
           </button>
         </form>
 
-        {showOptions && (
-          <ul data-testid="elastic-search-options" className={styles.results}>
-            {filteredOptions.map((option) => (
-              <li
-                data-testid="elastic-search-option"
-                key={option}
-                onClick={() => this.setCurrentOption(option)}
-                onKeyDown={(event) => this.onKeyDownHanlder(event, option)}
-                className={styles.results__item}
-                role="tab"
-                tabIndex={0}
-              >
-                {option}
-              </li>
-            ))}
-          </ul>
-        )}
+        <SearchOptions options={filteredOptions} setCurrent={this.setCurrentHandler} />
       </div>
     );
   }

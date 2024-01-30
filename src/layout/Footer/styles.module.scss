@@ -1,5 +1,5 @@
-@import '../../styles/vars';
-@import '../../styles/mixins';
+@import '@/styles/vars';
+@import '@/styles/mixins';
 
 .footer {
   padding-top: 60px;
@@ -24,6 +24,7 @@
 
 .linksGroups {
   @include gridAutoFit(180px);
+  
   row-gap: 45px;
 
   width: 55%;

@@ -43,7 +43,7 @@ export default merge<Configuration>(common, {
             options: {
               modules: {
                 auto: true,
-                localIdentName: '[name]__[local]',
+                localIdentName: '[folder]__[local]',
               },
             },
           },

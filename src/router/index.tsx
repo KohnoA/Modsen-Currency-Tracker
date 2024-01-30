@@ -16,7 +16,7 @@ const router = [
   { path: AppRoutes.NOT_FOUND, element: <NotFoundLazy /> },
 ];
 
-export default function Router() {
+export const Router = () => {
   return (
     <Routes>
       {router.map(({ path, element }) => (
@@ -24,4 +24,4 @@ export default function Router() {
       ))}
     </Routes>
   );
-}
+};

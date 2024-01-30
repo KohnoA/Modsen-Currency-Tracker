@@ -4,13 +4,13 @@ import { useSearchParams } from 'react-router-dom';
 import { ConversionForm } from '@/components/ConversionForm';
 import { CurrenciesList } from '@/components/CurrenciesList';
 import { Modal } from '@/components/UI';
-import { UpdateDate } from '@/components/UpdateDate';
+import { UpdateTime } from '@/components/UpdateTime';
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 import { useQuotes } from '@/hooks';
 
 import styles from './Home.module.scss';
 
-function Home() {
+export const Home = memo(() => {
   const [searchParams, setSearchParams] = useSearchParams();
   const showModal = !!searchParams.get(CURRENCY_MODAL_QUERY_KEY);
   const baseCurrencyInModal = searchParams.get(CURRENCY_MODAL_QUERY_KEY);
@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <main className="container">
-      <UpdateDate time={time} className={styles.updateDate} />
+      <UpdateTime time={time} className={styles.updateDate} />
       <CurrenciesList title="Quotes" data={quotes} />
 
       <Modal isActive={showModal} onClose={closeModal}>
@@ -31,6 +31,4 @@ function Home() {
       </Modal>
     </main>
   );
-}
-
-export default memo(Home);
+});

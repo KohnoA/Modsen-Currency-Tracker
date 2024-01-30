@@ -1,21 +1,12 @@
-import FacebookIcon from '@/assets/icons/facebook-icon.svg';
-import InstagramIcon from '@/assets/icons/instagram-icon.svg';
-import TwitterIcon from '@/assets/icons/twitter-icon.svg';
-import { MODSEN_LINK } from '@/constants';
+import { SOCIAL_LIST } from '@/constants';
 
 import styles from './styles.module.scss';
-
-const SOCIAL_LIST = [
-  { Icon: FacebookIcon, label: 'Facebook', link: MODSEN_LINK },
-  { Icon: InstagramIcon, label: 'Instagram', link: MODSEN_LINK },
-  { Icon: TwitterIcon, label: 'Twitter', link: MODSEN_LINK },
-];
 
 type SocialListProps = {
   className?: string;
 };
 
-export function SocialList({ className }: SocialListProps) {
+export const SocialList = ({ className }: SocialListProps) => {
   return (
     <ul className={`${styles.socials} ${className ?? ''}`}>
       {SOCIAL_LIST.map(({ Icon, label, link }) => (
@@ -31,4 +22,4 @@ export function SocialList({ className }: SocialListProps) {
       ))}
     </ul>
   );
-}
+};

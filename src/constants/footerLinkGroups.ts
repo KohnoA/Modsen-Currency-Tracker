@@ -1,6 +1,6 @@
 import { AppRoutes } from '@/router/routes';
 
-export const FOOTER_LINKS_GROUPS = [
+export const FOOTER_LINK_GROUPS = [
   {
     title: 'General',
     links: [

@@ -7,7 +7,7 @@ import CrossIcon from '@/assets/icons/cross-icon.svg';
 import { useAppSelector } from '@/store/hooks';
 import { selectTheme } from '@/store/selectors';
 
-import styles from './Modal.module.scss';
+import styles from './styles.module.scss';
 
 type ModalProps = {
   isActive: boolean;
@@ -15,7 +15,7 @@ type ModalProps = {
   onClose: () => void;
 };
 
-export default function Modal({ isActive, children, onClose }: ModalProps) {
+export const Modal = ({ isActive, children, onClose }: ModalProps) => {
   const isLightTheme = useAppSelector(selectTheme);
 
   const contentClickHanlder = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
@@ -53,4 +53,4 @@ export default function Modal({ isActive, children, onClose }: ModalProps) {
     </div>,
     document.getElementById('modal-portal')!,
   );
-}
+};
