@@ -1,14 +1,15 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { PageLoader } from '@/components/PageLoader';
-import { BankCard } from '@/pages/BankCard';
-import { Contacts } from '@/pages/Contacts';
-import { Home } from '@/pages/Home';
-import { NotFound } from '@/pages/NotFound';
-import { Timeline } from '@/pages/Timeline';
 
 import { AppRoutes } from './routes';
+
+const BankCard = lazy(() => import('@/pages/BankCard/lazy'));
+const Home = lazy(() => import('@/pages/Home/lazy'));
+const Timeline = lazy(() => import('@/pages/Timeline/lazy'));
+const Contacts = lazy(() => import('@/pages/Contacts/lazy'));
+const NotFound = lazy(() => import('@/pages/NotFound/lazy'));
 
 const router = [
   { path: AppRoutes.HOME, element: <Home /> },
