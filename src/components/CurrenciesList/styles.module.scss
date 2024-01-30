@@ -31,6 +31,7 @@
 @media (max-width: $tablet) {
   .list {
     @include gridAutoFit(400px);
+
     row-gap: 30px;
   }
 }

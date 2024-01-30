@@ -19,6 +19,8 @@
 }
 
 .title {
+  @include fontBrandStyle;
+
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -28,8 +30,6 @@
   padding-right: 60px;
 
   text-align: right;
-
-  @include fontBrandStyle;
 }
 
 .desc {
