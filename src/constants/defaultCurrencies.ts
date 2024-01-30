@@ -1,11 +1,15 @@
-import AustrallianDollarIcon from '@/assets/icons/australian-dollar-icon.svg';
-import BitcoinIcon from '@/assets/icons/bitcoin-icon.svg';
-import CanadianDollarIcon from '@/assets/icons/canadian-dollar-icon.svg';
-import DollarIcon from '@/assets/icons/dollar-icon.svg';
-import EuroIcon from '@/assets/icons/euro-icon.svg';
-import PesoIcon from '@/assets/icons/peso-argentino-icon.svg';
-import YenIcon from '@/assets/icons/yen-Icon.svg';
-import YuanIcon from '@/assets/icons/yuan-Icon.svg';
+import { ICONS } from './icons';
+
+const {
+  AustralianDollarIcon,
+  BitcoinIcon,
+  CanadianDollarIcon,
+  DollarIcon,
+  EuroIcon,
+  PesoIcon,
+  YenIcon,
+  YuanIcon,
+} = ICONS;
 
 export const DEFAULT_CURRENCIES = [
   {
@@ -39,7 +43,7 @@ export const DEFAULT_CURRENCIES = [
     rate: 1,
   },
   {
-    Icon: AustrallianDollarIcon,
+    Icon: AustralianDollarIcon,
     name: 'Australlian Dollar',
     code: 'AUD',
     rate: 1,

@@ -3,7 +3,7 @@
 import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
-import CrossIcon from '@/assets/icons/cross-icon.svg';
+import { ICONS } from '@/constants';
 import { useAppSelector } from '@/store/hooks';
 import { selectTheme } from '@/store/selectors';
 
@@ -14,6 +14,8 @@ type ModalProps = {
   children: ReactNode;
   onClose: () => void;
 };
+
+const { CrossIcon } = ICONS;
 
 export const Modal = ({ isActive, children, onClose }: ModalProps) => {
   const isLightTheme = useAppSelector(selectTheme);

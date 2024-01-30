@@ -4,6 +4,7 @@ export { DEFAULT_CHART_DATA } from './defaultChartData';
 export { DEFAULT_CURRENCIES } from './defaultCurrencies';
 export { DEFAULT_OHLC_PAIRS } from './defaultOhlcPairs';
 export { FOOTER_LINK_GROUPS } from './footerLinkGroups';
+export { ICONS } from './icons';
 export { PAGE_LIST } from './pageList';
 export { SOCIAL_LIST } from './socialList';
 

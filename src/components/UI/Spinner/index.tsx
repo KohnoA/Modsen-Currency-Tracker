@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import SpinnerIcon from '@/assets/icons/spinner-icon.svg';
+import { ICONS } from '@/constants';
 
 import styles from './styles.module.scss';
 
@@ -12,6 +12,7 @@ type SpinnerProps = {
 
 const DEFAULT_WIDTH = 40;
 const DEFAULT_HEIGHT = 40;
+const { SpinnerIcon } = ICONS;
 
 export const Spinner = memo(({ className, width, height }: SpinnerProps) => {
   return (

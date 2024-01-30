@@ -1,8 +1,10 @@
 import { memo } from 'react';
 
-import Logo from '@/assets/icons/logo.svg';
+import { ICONS } from '@/constants';
 
 import styles from './styles.module.scss';
+
+const { LogoIcon } = ICONS;
 
 export const Promo = memo(() => {
   return (
@@ -19,7 +21,7 @@ export const Promo = memo(() => {
           </p>
         </div>
 
-        <Logo className={styles.logo} width={300} height={312} />
+        <LogoIcon className={styles.logo} width={300} height={312} />
       </div>
     </section>
   );

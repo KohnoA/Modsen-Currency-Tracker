@@ -1,22 +1,24 @@
 import { ChangeEvent, FormEvent, PureComponent } from 'react';
 
-import SearchIcon from '@/assets/icons/search-icon.svg';
+import { ICONS } from '@/constants';
 import { filterOptions } from '@/utils';
 
 import { SearchOptions } from './SearchOptions';
 
 import styles from './styles.module.scss';
 
-export type ElasticSearchProps = {
+type ElasticSearchProps = {
   className?: string;
   placeholder?: string;
   options: string[];
   onChange: (current: string) => void;
 };
 
-export type ElasticSearchState = {
+type ElasticSearchState = {
   value: string;
 };
+
+const { SearchIcon } = ICONS;
 
 export class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSearchState> {
   constructor(props: ElasticSearchProps) {

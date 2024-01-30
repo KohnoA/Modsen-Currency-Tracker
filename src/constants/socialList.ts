@@ -1,8 +1,7 @@
-import FacebookIcon from '@/assets/icons/facebook-icon.svg';
-import InstagramIcon from '@/assets/icons/instagram-icon.svg';
-import TwitterIcon from '@/assets/icons/twitter-icon.svg';
+import { ICONS } from './icons';
 
 const { MODSEN_LINK } = process.env;
+const { FacebookIcon, InstagramIcon, TwitterIcon } = ICONS;
 
 export const SOCIAL_LIST = [
   { Icon: FacebookIcon, label: 'Facebook', link: MODSEN_LINK },

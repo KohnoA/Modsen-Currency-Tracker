@@ -1,6 +1,6 @@
-import MailIcon from '@/assets/icons/mail-icon.svg';
-import MarkerIcon from '@/assets/icons/marker-icon.svg';
-import PhoneIcon from '@/assets/icons/phone-icon.svg';
+import { ICONS } from './icons';
+
+const { MarkerIcon, PhoneIcon, MailIcon } = ICONS;
 
 export const CONTACTS_INFO = [
   {

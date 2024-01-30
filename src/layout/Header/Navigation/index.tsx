@@ -1,16 +1,16 @@
 import { KeyboardEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import CrossIcon from '@/assets/icons/cross-icon.svg';
-import Logo from '@/assets/icons/logo-small.svg';
 import { Switch } from '@/components/UI';
-import { PAGE_LIST } from '@/constants';
+import { ICONS, PAGE_LIST } from '@/constants';
 import { AppRoutes } from '@/router/routes';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { selectTheme } from '@/store/selectors';
 import { changeTheme } from '@/store/slices/themeSlice';
 
 import styles from './styles.module.scss';
+
+const { LogoSmallIcon, CrossIcon } = ICONS;
 
 export const Navigation = () => {
   const [showBurder, setShowBurger] = useState<boolean>(false);
@@ -28,7 +28,7 @@ export const Navigation = () => {
   return (
     <nav className={`container ${styles.navigation}`}>
       <Link to={AppRoutes.HOME} className={styles.logo}>
-        <Logo width={40} height={40} />
+        <LogoSmallIcon width={40} height={40} />
       </Link>
 
       <ul className={`${styles.pagesList} ${showBurder ? styles.pagesList_active : ''}`}>
