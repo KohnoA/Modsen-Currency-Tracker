@@ -5,11 +5,10 @@ import { HistoryForm } from '@/components/HistoryForm';
 import { Button, Modal } from '@/components/UI';
 import { UpdateTime } from '@/components/UpdateTime';
 import { DEFAULT_OHLC_PAIRS } from '@/constants';
+import { CandleStickSubscriber, Observer } from '@/services';
 import { CandleStickData, OhlcvResponseType } from '@/types';
 import { getTimeFromDate } from '@/utils';
 import { ohlcvResponseToChartData } from '@/utils/ohlcvResponseToChartData';
-
-import { CandleStickSubscriber, Observer } from './utils';
 
 import styles from './styles.module.scss';
 
