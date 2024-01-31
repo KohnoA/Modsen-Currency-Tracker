@@ -1,0 +1,37 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+
+.title {
+  max-width: 520px;
+
+  padding-bottom: 25px;
+  margin-bottom: 50px;
+
+  border-bottom: 2px solid $borderDarkTheme;
+}
+
+.list {
+  @include gridAutoFit(520px);
+
+  row-gap: 55px;
+  column-gap: 184px;
+
+  margin-bottom: 90px;
+
+  list-style: none;
+}
+
+@media (max-width: $desktopL) {
+  .list {
+    row-gap: 50px;
+    column-gap: 80px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .list {
+    @include gridAutoFit(400px);
+
+    row-gap: 30px;
+  }
+}

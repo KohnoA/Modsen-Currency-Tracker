@@ -2,11 +2,10 @@ import { getCurrenciesRate } from '@/services';
 
 export async function getCurrencyRateCached(currency: string, base: string) {
   const sessionStorageKey = `${currency}/${base}`;
+  const cachedRate = sessionStorage.getItem(sessionStorageKey);
 
-  if (sessionStorage.getItem(sessionStorageKey)) {
-    const cacheRate = JSON.parse(sessionStorage.getItem(sessionStorageKey)!);
-
-    return cacheRate;
+  if (cachedRate) {
+    return JSON.parse(cachedRate);
   }
 
   const response = await getCurrenciesRate(currency, base);

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { CURRENCY_API_BASE, CURRENCY_API_KEY } from '@/constants';
 import { CurrenciesResponseType } from '@/types';
 

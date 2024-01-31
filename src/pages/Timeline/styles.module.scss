@@ -1,0 +1,18 @@
+@import '@/styles/vars';
+
+.card {
+  max-width: 50%;
+  pointer-events: none;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+
+.buildButton {
+  background-color: $bodySecondDarkTheme;
+  border: 2px solid $borderDarkTheme;
+}

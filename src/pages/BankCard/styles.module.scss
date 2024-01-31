@@ -1,0 +1,38 @@
+@import '@/styles/vars';
+
+.wrapper {
+  position: relative;
+}
+
+.elasticSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 80px;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+.map {
+  margin-bottom: 90px;
+}
+
+.emptyMsg {
+  position: absolute;
+  z-index: 1003;
+  left: 50%;
+  bottom: -40px;
+
+  transform: translateX(-50%);
+}
+
+@media (max-width: $tablet) {
+  .elasticSearch__title {
+    font-size: 25px;
+  }
+}

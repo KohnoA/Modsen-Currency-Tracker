@@ -1,26 +1,30 @@
-import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+import { PageLoader } from '@/components/PageLoader';
+
 import { AppRoutes } from './routes';
 
-import { TimelineLazy } from '@/pages/Timeline';
-import { HomeLazy } from '@/pages/Home';
-import { ContactsLazy } from '@/pages/Contacts';
-import { BankCardLazy } from '@/pages/BankCard';
-import { NotFoundLazy } from '@/pages/NotFound';
+const BankCard = lazy(() => import('@/pages/BankCard/lazy'));
+const Home = lazy(() => import('@/pages/Home/lazy'));
+const Timeline = lazy(() => import('@/pages/Timeline/lazy'));
+const Contacts = lazy(() => import('@/pages/Contacts/lazy'));
+const NotFound = lazy(() => import('@/pages/NotFound/lazy'));
 
 const router = [
-  { path: AppRoutes.HOME, element: <HomeLazy /> },
-  { path: AppRoutes.TIMELINE, element: <TimelineLazy /> },
-  { path: AppRoutes.BANK_CARD, element: <BankCardLazy /> },
-  { path: AppRoutes.CONTACTS, element: <ContactsLazy /> },
-  { path: '*', element: <NotFoundLazy /> },
+  { path: AppRoutes.HOME, element: <Home /> },
+  { path: AppRoutes.TIMELINE, element: <Timeline /> },
+  { path: AppRoutes.BANK_CARD, element: <BankCard /> },
+  { path: AppRoutes.CONTACTS, element: <Contacts /> },
+  { path: AppRoutes.NOT_FOUND, element: <NotFound /> },
 ];
 
-export default function Router() {
-  return (
+export const Router = () => (
+  <Suspense fallback={<PageLoader />}>
     <Routes>
       {router.map(({ path, element }) => (
         <Route key={path} path={path} element={element} />
       ))}
     </Routes>
-  );
-}
+  </Suspense>
+);

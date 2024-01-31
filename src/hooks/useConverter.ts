@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { getCurrencyRateCached, truncateNumber } from '@/utils';
 
 export function useConverter() {

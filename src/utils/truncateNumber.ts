@@ -1,19 +1,22 @@
-export function truncateNumber(num: number) {
-  if (num < 0.000001) {
-    const countNulls = Number(num.toString().split('e-')[1]);
+export function truncateNumber(number: number) {
+  const minBeforeAbbreviation = 0.000001;
+  const minWithTwoDecimalPlaces = 0.01;
 
-    return num.toFixed(countNulls + 1);
+  if (number < minBeforeAbbreviation) {
+    const countNulls = Number(number.toString().split('e-')[1]);
+
+    return number.toFixed(countNulls + 1);
   }
 
-  if (num < 0.01) {
-    const firstNonNullValue = num
+  if (number < minWithTwoDecimalPlaces) {
+    const firstNonNullValue = number
       .toString()
       .replace(/[.]/, '')
       .split('')
       .findIndex((item) => +item > 0);
 
-    return num.toString().slice(0, firstNonNullValue + 3);
+    return number.toString().slice(0, firstNonNullValue + 3);
   }
 
-  return num.toFixed(2);
+  return number.toFixed(2);
 }

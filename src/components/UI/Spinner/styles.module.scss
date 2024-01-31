@@ -1,0 +1,6 @@
+@import '@/styles/vars';
+@import '@/styles/keyframes';
+
+.spinner {
+  animation: spin 1s linear infinite;
+}

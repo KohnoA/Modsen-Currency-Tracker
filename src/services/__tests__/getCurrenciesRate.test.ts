@@ -1,8 +1,10 @@
-import { getCurrenciesRate } from '../getCurrenciesRate';
+import axios from 'axios';
+
 import { currenciesResponseMock } from '@/__mocks__/currenciesResponseMock';
 import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
 import { CurrenciesResponseType } from '@/types';
-import axios from 'axios';
+
+import { getCurrenciesRate } from '../getCurrenciesRate';
 
 const requestCodes = DEFAULT_QUOTES.map(({ code }) => code).toString();
 

@@ -1,12 +1,20 @@
-/* eslint prefer-destructuring: "off" */
+export { BANKS_DATA } from './banksData';
+export { CONTACTS_INFO } from './contactsInfo';
+export { DEFAULT_CHART_DATA } from './defaultChartData';
+export { DEFAULT_CURRENCIES } from './defaultCurrencies';
+export { DEFAULT_OHLC_PAIRS } from './defaultOhlcPairs';
+export { FOOTER_LINK_GROUPS } from './footerLinkGroups';
+export { ICONS } from './icons';
+export { PAGE_LIST } from './pageList';
+export { SOCIAL_LIST } from './socialList';
 
 export const CURRENCY_MODAL_QUERY_KEY = 'currency';
 
-export const MODSEN_LINK = 'https://www.modsen-software.com/';
-export const AUTHOR_GITHUB = 'https://github.com/KohnoA';
-
-export const CURRENCY_API_BASE = 'https://api.currencyapi.com/v3';
-export const CURRENCY_API_KEY = process.env.CURRENCY_API_KEY;
-
-export const COIN_API_BASE = 'https://rest.coinapi.io/v1/ohlcv';
-export const COIN_API_KEY = process.env.COIN_API_KEY;
+export const {
+  CURRENCY_API_KEY,
+  CURRENCY_API_BASE,
+  COIN_API_KEY,
+  COIN_API_BASE,
+  AUTHOR_GITHUB,
+  MODSEN_LINK,
+} = process.env;

@@ -3,32 +3,33 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:react/jsx-runtime",
-    "prettier"
-  ],
+  "extends": ["airbnb", "airbnb-typescript", "plugin:react/jsx-runtime", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort", "import"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {
-    "no-restricted-exports": ["off", { "restrictedNamedExports": ["default"] }],
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
+    "no-restricted-exports": ["error", { "restrictDefaultExports": { "namedFrom": false } }],
+    "no-param-reassign": ["error", { "ignorePropertyModificationsFor": ["state"] }],
+    "no-console": ["error", { "allow": ["error"] }],
+    "simple-import-sort/exports": "error",
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
-    "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
-    "object-curly-newline": "off",
-    "react/prefer-stateless-function": "off",
-    "class-methods-use-this": ["off", { "enforceForClassFields": true }],
-    "arrow-body-style": "off",
-    "no-param-reassign": [
+    "simple-import-sort/imports": [
       "error",
       {
-        "props": true,
-        "ignorePropertyModificationsFor": ["state"]
+        "groups": [
+          ["^react", "^@?\\w"],
+          ["^(@|components)(/.*|$)"],
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.?(css)$"]
+        ]
       }
     ],
     "import/extensions": [
@@ -41,7 +42,6 @@
         "tsx": "never",
         "": "never"
       }
-    ],
-    "react/react-in-jsx-scope": "off"
+    ]
   }
 }

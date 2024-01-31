@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { COIN_API_BASE, COIN_API_KEY } from '@/constants';
 import { OhlcvResponseType } from '@/types';
 

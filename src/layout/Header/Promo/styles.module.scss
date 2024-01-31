@@ -1,0 +1,86 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+
+.promo {
+  padding-top: 45px;
+  padding-bottom: 75px;
+
+  background: $promoGradient;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.title {
+  @include fontBrandStyle;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  margin: 0;
+  margin-bottom: 15px;
+  padding-right: 60px;
+
+  text-align: right;
+}
+
+.desc {
+  align-self: flex-end;
+  max-width: 400px;
+
+  text-align: center;
+  line-height: 50px;
+
+  filter: drop-shadow($filterDropShadow);
+}
+
+.logo {
+  filter: drop-shadow($filterDropShadow);
+}
+
+@media (max-width: $desktopM) {
+  .wrapper {
+    gap: 20px;
+  }
+
+  .info {
+    max-width: 60%;
+  }
+
+  .title {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .desc {
+    align-self: center;
+  }
+}
+
+@media (max-width: $tablet) {
+  .promo {
+    padding-bottom: 45px;
+  }
+
+  .desc {
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    justify-content: center;
+  }
+
+  .logo {
+    display: none;
+  }
+}

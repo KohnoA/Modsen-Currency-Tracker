@@ -1,11 +1,10 @@
+export { areArraysEqual } from './areArraysEqual';
+export { filterBanksByCurrencies } from './filterBanksByCurrencies';
+export { filterOptions } from './filterOptions';
+export { getBanksCurrencies } from './getBanksCurrencies';
 export { getCurrenciesRateCached } from './getCurrenciesRateCached';
+export { getCurrencyRateCached } from './getCurrencyRateCached';
 export { getDiffHours } from './getDiffHours';
 export { getTimeFromDate } from './getTimeFromDate';
-export { areArraysEqual } from './areArraysEqual';
-export { mergeQuotes } from './mergeQuotes';
-export { getCurrencyRateCached } from './getCurrencyRateCached';
+export { mergeCurrencies } from './mergeCurrencies';
 export { truncateNumber } from './truncateNumber';
-export { getDateTwoMonthsAgo } from './getDateTwoMonthsAgo';
-export { getBanksCurrencies } from './getBanksCurrencies';
-export { filterOptions } from './filterOptions';
-export { filterBanksByCurrencies } from './filterBanksByCurrencies';

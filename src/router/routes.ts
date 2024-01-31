@@ -3,4 +3,5 @@ export enum AppRoutes {
   TIMELINE = '/timeline',
   BANK_CARD = '/bank-card',
   CONTACTS = '/contacts',
+  NOT_FOUND = '*',
 }
