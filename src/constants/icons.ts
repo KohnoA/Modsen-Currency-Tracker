@@ -19,7 +19,7 @@ import PhoneIcon from '@/assets/icons/phone-icon.svg';
 import SearchIcon from '@/assets/icons/search-icon.svg';
 import SpinnerIcon from '@/assets/icons/spinner-icon.svg';
 import TwitterIcon from '@/assets/icons/twitter-icon.svg';
-import YenIcon from '@/assets/icons/Yen-Icon.svg';
+import YenIcon from '@/assets/icons/yen-Icon.svg';
 import YuanIcon from '@/assets/icons/yuan-Icon.svg';
 
 export const ICONS = {
