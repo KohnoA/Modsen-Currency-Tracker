@@ -1,10 +1,6 @@
 @import '@/styles/vars';
 @import '@/styles/mixins';
 
-.item {
-  list-style: none;
-}
-
 .card {
   display: flex;
   align-items: center;
@@ -20,6 +16,7 @@
   border-radius: $borderRadius;
   border: 2px solid $borderDarkTheme;
   transition: all $transitionDuration;
+  list-style: none;
   cursor: pointer;
 
   &:hover {

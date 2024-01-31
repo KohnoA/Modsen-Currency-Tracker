@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { ConversionForm } from '@/components/ConversionForm';
@@ -14,6 +14,11 @@ export const Home = memo(() => {
   const baseCurrencyInModal = searchParams.get(CURRENCY_MODAL_QUERY_KEY);
   const { time, quotes } = useCurrencies();
 
+  const openModal = useCallback((id: string) => {
+    searchParams.set(CURRENCY_MODAL_QUERY_KEY, id);
+    setSearchParams(searchParams);
+  }, []);
+
   const closeModal = () => {
     searchParams.delete(CURRENCY_MODAL_QUERY_KEY);
     setSearchParams(searchParams);
@@ -22,7 +27,7 @@ export const Home = memo(() => {
   return (
     <main className="container">
       <UpdateTime time={time} />
-      <CurrenciesList title="Quotes" data={quotes} />
+      <CurrenciesList onClickForItem={openModal} title="Quotes" data={quotes} />
 
       <Modal isActive={showModal} onClose={closeModal}>
         <ConversionForm base={baseCurrencyInModal} />

@@ -1,0 +1,40 @@
+@import '@/styles/vars';
+
+.wrapper {
+  flex-grow: 1;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+
+  &__select {
+    margin-bottom: 40px;
+
+    & select {
+      padding: 10px;
+
+      transition: opacity $transitionDuration;
+
+      background-color: $bodyDarkTheme;
+      border: none;
+      outline: none;
+
+      &:hover {
+        opacity: $hoverOpacity;
+      }
+    }
+  }
+
+  &__card {
+    max-width: 55%;
+    pointer-events: none;
+  }
+
+  &__build {
+    background-color: $bodySecondDarkTheme;
+    border: 2px solid $borderDarkTheme;
+  }
+}

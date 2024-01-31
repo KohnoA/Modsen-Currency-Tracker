@@ -14,7 +14,7 @@ export const Select = memo((props: SelectProps) => {
   const id = useId();
 
   return (
-    <label htmlFor={id} className={className}>
+    <label htmlFor={id} className={`${styles.wrapper} ${className ?? ''}`}>
       {labelName}
       <select id={id} className={styles.select} defaultValue={defaultOption} {...otherProps}>
         {options.map(({ value, label }) => (
