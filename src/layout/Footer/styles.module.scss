@@ -21,10 +21,9 @@
   }
 }
 
-
 .linksGroups {
   @include gridAutoFit(180px);
-  
+
   row-gap: 45px;
 
   width: 55%;
@@ -47,7 +46,8 @@
     align-items: center;
   }
 
-  .companyInfo, .linksGroups {
+  .companyInfo,
+  .linksGroups {
     width: 100%;
   }
 }

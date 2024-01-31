@@ -11,18 +11,16 @@ type CurrenciesListProps = {
   data: CurrenciesItemType[];
 };
 
-export const CurrenciesList = memo(({ title, data }: CurrenciesListProps) => {
-  return (
-    <section data-testid="currencies-list">
-      <h4 data-testid="currencies-list-title" className={`text-light-xl ${styles.title}`}>
-        {title}
-      </h4>
+export const CurrenciesList = memo(({ title, data }: CurrenciesListProps) => (
+  <section data-testid="currencies-list">
+    <h4 data-testid="currencies-list-title" className={`text-light-xl ${styles.title}`}>
+      {title}
+    </h4>
 
-      <ul className={styles.list}>
-        {data.map((cardProps) => (
-          <CurrencyCard key={cardProps.code} {...cardProps} />
-        ))}
-      </ul>
-    </section>
-  );
-});
+    <ul className={styles.list}>
+      {data.map((cardProps) => (
+        <CurrencyCard key={cardProps.code} {...cardProps} />
+      ))}
+    </ul>
+  </section>
+));

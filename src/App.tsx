@@ -3,10 +3,8 @@ import { Router } from './router';
 
 import './styles/index.scss';
 
-export const App = () => {
-  return (
-    <Layout>
-      <Router />
-    </Layout>
-  );
-};
+export const App = () => (
+  <Layout>
+    <Router />
+  </Layout>
+);

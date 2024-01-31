@@ -10,11 +10,9 @@ type CompanyMarkProps = {
 
 const { LogoSmallIcon } = ICONS;
 
-export const CompanyMark = memo(({ className }: CompanyMarkProps) => {
-  return (
-    <div className={`${styles.companyMark} ${className ?? ''}`}>
-      <LogoSmallIcon className={styles.companyMark__logo} width={40} height={45} />
-      <p className={`text-semibold-s ${styles.companyMark__name}`}>Modsen Currency Tracker</p>
-    </div>
-  );
-});
+export const CompanyMark = memo(({ className }: CompanyMarkProps) => (
+  <div className={`${styles.companyMark} ${className ?? ''}`}>
+    <LogoSmallIcon className={styles.companyMark__logo} width={40} height={45} />
+    <p className={`text-semibold-s ${styles.companyMark__name}`}>Modsen Currency Tracker</p>
+  </div>
+));

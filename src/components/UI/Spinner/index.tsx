@@ -14,14 +14,12 @@ const DEFAULT_WIDTH = 40;
 const DEFAULT_HEIGHT = 40;
 const { SpinnerIcon } = ICONS;
 
-export const Spinner = memo(({ className, width, height }: SpinnerProps) => {
-  return (
-    <span className={className}>
-      <SpinnerIcon
-        className={styles.spinner}
-        width={width ?? DEFAULT_WIDTH}
-        height={height ?? DEFAULT_HEIGHT}
-      />
-    </span>
-  );
-});
+export const Spinner = memo(({ className, width, height }: SpinnerProps) => (
+  <span className={className}>
+    <SpinnerIcon
+      className={styles.spinner}
+      width={width ?? DEFAULT_WIDTH}
+      height={height ?? DEFAULT_HEIGHT}
+    />
+  </span>
+));

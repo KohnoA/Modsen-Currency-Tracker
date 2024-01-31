@@ -15,7 +15,7 @@
     "prepare": "husky install",
     "lint": "eslint --ext .ts,.tsx src",
     "lint:fix": "eslint --ext .ts,.tsx src --fix",
-    "format": "prettier --write"
+    "format": "prettier . --write"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",

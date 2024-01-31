@@ -6,10 +6,8 @@ type ErrorProps = {
   'data-testid'?: string;
 };
 
-export const ErrorMessage = ({ className, message, ...other }: ErrorProps) => {
-  return (
-    <p className={`text-light-m ${styles.error} ${className ?? ''}`} {...other}>
-      {!message ? 'Something went wrong, try again later' : message}
-    </p>
-  );
-};
+export const ErrorMessage = ({ className, message, ...other }: ErrorProps) => (
+  <p className={`text-light-m ${styles.error} ${className ?? ''}`} {...other}>
+    {!message ? 'Something went wrong, try again later' : message}
+  </p>
+);

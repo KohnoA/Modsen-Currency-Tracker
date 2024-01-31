@@ -19,14 +19,12 @@ const router = [
   { path: AppRoutes.NOT_FOUND, element: <NotFound /> },
 ];
 
-export const Router = () => {
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {router.map(({ path, element }) => (
-          <Route key={path} path={path} element={element} />
-        ))}
-      </Routes>
-    </Suspense>
-  );
-};
+export const Router = () => (
+  <Suspense fallback={<PageLoader />}>
+    <Routes>
+      {router.map(({ path, element }) => (
+        <Route key={path} path={path} element={element} />
+      ))}
+    </Routes>
+  </Suspense>
+);
