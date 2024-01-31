@@ -61,7 +61,7 @@ export class Timeline extends PureComponent<{}, TimelineState> {
 
     return (
       <main className="container">
-        <UpdateTime className={styles.updateDate} time={TIME_NOW} />
+        <UpdateTime time={TIME_NOW} />
 
         <section className={styles.info}>
           <p data-testid="trading-pair" className="text-medium">

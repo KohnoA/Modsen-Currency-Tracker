@@ -1,4 +1,5 @@
 @import './vars'; 
+@import './keyframes';
 
 @mixin fontBrandStyle {
   background-color: $fontDarkTheme;
@@ -12,4 +13,27 @@
 @mixin gridAutoFit($minSize) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($minSize, 1fr));
+}
+
+@mixin rings($duration, $delay) {
+  position: absolute;
+  content: '';
+
+  top: -8px;
+  left: -8px;
+  right: 0;
+  bottom: 0;
+
+  height: 100%;
+  width: 100%;
+
+  border: 8px solid #00bc4e4a;
+  border-radius: 100%;
+  opacity: 0;
+
+  animation-name: ripple;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
 }

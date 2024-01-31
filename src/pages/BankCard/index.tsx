@@ -41,7 +41,7 @@ export class BankCard extends PureComponent<{}, BankCardState> {
     return (
       <main>
         <div className={`container ${styles.wrapper}`}>
-          <UpdateTime className={styles.updateDate} time={TIME_NOW} />
+          <UpdateTime time={TIME_NOW} />
 
           <div className={styles.elasticSearch}>
             <p className={`text-regular-l ${styles.elasticSearch__title}`}>

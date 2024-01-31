@@ -8,8 +8,6 @@ import { UpdateTime } from '@/components/UpdateTime';
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 import { useCurrencies } from '@/hooks';
 
-import styles from './styles.module.scss';
-
 export const Home = memo(() => {
   const [searchParams, setSearchParams] = useSearchParams();
   const showModal = !!searchParams.get(CURRENCY_MODAL_QUERY_KEY);
@@ -23,7 +21,7 @@ export const Home = memo(() => {
 
   return (
     <main className="container">
-      <UpdateTime time={time} className={styles.updateDate} />
+      <UpdateTime time={time} />
       <CurrenciesList title="Quotes" data={quotes} />
 
       <Modal isActive={showModal} onClose={closeModal}>
