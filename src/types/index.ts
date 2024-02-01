@@ -19,14 +19,6 @@ export type CurrenciesResponseType = {
   };
 };
 
-export type OhlcvResponseType = {
-  time_close: string;
-  price_open: number;
-  price_high: number;
-  price_low: number;
-  price_close: number;
-};
-
 export type CandleStickData = {
   data: number[][];
 };
