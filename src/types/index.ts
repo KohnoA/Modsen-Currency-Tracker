@@ -25,6 +25,6 @@ export type CandleStickData = {
 
 export type BankDataType = {
   name: string;
-  coord: [number, number];
+  coords: [number, number];
   currencies: string[];
 };

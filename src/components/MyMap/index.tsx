@@ -19,8 +19,8 @@ type MyMapProps = {
   className?: string;
   zoom?: number;
   markers?: {
-    popupDesc: string;
-    coord: [number, number];
+    desc: string;
+    coords: [number, number];
   }[];
 };
 
@@ -42,9 +42,9 @@ export class MyMap extends PureComponent<MyMapProps> {
         scrollWheelZoom={false}
       >
         <TileLayer attribution={MAP_ATTRIBUTION} url={MAP_URL} />
-        {markers?.map(({ popupDesc, coord }) => (
-          <Marker key={coord.toString()} position={coord}>
-            <Popup>{popupDesc}</Popup>
+        {markers?.map(({ desc, coords }) => (
+          <Marker key={coords.toString()} position={coords}>
+            <Popup>{desc}</Popup>
           </Marker>
         ))}
       </MapContainer>

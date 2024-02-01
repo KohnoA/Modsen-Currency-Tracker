@@ -6,7 +6,7 @@ import { UpdateTime } from '@/components/UpdateTime';
 import { BANKS_DATA } from '@/constants';
 import { getTimeFromDate } from '@/utils';
 
-import { filterBanksByCurrencies, getBanksCurrencies } from './utils';
+import { filterBanksByCurrencies, getBanksCurrencies, getMarkersOfBanks } from './utils';
 
 import styles from './styles.module.scss';
 
@@ -14,7 +14,7 @@ const TIME_NOW = getTimeFromDate(Date.now());
 const ELASTIC_SEARCH_OPTIONS = getBanksCurrencies(BANKS_DATA);
 
 type BankCardState = {
-  banks: typeof BANKS_DATA;
+  markers: { desc: string; coords: [number, number] }[];
 };
 
 export class BankCard extends PureComponent<{}, BankCardState> {
@@ -22,23 +22,19 @@ export class BankCard extends PureComponent<{}, BankCardState> {
     super(props);
 
     this.state = {
-      banks: BANKS_DATA,
+      markers: getMarkersOfBanks(BANKS_DATA),
     };
   }
 
   elasticSearchHandler = (current: string) => {
-    const banks = filterBanksByCurrencies(current);
+    const markers = getMarkersOfBanks(filterBanksByCurrencies(current));
 
-    this.setState({ banks });
+    this.setState({ markers });
   };
 
   render() {
-    const { banks } = this.state;
-    const banksCoords = banks.map(({ name, coord, currencies }) => ({
-      popupDesc: `${name} ${currencies}`,
-      coord,
-    }));
-    const hasBanks = !!banksCoords.length;
+    const { markers } = this.state;
+    const hasBanks = !!markers.length;
 
     return (
       <main>
@@ -64,7 +60,7 @@ export class BankCard extends PureComponent<{}, BankCardState> {
           </div>
         </div>
 
-        <MyMap markers={banksCoords} className={styles.map} />
+        <MyMap markers={markers} className={styles.map} />
       </main>
     );
   }
