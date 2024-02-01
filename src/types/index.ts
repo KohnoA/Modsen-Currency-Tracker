@@ -28,11 +28,8 @@ export type OhlcvResponseType = {
 };
 
 export type CandleStickData = {
-  data: {
-    x: Date;
-    y: number[];
-  }[];
-}[];
+  data: number[][];
+};
 
 export type BankDataType = {
   name: string;

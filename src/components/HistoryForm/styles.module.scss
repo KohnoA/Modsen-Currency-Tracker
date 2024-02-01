@@ -8,31 +8,22 @@
     text-align: center;
   }
 
-  &__desc {
-    max-width: 700px;
-    margin-bottom: 40px;
 
-    text-indent: 30px;
-    text-align: center;
+  &__amountOfDays {
+    margin-bottom: 30px;
+    justify-content: center;
+
+    & input {
+      max-width: 100px;
+    }
   }
-}
 
-.formFields {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 20px;
-
-  max-width: 450px;
-
-  margin: 0 auto;
-  margin-bottom: 60px;
-
-  &__item {
-    display: grid;
-    grid-template-columns: 40% 60%;
+  &__buttons {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 }
 

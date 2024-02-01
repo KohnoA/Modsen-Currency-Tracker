@@ -2,22 +2,20 @@ import { PureComponent } from 'react';
 
 import { CandleStick } from '@/components/CandleStick';
 import { HistoryForm } from '@/components/HistoryForm';
-import { Button, Modal } from '@/components/UI';
+import { Modal } from '@/components/UI';
 import { UpdateTime } from '@/components/UpdateTime';
-import { DEFAULT_OHLC_PAIRS } from '@/constants';
 import { CandleStickSubscriber, Observer } from '@/services';
-import { CandleStickData, OhlcvResponseType } from '@/types';
+import { CandleStickData } from '@/types';
 import { getTimeFromDate } from '@/utils';
-import { ohlcvResponseToChartData } from '@/utils/ohlcvResponseToChartData';
 
-import styles from './styles.module.scss';
+import { Toolbar } from './Toolbar';
 
 const TIME_NOW = getTimeFromDate(Date.now());
-const DEFAULT_PAIR = DEFAULT_OHLC_PAIRS[0];
+const SUCCESS_TIME = 3000;
 
 type TimelineState = {
   showModal: boolean;
-  pair: string;
+  success: boolean;
 };
 
 export class Timeline extends PureComponent<{}, TimelineState> {
@@ -25,16 +23,21 @@ export class Timeline extends PureComponent<{}, TimelineState> {
 
   candleStickData: CandleStickSubscriber;
 
+  timer: NodeJS.Timeout | null;
+
   constructor(props: {}) {
     super(props);
 
     this.state = {
       showModal: false,
-      pair: DEFAULT_PAIR,
+      success: false,
     };
 
+    this.timer = null;
     this.observer = new Observer();
     this.candleStickData = new CandleStickSubscriber();
+
+    this.toggleModalHanlder = this.toggleModalHanlder.bind(this);
   }
 
   componentDidMount(): void {
@@ -45,34 +48,44 @@ export class Timeline extends PureComponent<{}, TimelineState> {
     this.observer.unsubscribe(this.candleStickData);
   }
 
+  buildChartHandler = (data: number[][]) => {
+    this.observer.notify({ data });
+
+    this.toggleModalHanlder();
+
+    if (this.timer) return;
+
+    this.setState({ success: true }, () => {
+      this.timer = setTimeout(() => {
+        this.setState({ success: false });
+        this.timer = null;
+      }, SUCCESS_TIME);
+    });
+  };
+
   toggleModalHanlder = () => {
     this.setState((state) => ({ showModal: !state.showModal }));
   };
 
-  buildChartHandler = (pair: string, data: OhlcvResponseType[]) => {
-    this.observer.notify([{ data: ohlcvResponseToChartData(data) }]);
-
-    this.toggleModalHanlder();
-    this.setState({ pair });
+  resetChart = () => {
+    this.observer.notify({ data: [] });
   };
 
   render() {
-    const { showModal, pair } = this.state;
+    const { showModal, success } = this.state;
+    const currentData = this.candleStickData.current.data;
 
     return (
       <main className="container">
         <UpdateTime time={TIME_NOW} />
 
-        <section className={styles.info}>
-          <p data-testid="trading-pair" className="text-medium">
-            {pair}
-          </p>
-          <Button onClick={this.toggleModalHanlder} className={styles.buildButton}>
-            Build Chart
-          </Button>
-        </section>
+        <Toolbar
+          success={success}
+          resedChart={this.resetChart}
+          onClickBuildButton={this.toggleModalHanlder}
+        />
 
-        <CandleStick data={this.candleStickData.current} />
+        <CandleStick data={currentData} />
 
         <Modal isActive={showModal} onClose={this.toggleModalHanlder}>
           <HistoryForm onSubmit={this.buildChartHandler} />
