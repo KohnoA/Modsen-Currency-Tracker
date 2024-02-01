@@ -1,4 +1,5 @@
 @import '@/styles/vars';
+@import '@/styles/mixins';
 
 .navigation {
   display: grid;
@@ -12,9 +13,7 @@
   grid-column: 1 / 2;
   place-self: center center;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex();
 
   padding: 15px;
   transition: opacity $transitionDuration;
@@ -28,8 +27,8 @@
   grid-column: 2 / 3;
   place-self: center center;
 
-  display: flex;
-  justify-content: space-between;
+  @include flex(space-between);
+
   gap: 60px;
 
   list-style: none;

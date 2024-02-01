@@ -13,9 +13,9 @@
 }
 
 .info {
-  display: flex;
+  @include flex(flex-start, flex-end);
+
   flex-direction: column;
-  align-items: flex-end;
 }
 
 .title {

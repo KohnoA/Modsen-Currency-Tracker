@@ -2,8 +2,8 @@
 @import '@/styles/mixins';
 
 .card {
-  display: flex;
-  align-items: center;
+  @include flex(flex-start);
+
   flex-wrap: nowrap;
   column-gap: 30px;
 
@@ -35,9 +35,9 @@
 }
 
 .info {
-  display: flex;
+  @include flex(space-between, flex-start);
+
   flex-direction: column;
-  justify-content: space-between;
   gap: 10px;
 
   &__rate {

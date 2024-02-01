@@ -2,8 +2,8 @@
 @import '@/styles/mixins';
 
 .companyMark {
-  display: flex;
-  align-items: center;
+  @include flex(flex-start);
+
   gap: 17px;
 
   &__logo {

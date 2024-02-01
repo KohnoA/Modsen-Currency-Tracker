@@ -1,9 +1,9 @@
 @import '@/styles/vars';
+@import '@/styles/mixins';
 
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex();
+
   flex-wrap: wrap;
   gap: 15px;
 }

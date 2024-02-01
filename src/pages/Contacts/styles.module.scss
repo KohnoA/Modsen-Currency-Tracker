@@ -27,8 +27,8 @@
 }
 
 .contacts {
-  display: flex;
-  justify-content: space-evenly;
+  @include flex(space-evenly, flex-start);
+
   gap: 30px;
 
   margin-bottom: 150px;
@@ -43,8 +43,8 @@
   list-style: none;
 
   &__item {
-    display: flex;
-    align-items: center;
+    @include flex(flex-start);
+
     gap: 10px;
   }
 }

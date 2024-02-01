@@ -1,5 +1,6 @@
 @import '@/styles/vars';
 @import '@/styles/keyframes';
+@import '@/styles/mixins';
 
 .backdrop {
   position: fixed;
@@ -9,9 +10,7 @@
   right: 0;
   bottom: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex();
 
   max-width: 100vw;
   min-width: $mobile;

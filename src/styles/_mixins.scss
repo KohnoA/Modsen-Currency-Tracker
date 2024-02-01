@@ -15,6 +15,12 @@
   grid-template-columns: repeat(auto-fit, minmax($minSize, 1fr));
 }
 
+@mixin flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
 @mixin rings($duration, $delay) {
   position: absolute;
   content: '';

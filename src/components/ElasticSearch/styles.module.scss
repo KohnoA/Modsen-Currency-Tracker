@@ -1,4 +1,5 @@
 @import '@/styles/vars';
+@import '@/styles/mixins';
 
 .wrapper {
   position: relative;
@@ -35,9 +36,7 @@
     right: 10px;
     bottom: 50%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex();
 
     transform: translateY(50%);
 

@@ -1,4 +1,5 @@
 @import '@/styles/vars';
+@import '@/styles/mixins';
 
 .conversionForm {
   max-width: $tablet;
@@ -22,9 +23,8 @@
 
   &__label,
   &__count {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(space-between);
+
     flex-wrap: wrap;
   }
 
@@ -34,9 +34,7 @@
 }
 
 .target {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(space-between);
 
   margin-bottom: 60px;
 }

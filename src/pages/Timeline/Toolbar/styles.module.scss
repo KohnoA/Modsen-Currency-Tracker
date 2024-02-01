@@ -1,13 +1,13 @@
 @import '@/styles/vars';
+@import '@/styles/mixins';
 
 .wrapper_left {
   flex-grow: 1;
 }
 
 .toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  @include flex(space-between, flex-end);
+
   margin-bottom: 50px;
 
   &__select {

@@ -1,14 +1,14 @@
 @import '@/styles/vars';
+@import '@/styles/mixins';
 
 .wrapper {
   position: relative;
 }
 
 .elasticSearch {
-  display: flex;
+  @include flex();
+
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   margin-bottom: 80px;
 
