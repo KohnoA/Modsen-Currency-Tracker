@@ -12,7 +12,7 @@ export const Input = memo(({ labelName, className, ...inputProps }: InputProps) 
   const id = useId();
 
   return (
-    <label htmlFor={id} className={className}>
+    <label htmlFor={id} className={`${styles.wrapper} ${className ?? ''}`}>
       {labelName}
       <input className={styles.input} id={id} {...inputProps} />
     </label>

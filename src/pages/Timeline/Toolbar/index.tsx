@@ -14,7 +14,9 @@ const DEFAULT_CURRENCY_OPTION = CURRENCIES_OPTIONS[0].value;
 const DEFAULT_CURRENT_CURRENCY = DEFAULT_CURRENCIES[0];
 
 type ToolbarProps = {
+  success?: boolean;
   onClickBuildButton: () => void;
+  resedChart: () => void;
 };
 
 type ToolbarState = {
@@ -29,22 +31,23 @@ export class Toolbar extends PureComponent<ToolbarProps, ToolbarState> {
   }
 
   onChangeCurrency = (event: ChangeEvent<HTMLSelectElement>) => {
-    const { onClickBuildButton } = this.props;
+    const { onClickBuildButton, resedChart } = this.props;
     const currencyCode = event.target.value;
     const newCurrency =
       DEFAULT_CURRENCIES.find(({ code }) => code === currencyCode) ?? DEFAULT_CURRENT_CURRENCY;
 
     this.setState({ currentCurrency: newCurrency });
+    resedChart();
     onClickBuildButton();
   };
 
   render() {
-    const { onClickBuildButton } = this.props;
+    const { onClickBuildButton, success } = this.props;
     const { currentCurrency } = this.state;
 
     return (
       <section className={styles.toolbar}>
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper_left}>
           <Select
             onChange={this.onChangeCurrency}
             className={styles.toolbar__select}
@@ -54,9 +57,18 @@ export class Toolbar extends PureComponent<ToolbarProps, ToolbarState> {
           <CurrencyCard className={styles.toolbar__card} {...currentCurrency} showRate={false} />
         </div>
 
-        <Button onClick={onClickBuildButton} className={styles.toolbar__build}>
-          Build Chart
-        </Button>
+        <div>
+          <p
+            className={`${styles.toolbar__successMsg} ${
+              success ? styles.toolbar__successMsg_active : ''
+            }`}
+          >
+            Success!
+          </p>
+          <Button onClick={onClickBuildButton} className={styles.toolbar__build}>
+            Build Chart
+          </Button>
+        </div>
       </section>
     );
   }

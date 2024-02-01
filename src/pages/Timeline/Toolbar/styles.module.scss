@@ -1,6 +1,6 @@
 @import '@/styles/vars';
 
-.wrapper {
+.wrapper_left {
   flex-grow: 1;
 }
 
@@ -36,5 +36,21 @@
   &__build {
     background-color: $bodySecondDarkTheme;
     border: 2px solid $borderDarkTheme;
+  }
+
+  &__successMsg {
+    margin-bottom: 30px;
+
+    text-align: center;
+    color: $green;
+
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all $transitionDuration;
+
+    &_active {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }

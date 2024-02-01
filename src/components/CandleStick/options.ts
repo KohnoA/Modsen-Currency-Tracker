@@ -10,6 +10,13 @@ export const options: ApexOptions = {
       },
     },
   },
+  noData: {
+    text: 'No data yet',
+    style: {
+      fontSize: '24px',
+      fontFamily: 'Poppins',
+    },
+  },
   tooltip: {
     theme: 'dark',
   },

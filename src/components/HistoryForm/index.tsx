@@ -1,61 +1,75 @@
 import { ChangeEvent, Component, FormEvent } from 'react';
 
-import { getOhlcv } from '@/services';
+import { Button, Input } from '../UI';
 
-import { Button, ErrorMessage, Input, Select } from '../UI';
-
-import { DEFAULT_DATE, DEFAULT_PAIR, MAX_DATE, MIN_DATE, PAIR_OPTIONS } from './constants';
-import { HistoryFormProps, HistoryFormState } from './types';
+import { TableForm } from './TableForm';
+import { addOrTrimTableData, addTimestamps, generateRandomData } from './utils';
 
 import styles from './styles.module.scss';
+
+const DEFAULT_AMOUNT_OF_DAYS = '14';
+const MAX_AMOUNT_OF_DAYS = 31;
+const MIN_AMOUNT_OF_DAYS = 0;
+
+type HistoryFormProps = {
+  onSubmit: (data: number[][]) => void;
+};
+
+type HistoryFormState = {
+  amount: string;
+  tableData: number[][];
+};
 
 export class HistoryForm extends Component<HistoryFormProps, HistoryFormState> {
   constructor(props: HistoryFormProps) {
     super(props);
 
     this.state = {
-      pair: DEFAULT_PAIR,
-      pairOptions: PAIR_OPTIONS,
-      date: DEFAULT_DATE,
-      isLoading: false,
-      error: null,
+      amount: DEFAULT_AMOUNT_OF_DAYS,
+      tableData: generateRandomData(Number(DEFAULT_AMOUNT_OF_DAYS)),
     };
   }
 
   onSubmitHanlder = (event: FormEvent) => {
-    const { pair, date } = this.state;
-    const { onSubmit } = this.props;
-
     event.preventDefault();
-    this.setState({ isLoading: true });
+    const { onSubmit } = this.props;
+    const { amount, tableData } = this.state;
 
-    const getData = async () => {
-      try {
-        const response = await getOhlcv(pair, date);
-
-        onSubmit(pair, response);
-      } catch (error) {
-        if (error instanceof Error) {
-          this.setState({ error });
-        }
-      } finally {
-        this.setState({ isLoading: false });
-      }
-    };
-
-    getData();
+    if (amount) {
+      onSubmit(addTimestamps(tableData));
+    }
   };
 
-  onChangeDate = (event: ChangeEvent<HTMLInputElement>) => {
-    this.setState({ date: event.target.value });
+  generateTableData = () => {
+    const { amount } = this.state;
+
+    this.setState({ tableData: generateRandomData(Number(amount)) });
   };
 
-  onChangePair = (event: ChangeEvent<HTMLSelectElement>) => {
-    this.setState({ pair: event.target.value });
+  onChangeAmountOfDays = (event: ChangeEvent<HTMLInputElement>) => {
+    const { tableData } = this.state;
+    const amount = Number(event.target.value);
+
+    if (amount <= MAX_AMOUNT_OF_DAYS && amount >= MIN_AMOUNT_OF_DAYS) {
+      const newTableData = addOrTrimTableData(tableData, amount);
+
+      this.setState({ amount: event.target.value, tableData: newTableData });
+    }
+  };
+
+  onChangeDaysData = (x: number, y: number, value: number) => {
+    const { tableData } = this.state;
+    if (tableData[x][y] === value) return;
+
+    const tableDataCopy = structuredClone(tableData);
+    tableDataCopy[x][y] = value;
+
+    this.setState({ tableData: tableDataCopy });
   };
 
   render() {
-    const { pair, pairOptions, date, isLoading, error } = this.state;
+    const { amount, tableData } = this.state;
+    const isInvalidAmount = Number(amount) === MIN_AMOUNT_OF_DAYS;
 
     return (
       <form
@@ -65,40 +79,27 @@ export class HistoryForm extends Component<HistoryFormProps, HistoryFormState> {
       >
         <h2 className={styles.historyForm__title}>Create Your Chart</h2>
 
-        <p className={`text-light-s ${styles.historyForm__desc}`}>
-          Select a currency pair and the date from which changes will be displayed for two months
-          (60 days)
-        </p>
+        <Input
+          className={styles.historyForm__amountOfDays}
+          onChange={this.onChangeAmountOfDays}
+          type="number"
+          min={MIN_AMOUNT_OF_DAYS}
+          max={MAX_AMOUNT_OF_DAYS}
+          value={amount}
+          labelName={`Amount of days (from ${MIN_AMOUNT_OF_DAYS}st to ${MAX_AMOUNT_OF_DAYS}st):`}
+          autoFocus
+        />
 
-        <section className={styles.formFields}>
-          <Select
-            data-testid="currency-pair"
-            disabled={isLoading}
-            value={pair}
-            onChange={this.onChangePair}
-            className={styles.formFields__item}
-            labelName="Base:"
-            options={pairOptions}
-          />
-          <Input
-            data-testid="trades-date"
-            disabled={isLoading}
-            value={date}
-            onChange={this.onChangeDate}
-            labelName="Start Date:"
-            className={styles.formFields__item}
-            type="date"
-            required
-            min={MIN_DATE}
-            max={MAX_DATE}
-          />
-        </section>
+        <TableForm data={tableData} onChange={this.onChangeDaysData} />
 
-        {error && <ErrorMessage />}
-
-        <Button data-testid="submit-chart" disabled={isLoading} isLoading={isLoading}>
-          Build Chart
-        </Button>
+        <div className={styles.historyForm__buttons}>
+          <Button data-testid="submit-chart" type="submit" disabled={isInvalidAmount}>
+            Build Chart
+          </Button>
+          <Button disabled={isInvalidAmount} type="button" onClick={this.generateTableData}>
+            Random
+          </Button>
+        </div>
       </form>
     );
   }
