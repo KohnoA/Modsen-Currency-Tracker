@@ -46,9 +46,10 @@ export class Toolbar extends PureComponent<ToolbarProps, ToolbarState> {
     const { currentCurrency } = this.state;
 
     return (
-      <section className={styles.toolbar}>
+      <section className={styles.toolbar} data-testid="timeline-toolbar">
         <div className={styles.wrapper_left}>
           <Select
+            data-testid="change-currency"
             onChange={this.onChangeCurrency}
             className={styles.toolbar__select}
             defaultOption={DEFAULT_CURRENCY_OPTION}
@@ -59,6 +60,7 @@ export class Toolbar extends PureComponent<ToolbarProps, ToolbarState> {
 
         <div>
           <p
+            data-testid="success-message"
             className={`${styles.toolbar__successMsg} ${
               success ? styles.toolbar__successMsg_active : ''
             }`}
