@@ -1,9 +1,9 @@
 import { ChangeEvent, FormEvent, PureComponent } from 'react';
 
 import { ICONS } from '@/constants';
-import { filterOptions } from '@/utils';
 
 import { SearchOptions } from './SearchOptions';
+import { filterOptions } from './utils';
 
 import styles from './styles.module.scss';
 
