@@ -1,16 +1,10 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import axios from 'axios';
-
-import { DEFAULT_OHLC_PAIRS } from '@/constants';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
 
-import { MAX_DATE, MIN_DATE } from './constants';
-import { HistoryForm } from '.';
+import { DEFAULT_AMOUNT_OF_DAYS, HistoryForm } from '.';
 
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-const onSubmitMock = jest.fn;
+const onSubmitMock = jest.fn();
 
 describe('Testing HistoryForm component', () => {
   beforeEach(() => render(<HistoryForm onSubmit={onSubmitMock} />));
@@ -22,44 +16,58 @@ describe('Testing HistoryForm component', () => {
     expect(screen.getByTestId('history-form')).toBeInTheDocument();
     expect(screen.getByText(/Create Your Chart/)).toBeInTheDocument();
     expect(screen.getByTestId('submit-chart')).toBeInTheDocument();
-    expect(screen.getByTestId('currency-pair')).toBeInTheDocument();
-    expect(screen.getByTestId('trades-date')).toBeInTheDocument();
+    expect(screen.getByTestId('amount-days')).toBeInTheDocument();
+    expect(screen.getByTestId('randomize')).toBeInTheDocument();
   });
 
-  it('Date input must have restrictions', () => {
-    const inputDate = screen.getByTestId('trades-date');
+  it('The number of table rows must match the number of days', () => {
+    const amountOfDaysInput = screen.getByTestId<HTMLInputElement>('amount-days');
 
-    expect(inputDate).toBeInTheDocument();
-    expect(inputDate).toHaveAttribute('min', MIN_DATE);
-    expect(inputDate).toHaveAttribute('max', MAX_DATE);
+    expect(amountOfDaysInput.value).toBe(DEFAULT_AMOUNT_OF_DAYS);
+    expect(screen.getAllByTestId('ohlc-row').length).toBe(14);
+
+    const newValue = '4';
+
+    fireEvent.change(amountOfDaysInput, {
+      target: { value: newValue },
+    });
+
+    expect(amountOfDaysInput.value).toBe(newValue);
+    expect(screen.getAllByTestId('ohlc-row').length).toBe(Number(newValue));
+
+    const nullValue = '0';
+
+    fireEvent.change(amountOfDaysInput, {
+      target: { value: nullValue },
+    });
+
+    expect(amountOfDaysInput.value).toBe(nullValue);
+    expect(screen.queryByTestId('ohlc-row')).toBeNull();
+    expect(screen.getByTestId('invalid-days-value')).toBeInTheDocument();
   });
 
-  it('If a value entered is greater or less than the bounds, an alert should be displayed', () => {
-    const inputDate = screen.getByTestId('trades-date');
+  it('The onSubmit function should be called when the build button is clicked', () => {
+    const submitButton = screen.getByTestId('submit-chart');
 
-    fireEvent.change(inputDate, {
-      target: { value: '2000-01-01' },
-    });
-    fireEvent.click(screen.getByTestId('submit-chart'));
+    fireEvent.click(submitButton);
 
-    expect(inputDate).toBeInvalid();
+    expect(onSubmitMock).toHaveBeenCalled();
   });
 
-  it('Should process the request correctly', async () => {
-    const inputDate = screen.getByTestId('trades-date');
-    const tradesPair = screen.getByTestId('currency-pair');
-    mockedAxios.get.mockImplementation(() => Promise.resolve({ data: ohlcvReponseMock }));
+  it('The submit button should be disabled if the number of days is zero', () => {
+    const submitButton = screen.getByTestId('submit-chart');
+    const amountOfDaysInput = screen.getByTestId('amount-days');
 
-    fireEvent.change(inputDate, {
-      target: { value: '2020-01-01' },
+    fireEvent.change(amountOfDaysInput, {
+      target: {
+        value: '0',
+      },
     });
-    fireEvent.change(tradesPair, {
-      target: { value: DEFAULT_OHLC_PAIRS[1] },
-    });
-    fireEvent.click(screen.getByTestId('submit-chart'));
 
-    await waitFor(() => {
-      expect(mockedAxios.get).toHaveBeenCalled();
-    });
+    expect(submitButton).toHaveAttribute('disabled');
+
+    fireEvent.click(submitButton);
+
+    expect(onSubmitMock).not.toHaveBeenCalled();
   });
 });

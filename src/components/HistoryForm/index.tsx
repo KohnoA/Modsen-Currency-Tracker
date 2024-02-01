@@ -7,7 +7,7 @@ import { addOrTrimTableData, addTimestamps, generateRandomData } from './utils';
 
 import styles from './styles.module.scss';
 
-const DEFAULT_AMOUNT_OF_DAYS = '14';
+export const DEFAULT_AMOUNT_OF_DAYS = '14';
 const MAX_AMOUNT_OF_DAYS = 31;
 const MIN_AMOUNT_OF_DAYS = 0;
 
@@ -80,6 +80,7 @@ export class HistoryForm extends Component<HistoryFormProps, HistoryFormState> {
         <h2 className={styles.historyForm__title}>Create Your Chart</h2>
 
         <Input
+          data-testid="amount-days"
           className={styles.historyForm__amountOfDays}
           onChange={this.onChangeAmountOfDays}
           type="number"
@@ -96,7 +97,12 @@ export class HistoryForm extends Component<HistoryFormProps, HistoryFormState> {
           <Button data-testid="submit-chart" type="submit" disabled={isInvalidAmount}>
             Build Chart
           </Button>
-          <Button disabled={isInvalidAmount} type="button" onClick={this.generateTableData}>
+          <Button
+            data-testid="randomize"
+            disabled={isInvalidAmount}
+            type="button"
+            onClick={this.generateTableData}
+          >
             Random
           </Button>
         </div>

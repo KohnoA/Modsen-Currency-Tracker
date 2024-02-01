@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 import { currenciesResponseMock } from '@/__mocks__/currenciesResponseMock';
-import { DEFAULT_QUOTES } from '@/db/defaultCurrencies';
+import { DEFAULT_CURRENCIES } from '@/constants';
 import { CurrenciesResponseType } from '@/types';
 
 import { getCurrenciesRate } from '../getCurrenciesRate';
 
-const requestCodes = DEFAULT_QUOTES.map(({ code }) => code).toString();
+const requestCodes = DEFAULT_CURRENCIES.map(({ code }) => code).toString();
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

@@ -25,6 +25,10 @@
     color: $fontMutedDarkTheme;
   }
 
+  &:disabled {
+    opacity: $hoverOpacity;
+  }
+
   &__label {
     transition: opacity 100ms;
   }
@@ -48,11 +52,6 @@
     .button__spinner {
       opacity: 1;
     }
-  }
-
-  &_disabled {
-    pointer-events: none;
-    opacity: $hoverOpacity;
   }
 }
 

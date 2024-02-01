@@ -21,9 +21,10 @@ export const Button = memo((props: ButtonProps) => {
 
   return (
     <Component
+      disabled={disabled}
       className={`text-regular-s ${styles.button} ${isLoading ? styles.button_load : ''} ${
-        disabled ? styles.button_disabled : ''
-      } ${className ?? ''}`}
+        className ?? ''
+      }`}
       onClick={onClick}
       {...other}
     >

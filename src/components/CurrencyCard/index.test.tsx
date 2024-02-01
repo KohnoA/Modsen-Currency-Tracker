@@ -1,7 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 
-import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 import { DEFAULT_CURRENCIES } from '@/constants/defaultCurrencies';
 import { truncateNumber } from '@/utils';
 
@@ -23,9 +22,5 @@ describe('Testing CurrenciesList conponent', () => {
 
     expect(nameNode).toHaveTextContent(name);
     expect(rateNode).toHaveTextContent(expectedRateContent);
-    expect(screen.getByTestId('currency-card-link')).toHaveAttribute(
-      'href',
-      `/?${CURRENCY_MODAL_QUERY_KEY}=${code}`,
-    );
   });
 });

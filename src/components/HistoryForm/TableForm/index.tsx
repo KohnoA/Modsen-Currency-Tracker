@@ -44,7 +44,7 @@ export class TableForm extends Component<TableFormProps> {
 
           <tbody>
             {data.map((itemArr, coordX) => (
-              <tr key={coordX}>
+              <tr key={coordX} data-testid="ohlc-row">
                 <td>{coordX + 1}</td>
 
                 {itemArr.map((value, coordY) => (
@@ -64,7 +64,9 @@ export class TableForm extends Component<TableFormProps> {
         </table>
 
         {!isValidAmountOfDays && (
-          <p className={`text-light-m ${styles.message}`}>Select a valid number of days</p>
+          <p data-testid="invalid-days-value" className={`text-light-m ${styles.message}`}>
+            Select a valid number of days
+          </p>
         )}
       </>
     );
