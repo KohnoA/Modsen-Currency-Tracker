@@ -23,11 +23,11 @@
 
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: $marginXS;
 
   margin: 0;
-  margin-bottom: 15px;
-  padding-right: 60px;
+  margin-bottom: $marginXS;
+  padding-right: $marginL;
 
   text-align: right;
 }
@@ -48,7 +48,7 @@
 
 @media (max-width: $desktopM) {
   .wrapper {
-    gap: 20px;
+    gap: $marginS;
   }
 
   .info {
@@ -82,5 +82,11 @@
 
   .logo {
     display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .info {
+    max-width: 100%;
   }
 }

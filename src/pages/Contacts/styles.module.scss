@@ -2,12 +2,12 @@
 @import '@/styles/mixins';
 
 .title {
-  margin-bottom: 70px;
+  margin-bottom: $marginXl;
   text-align: center;
 }
 
 .quote {
-  margin-bottom: 60px;
+  margin-bottom: $marginL;
   text-align: center;
 
   filter: drop-shadow($filterDropShadow);
@@ -15,7 +15,7 @@
   &__text {
     @include fontBrandStyle;
 
-    margin-bottom: 20px;
+    margin-bottom: $marginS;
   }
 
   &__autor {
@@ -29,7 +29,7 @@
 .contacts {
   @include flex(space-evenly, flex-start);
 
-  gap: 30px;
+  gap: $marginM;
 
   margin-bottom: 150px;
 }
@@ -37,7 +37,7 @@
 .info {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: $marginXS;
   margin-bottom: 100px;
 
   list-style: none;
@@ -69,14 +69,29 @@
     align-items: center;
     gap: 80px;
 
-    margin-bottom: 100px;
+    margin-bottom: $marginXl;
   }
 
   .info {
-    margin-bottom: 50px;
+    margin-bottom: $marginM;
   }
 
   .socials {
     order: -1;
+  }
+}
+
+@media (max-width: $mobileL) {
+  .title {
+    margin-bottom: $marginL;
+  }
+
+  .contacts {
+    margin-bottom: $marginL;
+    gap: 50px;
+  }
+
+  .quote {
+    margin-bottom: $marginS;
   }
 }

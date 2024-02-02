@@ -4,7 +4,7 @@
 .companyMark {
   @include flex(flex-start);
 
-  gap: 17px;
+  gap: $marginXS;
 
   &__logo {
     filter: drop-shadow($filterDropShadow);

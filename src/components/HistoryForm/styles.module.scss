@@ -5,12 +5,12 @@
   text-align: center;
 
   &__title {
-    margin-bottom: 40px;
+    margin-bottom: $marginM;
     text-align: center;
   }
 
   &__amountOfDays {
-    margin-bottom: 30px;
+    margin-bottom: $marginM;
 
     & input {
       max-width: 100px;
@@ -21,13 +21,13 @@
     @include flex();
 
     flex-wrap: wrap;
-    gap: 15px;
+    gap: $marginXS;
   }
 }
 
 @media (max-width: $tablet) {
   .historyForm__title {
     font-size: 25px;
-    margin-bottom: 20px;
+    margin-bottom: $marginS;
   }
 }

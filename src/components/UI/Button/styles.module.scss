@@ -4,7 +4,7 @@
   position: relative;
   display: inline-block;
 
-  padding: 20px 35px;
+  padding: $marginS $marginM;
 
   text-decoration: none;
 
@@ -57,6 +57,6 @@
 
 @media (max-width: $tablet) {
   .button {
-    padding: 15px 25px;
+    padding: $marginXS $marginS;
   }
 }

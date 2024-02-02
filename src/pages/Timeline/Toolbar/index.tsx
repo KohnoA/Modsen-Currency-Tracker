@@ -47,7 +47,7 @@ export class Toolbar extends PureComponent<ToolbarProps, ToolbarState> {
 
     return (
       <section className={styles.toolbar} data-testid="timeline-toolbar">
-        <div className={styles.wrapper_left}>
+        <div>
           <Select
             data-testid="change-currency"
             onChange={this.onChangeCurrency}

@@ -2,22 +2,22 @@
 @import '@/styles/mixins';
 
 .footer {
-  padding-top: 60px;
-  padding-bottom: 35px;
+  padding-top: $marginL;
+  padding-bottom: $marginM;
 }
 
 .wrapper {
   display: flex;
   gap: 100px;
 
-  margin-bottom: 60px;
+  margin-bottom: $marginL;
 }
 
 .companyInfo {
   width: 45%;
 
   .mark {
-    margin-bottom: 30px;
+    margin-bottom: $marginM;
   }
 }
 
@@ -36,7 +36,7 @@
 
 @media (max-width: $desktopS) {
   .wrapper {
-    gap: 60px;
+    gap: $marginL;
   }
 }
 
@@ -49,5 +49,11 @@
   .companyInfo,
   .linksGroups {
     width: 100%;
+  }
+}
+
+@media (max-width: $mobileL) {
+  .linksGroups {
+    text-align: center;
   }
 }

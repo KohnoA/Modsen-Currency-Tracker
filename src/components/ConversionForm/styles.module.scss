@@ -7,18 +7,18 @@
   text-align: center;
 
   &__title {
-    margin-bottom: 60px;
+    margin-bottom: $marginL;
   }
 }
 
 .base {
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+  padding-bottom: $marginM;
+  margin-bottom: $marginM;
 
   border-bottom: 2px solid $borderDarkTheme;
 
   &__label {
-    margin-bottom: 20px;
+    margin-bottom: $marginS;
   }
 
   &__label,
@@ -36,20 +36,38 @@
 .target {
   @include flex(space-between);
 
-  margin-bottom: 60px;
+  margin-bottom: $marginL;
 }
 
 .result {
-  margin-bottom: 50px;
+  margin-bottom: $marginL;
 }
 
 @media (max-width: $tablet) {
   .conversionForm__title {
     font-size: 25px;
-    margin-bottom: 30px;
+    margin-bottom: $marginM;
   }
 
   .target {
     gap: 15px;
+  }
+}
+
+@media (max-width: $mobileL) {
+  .base__label, .base__count {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .base__count input[type='number'] {
+    max-width: 100px;
+  }
+
+  .target {
+    justify-content: center;
+    gap: 8px;
+
+    margin-bottom: $marginM;
   }
 }

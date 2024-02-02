@@ -4,9 +4,9 @@
 .updateDate {
   @include flex();
 
-  gap: 20px;
+  gap: $marginS;
 
-  margin-bottom: 65px;
+  margin-bottom: $marginL;
 }
 
 .circle {

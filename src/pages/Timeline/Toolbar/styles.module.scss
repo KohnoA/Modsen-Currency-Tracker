@@ -1,17 +1,16 @@
 @import '@/styles/vars';
 @import '@/styles/mixins';
 
-.wrapper_left {
-  flex-grow: 1;
-}
-
 .toolbar {
   @include flex(space-between, flex-end);
 
-  margin-bottom: 50px;
+  flex-wrap: wrap;
+  gap: $marginM;
+
+  margin-bottom: $marginL;
 
   &__select {
-    margin-bottom: 40px;
+    margin-bottom: $marginL;
 
     & select {
       padding: 10px;
@@ -29,7 +28,6 @@
   }
 
   &__card {
-    max-width: 55%;
     pointer-events: none;
   }
 
@@ -39,7 +37,7 @@
   }
 
   &__successMsg {
-    margin-bottom: 30px;
+    margin-bottom: $marginM;
 
     text-align: center;
     color: $green;

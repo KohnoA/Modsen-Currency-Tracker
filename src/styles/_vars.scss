@@ -12,6 +12,12 @@ $containerPaddingRight: 40px;
 $containerMobilePaddingLeft: 15px;
 $containerMobilePaddingRight: 15px;
 
+$marginXl: 90px;
+$marginL: 60px;
+$marginM: 30px;
+$marginS: 20px;
+$marginXS: 15px;
+
 $brandColor: linear-gradient(90.18deg, #00ce2c 0.18%, #aedf23 49.3%, #a3dc00 99.88%);
 $promoGradient: linear-gradient(252.93deg, #121212 11.77%, rgba(36, 121, 64, 0) 91.12%);
 
@@ -26,10 +32,6 @@ $borderDarkTheme: #474747;
 $borderHoverDarkTheme: #656565;
 $green: #00bc4f;
 
-// Light Theme
-$bodyLightTheme: #fcfcfb;
-$fontLightTheme: #262626;
-
 $filterDropShadow: 3px 3px 3px $bodyDarkTheme;
 
 // Breakpoints
@@ -37,4 +39,6 @@ $desktopL: 1400px;
 $desktopM: 1200px;
 $desktopS: 1024px;
 $tablet: 768px;
-$mobile: 425px;
+$mobileL: 425px;
+$mobileM: 375px;
+$mobileS: 320px;

@@ -4,8 +4,8 @@
 .title {
   max-width: 520px;
 
-  padding-bottom: 25px;
-  margin-bottom: 50px;
+  padding-bottom: $marginS;
+  margin-bottom: $marginL;
 
   border-bottom: 2px solid $borderDarkTheme;
 }
@@ -16,7 +16,7 @@
   row-gap: 55px;
   column-gap: 184px;
 
-  margin-bottom: 90px;
+  margin-bottom: $marginXl;
 
   list-style: none;
 }
@@ -30,8 +30,21 @@
 
 @media (max-width: $tablet) {
   .list {
-    @include gridAutoFit(400px);
+    @include gridAutoFit(380px);
 
-    row-gap: 30px;
+    row-gap: $marginS;
+  }
+}
+
+@media (max-width: $mobileL) {
+  .title {
+    padding-bottom: $marginS;
+    margin-bottom: $marginM;
+  }
+
+  .list {
+    @include gridAutoFit(290px);
+
+    margin-bottom: $marginM;
   }
 }

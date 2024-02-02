@@ -4,7 +4,7 @@
 .socials {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: $marginXS;
 
   list-style: none;
 
@@ -32,7 +32,7 @@
   &__link {
     @include flex(flex-start);
 
-    gap: 20px;
+    gap: $marginS;
 
     color: $fontDarkTheme;
     text-decoration: none;

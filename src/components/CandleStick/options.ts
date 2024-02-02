@@ -28,4 +28,14 @@ export const options: ApexOptions = {
       enabled: true,
     },
   },
+  responsive: [
+    {
+      breakpoint: 425,
+      options: {
+        yaxis: {
+          show: false,
+        },
+      },
+    },
+  ],
 };

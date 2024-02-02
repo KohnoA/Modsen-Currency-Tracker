@@ -1,4 +1,6 @@
+@import '@/styles/vars';
+
 .error {
-  margin-bottom: 50px;
+  margin-bottom: $marginL;
   color: red;
 }

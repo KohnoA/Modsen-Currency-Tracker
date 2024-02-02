@@ -5,7 +5,7 @@
   @include flex();
 
   flex-wrap: wrap;
-  gap: 15px;
+  gap: $marginXS;
 }
 
 .input {

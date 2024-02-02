@@ -5,7 +5,7 @@
   @include flex(flex-start);
 
   flex-wrap: nowrap;
-  column-gap: 30px;
+  column-gap: $marginM;
 
   padding: 32px 36.5px;
 
@@ -47,7 +47,18 @@
 
 @media (max-width: $tablet) {
   .card {
-    padding: 20px 20px;
-    column-gap: 20px;
+    padding: $marginXS;
+    column-gap: $marginXS;
+  }
+}
+
+@media (max-width: $mobileL) {
+  .card__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .info {
+    gap: 5px;
   }
 }

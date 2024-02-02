@@ -7,8 +7,8 @@
   left: 0;
   right: 0;
 
-  padding: 15px;
-  padding-top: 20px;
+  padding: $marginXS;
+  padding-top: $marginS;
 
   font-size: 18px;
 
@@ -22,7 +22,7 @@
 
   &__item {
     margin-bottom: 5px;
-    padding: 10px;
+    padding: $marginXS;
 
     border-radius: $borderRadius;
     transition: all $transitionDuration;

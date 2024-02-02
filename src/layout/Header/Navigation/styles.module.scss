@@ -5,8 +5,8 @@
   display: grid;
   grid-template-columns: 100px 1fr 100px;
 
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: $marginS;
+  padding-bottom: $marginS;
 }
 
 .logo {
@@ -29,7 +29,7 @@
 
   @include flex(space-between);
 
-  gap: 60px;
+  gap: $marginL;
 
   list-style: none;
 
@@ -53,8 +53,8 @@
   &__close {
     display: none;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: $marginM;
+    right: $marginM;
 
     transition: opacity $transitionDuration;
 
@@ -112,10 +112,10 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 30px;
+    gap: $marginM;
 
-    padding: 60px;
-    padding-top: 90px;
+    padding: $marginL;
+    padding-top: $marginXl;
 
     background-color: $bodyDarkTheme;
     transition: transform $transitionDuration;

@@ -2,13 +2,13 @@
 
 .group {
   .title {
-    margin-bottom: 40px;
+    margin-bottom: $marginM;
   }
 
   .linksList {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: $marginS;
 
     list-style: none;
   }
