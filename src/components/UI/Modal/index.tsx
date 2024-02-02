@@ -4,8 +4,6 @@ import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 import { ICONS } from '@/constants';
-import { useAppSelector } from '@/store/hooks';
-import { selectTheme } from '@/store/selectors';
 
 import styles from './styles.module.scss';
 
@@ -18,8 +16,6 @@ type ModalProps = {
 const { CrossIcon } = ICONS;
 
 export const Modal = ({ isActive, children, onClose }: ModalProps) => {
-  const isLightTheme = useAppSelector(selectTheme);
-
   const contentClickHanlder = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   const onKeydownCloseModal = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -40,11 +36,7 @@ export const Modal = ({ isActive, children, onClose }: ModalProps) => {
       role="button"
       tabIndex={0}
     >
-      <div
-        data-testid="modal"
-        className={`${styles.content} ${isLightTheme ? 'lightTheme' : ''}`}
-        onClick={contentClickHanlder}
-      >
+      <div data-testid="modal" className={styles.content} onClick={contentClickHanlder}>
         <button onClick={onClose} className={styles.cross} type="button">
           <span className="hidden">Close Modal</span>
           <CrossIcon className={styles.cross__icon} width={60} height={60} />

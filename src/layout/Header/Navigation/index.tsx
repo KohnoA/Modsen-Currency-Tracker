@@ -1,12 +1,10 @@
-import { KeyboardEvent, useState } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Switch } from '@/components/UI';
 import { ICONS, PAGE_LIST } from '@/constants';
+import { AppThemes } from '@/constants/themes';
 import { AppRoutes } from '@/router/routes';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { selectTheme } from '@/store/selectors';
-import { changeTheme } from '@/store/slices/themeSlice';
 
 import styles from './styles.module.scss';
 
@@ -14,16 +12,21 @@ const { LogoSmallIcon, CrossIcon } = ICONS;
 
 export const Navigation = () => {
   const [showBurder, setShowBurger] = useState<boolean>(false);
-  const isLightTheme = useAppSelector(selectTheme);
-  const dispatch = useAppDispatch();
-
-  const themeHandler = () => dispatch(changeTheme());
+  const [theme, setTheme] = useState<AppThemes>(AppThemes.DARK);
 
   const toggleBurger = () => setShowBurger((prev) => !prev);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === AppThemes.DARK ? AppThemes.LIGHT : AppThemes.DARK));
+  };
 
   const hanldeKeyDownBurger = (event: KeyboardEvent) => {
     if (event.code === 'Enter') toggleBurger();
   };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   return (
     <nav className={`container ${styles.navigation}`}>
@@ -52,12 +55,7 @@ export const Navigation = () => {
         </li>
       </ul>
 
-      <Switch
-        data-testid="switch-theme"
-        className={styles.toggler}
-        isToggled={isLightTheme}
-        onChange={themeHandler}
-      />
+      <Switch data-testid="switch-theme" className={styles.toggler} onChange={toggleTheme} />
 
       <div
         data-testid="burger-menu"

@@ -6,10 +6,28 @@
   box-sizing: border-box;
 }
 
+html[data-theme='light'] {
+  --invert: 100%;
+
+  .map {
+    filter: invert(1);
+  }
+
+  .chart {
+    filter: invert(1);
+  }
+}
+
+html[data-theme='dark'] {
+  --invert: 0%;
+}
+
 html {
   font-size: $rootFontSize;
   scroll-behavior: smooth;
   color-scheme: dark;
+
+  filter: invert(var(--invert));
 }
 
 body {
@@ -43,18 +61,6 @@ img {
   width: 0;
   height: 0;
   visibility: hidden;
-}
-
-.lightTheme {
-  filter: invert(100%);
-
-  .map {
-    filter: invert(1);
-  }
-
-  .chart {
-    filter: invert(1);
-  }
 }
 
 // Typography

@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 
 type SwitchProps = {
   className?: string;
-  isToggled: boolean;
+  isToggled?: boolean;
   onChange: () => void;
   'data-testid'?: string;
 };
