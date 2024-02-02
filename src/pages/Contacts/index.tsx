@@ -1,11 +1,9 @@
-import { memo } from 'react';
-
 import { SocialList } from '@/components/SocialList';
 import { AUTHOR_GITHUB, CONTACTS_INFO, MODSEN_LINK } from '@/constants';
 
 import styles from './styles.module.scss';
 
-export const Contacts = memo(() => (
+export const Contacts = () => (
   <main className="container">
     <h2 className={styles.title}>Contact Us</h2>
 
@@ -42,4 +40,4 @@ export const Contacts = memo(() => (
       <p className={`text-light-m ${styles.quote__autor}`}>- Benjamin Franklin</p>
     </div>
   </main>
-));
+);

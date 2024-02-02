@@ -39,6 +39,21 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100%;
+
+  color: $fontDarkTheme;
+  background-color: $bodyDarkTheme;
+  overflow-x: hidden;
+}
+
+#root > main {
+  flex-grow: 1;
+}
+
 img {
   max-width: 100%;
   height: auto;

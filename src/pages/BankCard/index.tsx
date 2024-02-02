@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { Component } from 'react';
 
 import { ElasticSearch } from '@/components/ElasticSearch';
 import { MyMap } from '@/components/MyMap';
@@ -17,7 +17,7 @@ type BankCardState = {
   markers: { desc: string; coords: [number, number] }[];
 };
 
-export class BankCard extends PureComponent<{}, BankCardState> {
+export class BankCard extends Component<{}, BankCardState> {
   constructor(props: {}) {
     super(props);
 

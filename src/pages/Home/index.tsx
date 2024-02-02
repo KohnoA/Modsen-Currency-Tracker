@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { ConversionForm } from '@/components/ConversionForm';
@@ -8,7 +8,7 @@ import { UpdateTime } from '@/components/UpdateTime';
 import { CURRENCY_MODAL_QUERY_KEY } from '@/constants';
 import { useCurrencies } from '@/hooks';
 
-export const Home = memo(() => {
+export const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const showModal = !!searchParams.get(CURRENCY_MODAL_QUERY_KEY);
   const baseCurrencyInModal = searchParams.get(CURRENCY_MODAL_QUERY_KEY);
@@ -34,4 +34,4 @@ export const Home = memo(() => {
       </Modal>
     </main>
   );
-});
+};

@@ -1,11 +1,10 @@
-import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AppRoutes } from '@/router/routes';
 
 import styles from './styles.module.scss';
 
-export const NotFound = memo(() => (
+export const NotFound = () => (
   <main className={`container ${styles.page}`}>
     <h2 className={`text-semibold-l ${styles.title}`}>404</h2>
 
@@ -15,4 +14,4 @@ export const NotFound = memo(() => (
       Return to Home
     </Link>
   </main>
-));
+);

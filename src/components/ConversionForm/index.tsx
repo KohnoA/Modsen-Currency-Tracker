@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, memo, useState } from 'react';
 
 import { DEFAULT_CURRENCIES } from '@/constants';
-import { useConverter } from '@/hooks/useConverter';
+import { useConverter } from '@/hooks';
 
 import { Button, ErrorMessage, Input, Select } from '../UI';
 
