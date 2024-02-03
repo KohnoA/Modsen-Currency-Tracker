@@ -11,7 +11,7 @@ export const Promo = memo(() => (
     <div className={`container ${styles.wrapper}`}>
       <div className={styles.info}>
         <h1 className={`text-semibold-m ${styles.title}`}>
-          <span className="">Modsen Currency</span>
+          <span>Modsen Currency</span>
           <span className="text-semibold-l">Tracker</span>
         </h1>
 
