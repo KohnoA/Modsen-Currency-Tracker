@@ -11,11 +11,11 @@ import { getTimeFromDate } from '@/utils';
 import { Toolbar } from './Toolbar';
 
 const TIME_NOW = getTimeFromDate(Date.now());
-const SUCCESS_TIME = 3000;
+const SHOW_SUCCESS_TIME = 3000;
 
 type TimelineState = {
   showModal: boolean;
-  success: boolean;
+  showSuccess: boolean;
 };
 
 export class Timeline extends Component<{}, TimelineState> {
@@ -30,14 +30,12 @@ export class Timeline extends Component<{}, TimelineState> {
 
     this.state = {
       showModal: false,
-      success: false,
+      showSuccess: false,
     };
 
     this.timer = null;
     this.observer = new Observer();
     this.candleStickData = new CandleStickSubscriber();
-
-    this.toggleModalHanlder = this.toggleModalHanlder.bind(this);
   }
 
   componentDidMount(): void {
@@ -55,11 +53,11 @@ export class Timeline extends Component<{}, TimelineState> {
 
     if (this.timer) return;
 
-    this.setState({ success: true }, () => {
+    this.setState({ showSuccess: true }, () => {
       this.timer = setTimeout(() => {
-        this.setState({ success: false });
+        this.setState({ showSuccess: false });
         this.timer = null;
-      }, SUCCESS_TIME);
+      }, SHOW_SUCCESS_TIME);
     });
   };
 
@@ -72,7 +70,7 @@ export class Timeline extends Component<{}, TimelineState> {
   };
 
   render() {
-    const { showModal, success } = this.state;
+    const { showModal, showSuccess } = this.state;
     const currentData = this.candleStickData.current.data;
 
     return (
@@ -80,7 +78,7 @@ export class Timeline extends Component<{}, TimelineState> {
         <UpdateTime time={TIME_NOW} />
 
         <Toolbar
-          success={success}
+          showSuccess={showSuccess}
           resedChart={this.resetChart}
           onClickBuildButton={this.toggleModalHanlder}
         />
