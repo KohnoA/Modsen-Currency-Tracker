@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import styles from './styles.module.scss';
 
 type LinkGroupProps = {
@@ -17,9 +15,9 @@ export const LinkGroup = ({ title, links }: LinkGroupProps) => (
     <ul className={styles.linksList}>
       {links.map(({ name, link }) => (
         <li key={name}>
-          <Link to={link} className={styles.link}>
+          <a href={link} className={styles.link}>
             {name}
-          </Link>
+          </a>
         </li>
       ))}
     </ul>
