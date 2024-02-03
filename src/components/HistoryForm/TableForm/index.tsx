@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-
 import { ChangeEvent, Component } from 'react';
 
 import { Input } from '@/components/UI';
