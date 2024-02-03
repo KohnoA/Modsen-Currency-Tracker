@@ -20,6 +20,8 @@
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
     "simple-import-sort/imports": [
       "error",
       {
