@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 
-import { AppThemes } from '@/constants/themes';
+import { AppThemes } from '@/constants';
 
 const LOCAL_STORAGE_THEME_KEY = 'currency-tracker-theme';
 const ATTR_KEY = 'data-theme';

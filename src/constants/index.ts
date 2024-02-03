@@ -6,6 +6,7 @@ export { FOOTER_LINK_GROUPS } from './footerLinkGroups';
 export { ICONS } from './icons';
 export { PAGE_LIST } from './pageList';
 export { SOCIAL_LIST } from './socialList';
+export { AppThemes } from './themes';
 
 export const CURRENCY_MODAL_QUERY_KEY = 'currency';
 
