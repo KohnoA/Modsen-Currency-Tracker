@@ -30,7 +30,7 @@ export default merge<Configuration>(common, {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: ['react-refresh/babel'].filter(Boolean),
+            plugins: ['react-refresh/babel'],
           },
         },
       },
