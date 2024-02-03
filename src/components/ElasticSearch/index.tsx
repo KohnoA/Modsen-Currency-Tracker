@@ -76,8 +76,8 @@ export class ElasticSearch extends PureComponent<ElasticSearchProps, ElasticSear
             data-testid="elastic-search-submit"
             type="submit"
             className={styles.elasticSearch__submit}
+            aria-label="To start searching"
           >
-            <span className="hidden">Search</span>
             <SearchIcon width={24} height={24} />
           </button>
         </form>

@@ -35,8 +35,7 @@ export const Modal = ({ isActive, children, onClose }: ModalProps) => {
       tabIndex={0}
     >
       <div data-testid="modal" className={styles.content} onClick={contentClickHanlder}>
-        <button onClick={onClose} className={styles.cross} type="button">
-          <span className="hidden">Close Modal</span>
+        <button onClick={onClose} className={styles.cross} type="button" aria-label="Close modal">
           <CrossIcon className={styles.cross__icon} width={60} height={60} />
         </button>
 
