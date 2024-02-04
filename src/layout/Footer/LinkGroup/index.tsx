@@ -1,10 +1,12 @@
 import styles from './styles.module.scss';
 
+const DEFAULT_LINK_VALUE = '#';
+
 type LinkGroupProps = {
   title: string;
   links: {
     name: string;
-    link: string;
+    link?: string;
   }[];
 };
 
@@ -15,7 +17,7 @@ export const LinkGroup = ({ title, links }: LinkGroupProps) => (
     <ul className={styles.linksList}>
       {links.map(({ name, link }) => (
         <li key={name}>
-          <a href={link} className={styles.link}>
+          <a href={link ?? DEFAULT_LINK_VALUE} className={styles.link}>
             {name}
           </a>
         </li>

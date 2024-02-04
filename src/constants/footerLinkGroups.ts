@@ -1,25 +1,14 @@
-import { AppRoutes } from './routes';
-
 export const FOOTER_LINK_GROUPS = [
   {
     title: 'General',
-    links: [
-      { name: 'Market', link: AppRoutes.HOME },
-      { name: 'Service', link: AppRoutes.HOME },
-    ],
+    links: [{ name: 'Market' }, { name: 'Service' }],
   },
   {
     title: 'Product',
-    links: [
-      { name: 'Sparks', link: AppRoutes.HOME },
-      { name: 'Snaps', link: AppRoutes.HOME },
-    ],
+    links: [{ name: 'Sparks' }, { name: 'Snaps' }],
   },
   {
     title: 'Community',
-    links: [
-      { name: 'Ideas', link: AppRoutes.HOME },
-      { name: 'Streams', link: AppRoutes.HOME },
-    ],
+    links: [{ name: 'Ideas' }, { name: 'Streams' }],
   },
 ];
