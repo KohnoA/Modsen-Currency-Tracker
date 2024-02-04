@@ -2,9 +2,8 @@ import { KeyboardEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Switch } from '@/components/UI';
-import { AppThemes, ICONS, PAGE_LIST } from '@/constants';
+import { AppRoutes, AppThemes, ICONS, PAGE_LIST } from '@/constants';
 import { useTheme } from '@/hooks';
-import { AppRoutes } from '@/router/routes';
 
 import styles from './styles.module.scss';
 

@@ -5,6 +5,7 @@ export { DEFAULT_CURRENCIES } from './defaultCurrencies';
 export { FOOTER_LINK_GROUPS } from './footerLinkGroups';
 export { ICONS } from './icons';
 export { PAGE_LIST } from './pageList';
+export { AppRoutes } from './routes';
 export { SOCIAL_LIST } from './socialList';
 export { AppThemes } from './themes';
 

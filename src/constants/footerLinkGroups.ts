@@ -1,4 +1,4 @@
-import { AppRoutes } from '@/router/routes';
+import { AppRoutes } from './routes';
 
 export const FOOTER_LINK_GROUPS = [
   {

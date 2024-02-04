@@ -1,4 +1,4 @@
-import { AppRoutes } from '@/router/routes';
+import { AppRoutes } from './routes';
 
 export const PAGE_LIST = [
   { page: 'Home', path: AppRoutes.HOME },

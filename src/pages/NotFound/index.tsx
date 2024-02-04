@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { AppRoutes } from '@/router/routes';
+import { AppRoutes } from '@/constants';
 
 import styles from './styles.module.scss';
 

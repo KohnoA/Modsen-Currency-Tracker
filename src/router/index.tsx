@@ -2,8 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { PageLoader } from '@/components/PageLoader';
-
-import { AppRoutes } from './routes';
+import { AppRoutes } from '@/constants';
 
 const BankCard = lazy(() => import('@/pages/BankCard/lazy'));
 const Home = lazy(() => import('@/pages/Home/lazy'));
