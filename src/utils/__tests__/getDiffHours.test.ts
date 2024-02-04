@@ -1,4 +1,4 @@
-import { getDiffHours } from '../getDiffHours';
+import { getDiffHours } from '../date';
 
 describe('Testing getDiffHours function', () => {
   it('Should return the correct hour difference', () => {

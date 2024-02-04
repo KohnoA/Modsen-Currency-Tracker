@@ -9,3 +9,11 @@ export function getDiffHours(date1: Date, date2: Date) {
 
   return Number(diffInHours.toFixed());
 }
+
+export function getTimeFromDate(date: string | number | Date) {
+  return new Date(date).toLocaleTimeString('en-EN', {
+    hour12: true,
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+}

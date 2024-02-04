@@ -2,7 +2,7 @@ import { getCurrenciesRate } from '@/services';
 import { CurrenciesResponseType } from '@/types';
 
 import { areArraysEqual } from './areArraysEqual';
-import { getDiffHours } from './getDiffHours';
+import { getDiffHours } from './date';
 
 const LOCAL_STORAGE_CURRENCIES_RATE_KEY = 'currencies-rate';
 const CACHE_TIME_IN_HOURS = 12;
