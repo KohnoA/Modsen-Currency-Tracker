@@ -1,21 +1,21 @@
 import { useLayoutEffect, useState } from 'react';
 
-import { AppThemes } from '@/constants';
+import { AppTheme } from '@/constants';
 
 const LOCAL_STORAGE_THEME_KEY = 'currency-tracker-theme';
 const ATTR_KEY = 'data-theme';
 
 export function useTheme() {
-  const [theme, setTheme] = useState<AppThemes>(() => {
+  const [theme, setTheme] = useState<AppTheme>(() => {
     const themeInCache = localStorage.getItem(LOCAL_STORAGE_THEME_KEY);
 
-    if (!themeInCache) localStorage.setItem(LOCAL_STORAGE_THEME_KEY, AppThemes.DARK);
+    if (!themeInCache) localStorage.setItem(LOCAL_STORAGE_THEME_KEY, AppTheme.DARK);
 
-    return localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as AppThemes;
+    return localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as AppTheme;
   });
 
   const toggleTheme = () => {
-    setTheme(theme === AppThemes.DARK ? AppThemes.LIGHT : AppThemes.DARK);
+    setTheme(theme === AppTheme.DARK ? AppTheme.LIGHT : AppTheme.DARK);
   };
 
   useLayoutEffect(() => {

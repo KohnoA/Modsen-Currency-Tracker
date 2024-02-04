@@ -2,7 +2,7 @@ import { KeyboardEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Switch } from '@/components/UI';
-import { AppRoutes, AppThemes, ICONS, PAGE_LIST } from '@/constants';
+import { AppRoutes, AppTheme, ICONS, PAGE_LIST } from '@/constants';
 import { useTheme } from '@/hooks';
 
 import styles from './styles.module.scss';
@@ -47,7 +47,7 @@ export const Navigation = () => {
 
       <Switch
         data-testid="switch-theme"
-        isToggled={theme === AppThemes.LIGHT}
+        isToggled={theme === AppTheme.LIGHT}
         className={styles.toggler}
         onChange={toggleTheme}
       />
