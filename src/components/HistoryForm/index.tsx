@@ -1,9 +1,10 @@
 import { ChangeEvent, Component, FormEvent } from 'react';
 
+import { addOrTrimTableData, addTimestamps, generateRandomData } from '@/utils';
+
 import { Button, Input } from '../UI';
 
 import { TableForm } from './TableForm';
-import { addOrTrimTableData, addTimestamps, generateRandomData } from './utils';
 
 import styles from './styles.module.scss';
 
