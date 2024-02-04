@@ -1,4 +1,4 @@
-import { getTimeFromDate } from '../getTimeFromDate';
+import { getTimeFromDate } from '../date';
 
 describe('Testing getTimeFromDate function', () => {
   it('', () => {

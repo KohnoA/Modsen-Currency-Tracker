@@ -17,9 +17,8 @@ export const Switch = memo((props: SwitchProps) => {
       data-testid={otherProps['data-testid']}
       htmlFor="switch-id"
       className={`${styles.switch} ${className ?? ''}`}
+      aria-label="Switch button"
     >
-      <span className="hidden">Switch Button</span>
-
       <input
         className="hidden"
         id="switch-id"

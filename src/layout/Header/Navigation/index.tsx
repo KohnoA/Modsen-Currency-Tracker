@@ -2,10 +2,8 @@ import { KeyboardEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Switch } from '@/components/UI';
-import { ICONS, PAGE_LIST } from '@/constants';
-import { AppThemes } from '@/constants/themes';
+import { AppRoutes, AppTheme, ICONS, PAGE_LIST } from '@/constants';
 import { useTheme } from '@/hooks';
-import { AppRoutes } from '@/router/routes';
 
 import styles from './styles.module.scss';
 
@@ -23,7 +21,7 @@ export const Navigation = () => {
 
   return (
     <nav className={`container ${styles.navigation}`}>
-      <Link to={AppRoutes.HOME} className={styles.logo}>
+      <Link to={AppRoutes.HOME} className={styles.logo} aria-label="Go to home page">
         <LogoSmallIcon width={40} height={40} />
       </Link>
 
@@ -41,8 +39,7 @@ export const Navigation = () => {
         ))}
 
         <li className={styles.pagesList__close}>
-          <button onClick={toggleBurger} type="button">
-            <span className="hidden">Close Navigation</span>
+          <button onClick={toggleBurger} type="button" aria-label="Close navigation">
             <CrossIcon width={50} height={50} />
           </button>
         </li>
@@ -50,7 +47,7 @@ export const Navigation = () => {
 
       <Switch
         data-testid="switch-theme"
-        isToggled={theme === AppThemes.LIGHT}
+        isToggled={theme === AppTheme.LIGHT}
         className={styles.toggler}
         onChange={toggleTheme}
       />
@@ -60,10 +57,10 @@ export const Navigation = () => {
         onClick={toggleBurger}
         onKeyDown={hanldeKeyDownBurger}
         className={styles.burger}
+        aria-label="Show navigation"
         role="button"
         tabIndex={0}
       >
-        <span className="hidden">Show Navigation</span>
         <span className={styles.burger__line} />
         <span className={styles.burger__line} />
         <span className={styles.burger__line} />

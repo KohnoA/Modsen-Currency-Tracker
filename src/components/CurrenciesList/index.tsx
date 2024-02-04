@@ -14,11 +14,11 @@ type CurrenciesListProps = {
 
 export const CurrenciesList = memo(({ title, data, onClickForItem }: CurrenciesListProps) => (
   <section data-testid="currencies-list">
-    <h4 data-testid="currencies-list-title" className={`text-light-xl ${styles.title}`}>
+    <h2 data-testid="currencies-list-title" className={`text-light-xl ${styles.title}`}>
       {title}
-    </h4>
+    </h2>
 
-    <ul className={styles.list}>
+    <ul className={styles.list} role="tablist">
       {data.map((cardProps) => (
         <CurrencyCard key={cardProps.code} onClick={onClickForItem} {...cardProps} />
       ))}

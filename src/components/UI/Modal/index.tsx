@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-
-import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import { KeyboardEvent, memo, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 import { ICONS } from '@/constants';
@@ -15,7 +13,7 @@ type ModalProps = {
 
 const { CrossIcon } = ICONS;
 
-export const Modal = ({ isActive, children, onClose }: ModalProps) => {
+export const Modal = memo(({ isActive, children, onClose }: ModalProps) => {
   const contentClickHanlder = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   const onKeydownCloseModal = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -37,8 +35,7 @@ export const Modal = ({ isActive, children, onClose }: ModalProps) => {
       tabIndex={0}
     >
       <div data-testid="modal" className={styles.content} onClick={contentClickHanlder}>
-        <button onClick={onClose} className={styles.cross} type="button">
-          <span className="hidden">Close Modal</span>
+        <button onClick={onClose} className={styles.cross} type="button" aria-label="Close modal">
           <CrossIcon className={styles.cross__icon} width={60} height={60} />
         </button>
 
@@ -47,4 +44,4 @@ export const Modal = ({ isActive, children, onClose }: ModalProps) => {
     </div>,
     document.getElementById('modal-portal')!,
   );
-};
+});

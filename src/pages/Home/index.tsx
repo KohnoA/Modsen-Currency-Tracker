@@ -19,10 +19,10 @@ export const Home = () => {
     setSearchParams(searchParams);
   }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     searchParams.delete(CURRENCY_MODAL_QUERY_KEY);
     setSearchParams(searchParams);
-  };
+  }, []);
 
   return (
     <main className="container">

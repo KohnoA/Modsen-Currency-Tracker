@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-
 import { ChangeEvent, Component } from 'react';
 
 import { Input } from '@/components/UI';
@@ -48,8 +46,7 @@ export class TableForm extends Component<TableFormProps> {
                 <td>{coordX + 1}</td>
 
                 {itemArr.map((value, coordY) => (
-                  <td key={coordY}>
-                    <span className="hidden">{INPUT_DESCS[coordY]} input</span>
+                  <td key={coordY} aria-label={`${INPUT_DESCS[coordY]} input`}>
                     <Input
                       value={value}
                       onChange={(event) => this.onChangeHandler(event, coordX, coordY)}

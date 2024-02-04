@@ -1,9 +1,8 @@
 import { PureComponent } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
+import { CANDLESTICK_OPTIONS } from '@/constants';
 import { CandleStickData } from '@/types';
-
-import { options } from './options';
 
 import styles from './styles.module.scss';
 
@@ -18,7 +17,7 @@ export class CandleStick extends PureComponent<CandleStickProps> {
       <ReactApexChart
         data-testid="candle-stick"
         className={`chart ${styles.chart}`}
-        options={options}
+        options={CANDLESTICK_OPTIONS}
         series={series}
         type="candlestick"
       />

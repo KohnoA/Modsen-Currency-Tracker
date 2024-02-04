@@ -4,9 +4,12 @@ import { ElasticSearch } from '@/components/ElasticSearch';
 import { MyMap } from '@/components/MyMap';
 import { UpdateTime } from '@/components/UpdateTime';
 import { BANKS_DATA } from '@/constants';
-import { getTimeFromDate } from '@/utils';
-
-import { filterBanksByCurrencies, getBanksCurrencies, getMarkersOfBanks } from './utils';
+import {
+  filterBanksByCurrencies,
+  getBanksCurrencies,
+  getMarkersOfBanks,
+  getTimeFromDate,
+} from '@/utils';
 
 import styles from './styles.module.scss';
 

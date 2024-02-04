@@ -70,23 +70,19 @@
     padding-bottom: 45px;
   }
 
-  .desc {
-    line-height: 1.2;
-  }
-}
-
-@media (max-width: 500px) {
   .wrapper {
     justify-content: center;
   }
 
-  .logo {
-    display: none;
-  }
-}
-
-@media (max-width: 500px) {
   .info {
     max-width: 100%;
+  }
+
+  .desc {
+    line-height: 1.2;
+  }
+
+  .logo {
+    display: none;
   }
 }

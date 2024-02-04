@@ -1,4 +1,4 @@
-import { truncateNumber } from '../truncateNumber';
+import { truncateNumber } from '../numbers';
 
 describe('Testing truncateNumber function', () => {
   it('Should handle numbers greater than 0.01 correctly', () => {

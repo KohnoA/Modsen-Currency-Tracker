@@ -16,7 +16,7 @@
 
   padding: $marginS;
 
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: $blackout;
   overflow-y: auto;
   animation: fade $transitionDuration;
 }
@@ -34,7 +34,7 @@
   background-color: $bodySecondDarkTheme;
   border: 2px solid $borderDarkTheme;
   border-radius: $borderRadius;
-  box-shadow: 2px 2px 5px 0 rgba($color: #000000, $alpha: 0.2);
+  box-shadow: 2px 2px 5px 0 $blackout;
 }
 
 .cross {

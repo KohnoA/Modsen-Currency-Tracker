@@ -1,4 +1,4 @@
-import { getRandomIntInclusive } from '@/utils/getRandomIntInclusive';
+import { getRandomIntInclusive } from '../numbers';
 
 export function generateRandomData(rows: number): number[][] {
   const DEFAULT_MIN_VALUE = 1;

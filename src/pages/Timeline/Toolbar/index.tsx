@@ -14,7 +14,7 @@ const DEFAULT_CURRENCY_OPTION = CURRENCIES_OPTIONS[0].value;
 const DEFAULT_CURRENT_CURRENCY = DEFAULT_CURRENCIES[0];
 
 type ToolbarProps = {
-  success?: boolean;
+  showSuccess?: boolean;
   onClickBuildButton: () => void;
   resedChart: () => void;
 };
@@ -42,7 +42,7 @@ export class Toolbar extends PureComponent<ToolbarProps, ToolbarState> {
   };
 
   render() {
-    const { onClickBuildButton, success } = this.props;
+    const { onClickBuildButton, showSuccess } = this.props;
     const { currentCurrency } = this.state;
 
     return (
@@ -62,7 +62,7 @@ export class Toolbar extends PureComponent<ToolbarProps, ToolbarState> {
           <p
             data-testid="success-message"
             className={`${styles.toolbar__successMsg} ${
-              success ? styles.toolbar__successMsg_active : ''
+              showSuccess ? styles.toolbar__successMsg_active : ''
             }`}
           >
             Success!
