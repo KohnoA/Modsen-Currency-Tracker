@@ -1,6 +1,6 @@
 import { ApexOptions } from 'apexcharts';
 
-export const options: ApexOptions = {
+export const CANDLESTICK_OPTIONS: ApexOptions = {
   chart: {
     toolbar: {
       show: true,

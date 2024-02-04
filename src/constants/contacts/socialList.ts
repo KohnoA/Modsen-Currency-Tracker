@@ -1,4 +1,4 @@
-import { ICONS } from './icons';
+import { ICONS } from '../icons';
 
 const { MODSEN_LINK } = process.env;
 const { FacebookIcon, InstagramIcon, TwitterIcon } = ICONS;
