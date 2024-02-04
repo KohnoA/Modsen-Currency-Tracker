@@ -1,4 +1,4 @@
-import { KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import { KeyboardEvent, memo, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 import { ICONS } from '@/constants';
@@ -13,7 +13,7 @@ type ModalProps = {
 
 const { CrossIcon } = ICONS;
 
-export const Modal = ({ isActive, children, onClose }: ModalProps) => {
+export const Modal = memo(({ isActive, children, onClose }: ModalProps) => {
   const contentClickHanlder = (event: MouseEvent<HTMLDivElement>) => event.stopPropagation();
 
   const onKeydownCloseModal = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -44,4 +44,4 @@ export const Modal = ({ isActive, children, onClose }: ModalProps) => {
     </div>,
     document.getElementById('modal-portal')!,
   );
-};
+});
