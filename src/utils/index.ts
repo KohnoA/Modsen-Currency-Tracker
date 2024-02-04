@@ -1,4 +1,4 @@
 export { areArraysEqual } from './areArraysEqual';
+export { getCurrenciesRateCached, getCurrencyRateCached } from './cachedCurrencies';
 export { getDiffHours, getTimeFromDate } from './date';
-export { getCurrenciesRateCached, getCurrencyRateCached } from './getCurrenciesRateCached';
 export { truncateNumber } from './truncateNumber';
