@@ -1,4 +1,4 @@
-import { getRandomIntInclusive } from '../numbers';
+import { getRandomIntInclusive } from './numbers';
 
 export function generateRandomData(rows: number): number[][] {
   const DEFAULT_MIN_VALUE = 1;
@@ -24,5 +24,29 @@ export function generateRandomData(rows: number): number[][] {
     lastClose = close;
 
     return [open, high, low, close];
+  });
+}
+
+export function addOrTrimTableData(tableData: number[][], amount: number) {
+  const INITIAL_VALUE = 0;
+
+  return tableData.length > amount
+    ? tableData.filter((_, index) => index + 1 <= amount)
+    : [
+        ...tableData,
+        ...new Array(amount - tableData.length)
+          .fill(amount)
+          .map(() => [INITIAL_VALUE, INITIAL_VALUE, INITIAL_VALUE, INITIAL_VALUE]),
+      ];
+}
+
+export function addTimestamps(data: number[][], startDate?: string) {
+  const DEFAULT_DATE = '2020-01-01';
+  const date = new Date(startDate ?? DEFAULT_DATE);
+
+  return data.map((item, index) => {
+    item.unshift(date.setDate(index + 1));
+
+    return item;
   });
 }
