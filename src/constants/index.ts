@@ -1,9 +1,9 @@
 export { AppRoutes } from './appRoutes';
 export { AppTheme } from './appTheme';
-export { BANKS_DATA } from './banks';
+export { BANKS_DATA } from './banksData';
 export { CANDLESTICK_OPTIONS, DEFAULT_CHART_DATA } from './candlestick';
 export { CONTACTS_INFO, SOCIAL_LIST } from './contacts';
-export { DEFAULT_CURRENCIES } from './currencies';
+export { DEFAULT_CURRENCIES } from './defaultCurrencies';
 export { FOOTER_LINK_GROUPS } from './footerLinkGroups';
 export { ICONS } from './icons';
 export { PAGE_LIST } from './pageList';
