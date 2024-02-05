@@ -11,7 +11,7 @@ type CandleStickProps = CandleStickData;
 export class CandleStick extends PureComponent<CandleStickProps> {
   render() {
     const { data } = this.props;
-    const series = [{ data }];
+    const series = new Array({ data });
 
     return (
       <ReactApexChart
