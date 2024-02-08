@@ -1,0 +1,62 @@
+@import '@/styles/vars';
+
+.button {
+  position: relative;
+  display: inline-block;
+
+  padding: $marginS $marginM;
+
+  text-decoration: none;
+
+  background-color: $borderHoverDarkTheme;
+  border-radius: $borderRadius;
+  border: $borderDarkTheme;
+  transition: all $transitionDuration;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #4e4e4e;
+    color: $fontDarkTheme;
+  }
+
+  &:active {
+    background-color: $borderDarkTheme;
+    color: $fontMutedDarkTheme;
+  }
+
+  &:disabled {
+    opacity: $hoverOpacity;
+  }
+
+  &__label {
+    transition: opacity 100ms;
+  }
+
+  &__spinner {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-50%);
+    transition: opacity 100ms;
+    opacity: 0;
+  }
+
+  &_load {
+    .button__label {
+      opacity: 0;
+    }
+
+    .button__spinner {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .button {
+    padding: $marginXS $marginS;
+  }
+}

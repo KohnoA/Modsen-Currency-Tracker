@@ -1,0 +1,25 @@
+@import '@/styles/vars';
+
+.group {
+  .title {
+    margin-bottom: $marginM;
+  }
+
+  .linksList {
+    display: flex;
+    flex-direction: column;
+    gap: $marginS;
+
+    list-style: none;
+  }
+
+  .link {
+    text-decoration: none;
+    color: $fontMutedDarkTheme;
+    transition: color $transitionDuration;
+
+    &:hover {
+      color: $fontDarkTheme;
+    }
+  }
+}

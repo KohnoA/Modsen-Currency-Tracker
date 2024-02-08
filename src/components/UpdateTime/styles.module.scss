@@ -1,0 +1,29 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+
+.updateDate {
+  @include flex();
+
+  gap: $marginS;
+
+  margin-bottom: $marginL;
+}
+
+.circle {
+  position: relative;
+
+  height: 20px;
+  width: 20px;
+
+  border-radius: 100%;
+  background-color: $green;
+  filter: drop-shadow(filterDropShadow);
+
+  &::after {
+    @include rings(3s, 0s);
+  }
+
+  &::before {
+    @include rings(3s, 0.5s);
+  }
+}

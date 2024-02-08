@@ -1,0 +1,45 @@
+@import '@/styles/vars';
+
+.results {
+  position: absolute;
+  z-index: 1000;
+  top: 90%;
+  left: 0;
+  right: 0;
+
+  padding: $marginXS;
+  padding-top: $marginS;
+
+  font-size: 18px;
+
+  background-color: $inputDarkTheme;
+  border-bottom-left-radius: $borderRadius;
+  border-bottom-right-radius: $borderRadius;
+
+  filter: drop-shadow($filterDropShadow);
+
+  list-style: none;
+
+  &__item {
+    margin-bottom: 5px;
+    padding: $marginXS;
+
+    border-radius: $borderRadius;
+    transition: all $transitionDuration;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $bodyDarkTheme;
+      background-color: $fontDarkTheme;
+    }
+
+    &:active {
+      opacity: $activeOpacity;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

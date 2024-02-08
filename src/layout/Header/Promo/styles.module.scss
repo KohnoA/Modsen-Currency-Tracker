@@ -1,0 +1,88 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+
+.promo {
+  padding-top: 45px;
+  padding-bottom: 75px;
+
+  background: $promoGradient;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.info {
+  @include flex(flex-start, flex-end);
+
+  flex-direction: column;
+}
+
+.title {
+  @include fontBrandStyle;
+
+  display: flex;
+  flex-direction: column;
+  gap: $marginXS;
+
+  margin: 0;
+  margin-bottom: $marginXS;
+  padding-right: $marginL;
+
+  text-align: right;
+}
+
+.desc {
+  align-self: flex-end;
+  max-width: 400px;
+
+  text-align: center;
+  line-height: 50px;
+
+  filter: drop-shadow($filterDropShadow);
+}
+
+.logo {
+  filter: drop-shadow($filterDropShadow);
+}
+
+@media (max-width: $desktopM) {
+  .wrapper {
+    gap: $marginS;
+  }
+
+  .info {
+    max-width: 60%;
+  }
+
+  .title {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .desc {
+    align-self: center;
+  }
+}
+
+@media (max-width: $tablet) {
+  .promo {
+    padding-bottom: 45px;
+  }
+
+  .wrapper {
+    justify-content: center;
+  }
+
+  .info {
+    max-width: 100%;
+  }
+
+  .desc {
+    line-height: 1.2;
+  }
+
+  .logo {
+    display: none;
+  }
+}

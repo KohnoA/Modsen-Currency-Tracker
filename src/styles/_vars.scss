@@ -1,0 +1,45 @@
+$rootFontSize: 28px;
+
+$hoverOpacity: 0.7;
+$activeOpacity: 0.5;
+
+$transitionDuration: 300ms;
+$borderRadius: 8px;
+
+$containerMaxWidth: 1305px;
+$containerPaddingLeft: 40px;
+$containerPaddingRight: 40px;
+$containerMobilePaddingLeft: 15px;
+$containerMobilePaddingRight: 15px;
+
+$marginXl: 90px;
+$marginL: 60px;
+$marginM: 30px;
+$marginS: 20px;
+$marginXS: 15px;
+
+$brandColor: linear-gradient(90.18deg, #00ce2c 0.18%, #aedf23 49.3%, #a3dc00 99.88%);
+$promoGradient: linear-gradient(252.93deg, #121212 11.77%, rgba(36, 121, 64, 0) 91.12%);
+
+// Dark Theme
+$bodyDarkTheme: #030304;
+$bodySecondDarkTheme: #202025;
+$bodySecondHoverDarkTheme: #18181c;
+$inputDarkTheme: #1b2028;
+$fontDarkTheme: #d9d9d9;
+$fontMutedDarkTheme: #898989;
+$borderDarkTheme: #474747;
+$borderHoverDarkTheme: #656565;
+$green: #00bc4f;
+$blackout: #00000056;
+
+$filterDropShadow: 3px 3px 3px $bodyDarkTheme;
+
+// Breakpoints
+$desktopL: 1400px;
+$desktopM: 1200px;
+$desktopS: 1024px;
+$tablet: 768px;
+$mobileL: 425px;
+$mobileM: 375px;
+$mobileS: 320px;

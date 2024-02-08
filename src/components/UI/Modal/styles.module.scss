@@ -1,0 +1,101 @@
+@import '@/styles/vars';
+@import '@/styles/keyframes';
+@import '@/styles/mixins';
+
+.backdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @include flex();
+
+  max-width: 100%;
+
+  padding: $marginS;
+
+  background-color: $blackout;
+  overflow-y: auto;
+  animation: fade $transitionDuration;
+}
+
+.content {
+  position: relative;
+
+  max-width: 100%;
+  margin: auto;
+  padding-top: 70px;
+  padding-right: $marginXl;
+  padding-left: $marginXl;
+  padding-bottom: 40px;
+
+  background-color: $bodySecondDarkTheme;
+  border: 2px solid $borderDarkTheme;
+  border-radius: $borderRadius;
+  box-shadow: 2px 2px 5px 0 $blackout;
+}
+
+.cross {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  background-color: transparent;
+  border: none;
+  transition: opacity $transitionDuration;
+  cursor: pointer;
+
+  &:hover {
+    opacity: $hoverOpacity;
+  }
+
+  &:active {
+    opacity: $activeOpacity;
+  }
+
+  &__icon {
+    & path {
+      fill: $fontDarkTheme;
+    }
+  }
+}
+
+@media (max-width: $desktopS) {
+  .content {
+    padding-top: 50px;
+    padding-right: 70px;
+    padding-left: 70px;
+    padding-bottom: 30px;
+  }
+
+  .cross__icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .backdrop {
+    padding: 10px;
+  }
+
+  .content {
+    padding-top: 55px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 25px;
+  }
+}
+
+@media (max-width: $mobileL) {
+  .backdrop {
+    padding: 5px;
+  }
+
+  .content {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}

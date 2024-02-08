@@ -1,0 +1,12 @@
+/**/node_modules/*
+node_modules/
+public/
+build/
+webpack.config.ts
+webpack.common.ts
+webpack.prod.ts
+webpack.dev.ts
+jest.config.ts
+cypress/*
+cypress.config.ts
+__mocks__

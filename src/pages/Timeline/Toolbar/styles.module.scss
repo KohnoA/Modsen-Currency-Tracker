@@ -1,0 +1,54 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+
+.toolbar {
+  @include flex(space-between, flex-end);
+
+  flex-wrap: wrap;
+  gap: $marginM;
+
+  margin-bottom: $marginL;
+
+  &__select {
+    margin-bottom: $marginL;
+
+    & select {
+      padding: 10px;
+
+      transition: opacity $transitionDuration;
+
+      background-color: $bodyDarkTheme;
+      border: none;
+      outline: none;
+
+      &:hover {
+        opacity: $hoverOpacity;
+      }
+    }
+  }
+
+  &__card {
+    pointer-events: none;
+  }
+
+  &__build {
+    background-color: $bodySecondDarkTheme;
+    border: 2px solid $borderDarkTheme;
+  }
+
+  &__successMsg {
+    margin-bottom: $marginM;
+
+    text-align: center;
+    color: $green;
+
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all $transitionDuration;
+
+    &_active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

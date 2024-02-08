@@ -1,0 +1,11 @@
+@import '@/styles/vars';
+
+.chart {
+  margin-bottom: $marginXl;
+}
+
+@media (max-width: $mobileL) {
+  .chart {
+    margin-bottom: $marginM;
+  };
+}

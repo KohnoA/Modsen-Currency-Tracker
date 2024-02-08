@@ -1,0 +1,73 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+
+.conversionForm {
+  max-width: $tablet;
+
+  text-align: center;
+
+  &__title {
+    margin-bottom: $marginL;
+  }
+}
+
+.base {
+  padding-bottom: $marginM;
+  margin-bottom: $marginM;
+
+  border-bottom: 2px solid $borderDarkTheme;
+
+  &__label {
+    margin-bottom: $marginS;
+  }
+
+  &__label,
+  &__count {
+    @include flex(space-between);
+
+    flex-wrap: wrap;
+  }
+
+  &__count input[type='number'] {
+    max-width: 185px;
+  }
+}
+
+.target {
+  @include flex(space-between);
+
+  margin-bottom: $marginL;
+}
+
+.result {
+  margin-bottom: $marginL;
+}
+
+@media (max-width: $tablet) {
+  .conversionForm__title {
+    font-size: 25px;
+    margin-bottom: $marginM;
+  }
+
+  .target {
+    gap: 15px;
+  }
+}
+
+@media (max-width: $mobileL) {
+  .base__label, .base__count {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .base__count input[type='number'] {
+    max-width: 100px;
+  }
+
+  .target {
+    justify-content: center;
+    gap: 8px;
+
+    margin-bottom: $marginM;
+  }
+}

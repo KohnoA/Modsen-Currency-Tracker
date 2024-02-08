@@ -1,0 +1,53 @@
+@import '@/styles/vars';
+
+.table {
+  width: 100%;
+  margin-bottom: $marginM;
+
+  text-align: center;
+  border-collapse: collapse; 
+
+  tr {
+    border-bottom: 2px solid $borderDarkTheme;
+  }
+
+  th, td {
+    padding: 8px;
+
+    border-right: 2px solid $borderDarkTheme;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  &__input {
+    max-width: 150px;
+  }
+}
+
+.message {
+  margin-bottom: $marginM;
+}
+
+@media (max-width: $tablet) {
+  .table {
+    font-size: 16px;
+
+    th, td {
+      padding: 4px;
+    }
+
+    &__input {
+      & input {
+        padding: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileL) {
+  .table {
+    font-size: 12px;
+  }
+}
